@@ -49,6 +49,7 @@ export const viewport: Viewport = {
   themeColor: '#1A1E2E',
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
 };
 
 const businessJsonLd = {
