@@ -1,10 +1,16 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey || apiKey === 're_placeholder') {
+    return NextResponse.json({ error: 'Service non configuré' }, { status: 503 })
+  }
+
   try {
+    const resend = new Resend(apiKey)
     const body = await req.json()
     const { name, email, phone, subject, message, consent } = body
     if (!name || !email || !message || !consent) {
