@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Jost, Playfair_Display } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ClientScripts } from '../components/ClientScripts';
@@ -122,6 +123,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <ClientScripts />
+        <Analytics />
       </body>
     </html>
   );
