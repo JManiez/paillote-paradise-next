@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Génère les page.tsx pour toutes les routes en s'appuyant sur lib/pages/*.ts
+// Génère les page.tsx pour toutes les routes en s'appuyant sur lib/loadPage + lib/pages-html/*
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -31,21 +31,19 @@ function pascalize(str) {
 for (const page of PAGES) {
   const dir = path.resolve(process.cwd(), 'app', page.route);
   fs.mkdirSync(dir, { recursive: true });
-
-  // Le fichier vit dans app/<route>/page.tsx → il faut remonter (route.split('/').length + 1) niveaux
   const depth = page.route.split('/').length + 1;
   const up = '../'.repeat(depth);
-
   const componentName = pascalize(page.route);
 
   const ts = `import type { Metadata } from 'next';
 import { PageContent } from '${up}components/PageContent';
 import { pageSeo } from '${up}lib/seo';
-import { htmlContent, jsonLd } from '${up}lib/pages/${page.mod}';
+import { loadPage } from '${up}lib/loadPage';
 
 export const metadata: Metadata = pageSeo.${page.seo};
 
 export default function ${componentName}() {
+  const { htmlContent, jsonLd } = loadPage('${page.mod}');
   return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
 }
 `;

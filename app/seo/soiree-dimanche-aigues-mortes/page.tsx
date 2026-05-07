@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { PageContent } from '../../../components/PageContent';
 import { pageSeo } from '../../../lib/seo';
-import { htmlContent, jsonLd } from '../../../lib/pages/seo/soiree-dimanche-aigues-mortes';
+import { loadPage } from '../../../lib/loadPage';
 
 export const metadata: Metadata = pageSeo.seoSoireeDimanche;
 
 export default function SeoSoireeDimancheAiguesMortesPage() {
+  const { htmlContent, jsonLd } = loadPage('seo/soiree-dimanche-aigues-mortes');
   return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
 }
