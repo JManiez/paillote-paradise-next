@@ -16,24 +16,10 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export function Header() {
-  const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
+/** key={pathname} sur le parent remonte le composant → menu fermé sans setState dans un effet. */
+function MobileNavBundle() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const updateHeader = () => setScrolled(window.scrollY > 40);
-    updateHeader();
-    window.addEventListener('scroll', updateHeader, { passive: true });
-    return () => window.removeEventListener('scroll', updateHeader);
-  }, []);
-
-  // Fermer le menu mobile à chaque navigation
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
-  // Bloquer le scroll body quand le menu mobile est ouvert
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
@@ -44,6 +30,70 @@ export function Header() {
       document.body.style.overflow = '';
     };
   }, [mobileOpen]);
+
+  return (
+    <>
+      <button
+        className="pp-burger"
+        id="pp-burger"
+        aria-expanded={mobileOpen}
+        aria-controls="pp-mobile-nav"
+        aria-label="Ouvrir le menu"
+        onClick={() => setMobileOpen((v) => !v)}
+      >
+        <span className="pp-burger__line"></span>
+        <span className="pp-burger__line"></span>
+        <span className="pp-burger__line"></span>
+      </button>
+
+      <nav
+        className={'pp-mobile-nav' + (mobileOpen ? ' is-open' : '')}
+        id="pp-mobile-nav"
+        role="navigation"
+        aria-label="Navigation mobile"
+        aria-hidden={!mobileOpen}
+      >
+        <button
+          className="pp-mobile-nav__close"
+          id="pp-mobile-close"
+          aria-label="Fermer le menu"
+          onClick={() => setMobileOpen(false)}
+        >
+          ×
+        </button>
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="pp-mobile-nav__link"
+            onClick={() => setMobileOpen(false)}
+          >
+            {link.label}
+          </Link>
+        ))}
+        <div className="pp-mobile-nav__ctas">
+          <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm">
+            Louer un transat
+          </Link>
+          <Link href="/contact" className="pp-btn pp-btn--primary">
+            Réserver
+          </Link>
+        </div>
+      </nav>
+    </>
+  );
+}
+
+export function Header() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateHeader = () => setScrolled(window.scrollY > 40);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    return () => window.removeEventListener('scroll', updateHeader);
+  }, []);
 
   const headerClasses = [
     'pp-header',
@@ -102,18 +152,7 @@ export function Header() {
               <Link href="/contact" className="pp-btn pp-btn--primary pp-btn--xs">
                 Réserver
               </Link>
-              <button
-                className="pp-burger"
-                id="pp-burger"
-                aria-expanded={mobileOpen}
-                aria-controls="pp-mobile-nav"
-                aria-label="Ouvrir le menu"
-                onClick={() => setMobileOpen((v) => !v)}
-              >
-                <span className="pp-burger__line"></span>
-                <span className="pp-burger__line"></span>
-                <span className="pp-burger__line"></span>
-              </button>
+              <MobileNavBundle key={pathname} />
             </div>
           </div>
         </div>
@@ -145,41 +184,6 @@ export function Header() {
           </div>
         </nav>
       </header>
-
-      <nav
-        className={'pp-mobile-nav' + (mobileOpen ? ' pp-mobile-nav--open' : '')}
-        id="pp-mobile-nav"
-        role="navigation"
-        aria-label="Navigation mobile"
-        aria-hidden={!mobileOpen}
-      >
-        <button
-          className="pp-mobile-nav__close"
-          id="pp-mobile-close"
-          aria-label="Fermer le menu"
-          onClick={() => setMobileOpen(false)}
-        >
-          ×
-        </button>
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="pp-mobile-nav__link"
-            onClick={() => setMobileOpen(false)}
-          >
-            {link.label}
-          </Link>
-        ))}
-        <div className="pp-mobile-nav__ctas">
-          <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm">
-            Louer un transat
-          </Link>
-          <Link href="/contact" className="pp-btn pp-btn--primary">
-            Réserver
-          </Link>
-        </div>
-      </nav>
     </>
   );
 }

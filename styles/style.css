@@ -26,10 +26,10 @@
   --pp-gray:        #7A7265;   /* Gris chaud — textes secondaires */
   --pp-gray-dark:   #3D3630;   /* Gris fonce — textes tertiaires */
 
-  /* Typographie */
-  --pp-font-display: 'Playfair Display', Georgia, serif;
-  --pp-font-body:    'Jost', system-ui, -apple-system, sans-serif;
-  --pp-font-label:   'Jost', system-ui, -apple-system, sans-serif;
+  /* Typographie (polices chargées via next/font dans layout.tsx) */
+  --pp-font-display: var(--font-playfair-display), Georgia, serif;
+  --pp-font-body:    var(--font-jost), system-ui, -apple-system, sans-serif;
+  --pp-font-label:   var(--font-jost), system-ui, -apple-system, sans-serif;
 
   /* Tailles de police (echelle modulaire 1.25) */
   --pp-text-xs:   0.75rem;    /* 12px */
