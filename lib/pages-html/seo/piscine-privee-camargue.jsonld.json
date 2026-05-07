@@ -1,0 +1,70 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "@id": "https://www.pailloteparadise.fr/#piscine",
+    "name": "Piscine Privée La Paillote Paradise — Domaine du Petit Chaumont",
+    "description": "Piscine privée en Camargue à Aigues-Mortes. Location de transats, journée piscine premium au bord d'une piscine exceptionnelle dans un domaine privé.",
+    "url": "https://www.pailloteparadise.fr/piscine-transats",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route du Petit Chaumont",
+      "addressLocality": "Aigues-Mortes",
+      "postalCode": "30220",
+      "addressRegion": "Gard",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.5594,
+      "longitude": 4.1914
+    },
+    "areaServed": [
+      "Camargue",
+      "Aigues-Mortes",
+      "Gard",
+      "Hérault",
+      "Montpellier",
+      "Nîmes"
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "10:00",
+        "closes": "19:00"
+      }
+    ],
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Piscine & Transats",
+          "item": "https://www.pailloteparadise.fr/piscine-transats"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Piscine Privée Camargue",
+          "item": "https://www.pailloteparadise.fr/seo/piscine-privee-camargue"
+        }
+      ]
+    }
+  }
+]

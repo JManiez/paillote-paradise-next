@@ -1,0 +1,46 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "La Paillote Paradise — Paillote en Camargue",
+    "description": "Paillote en Camargue à Aigues-Mortes. Bar, restaurant, piscine privée et soirées au Domaine du Petit Chaumont. L'expérience paillote ultime en Languedoc.",
+    "url": "https://www.pailloteparadise.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route du Petit Chaumont",
+      "addressLocality": "Aigues-Mortes",
+      "postalCode": "30220",
+      "addressRegion": "Gard",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.5594,
+      "longitude": 4.1914
+    },
+    "areaServed": [
+      "Camargue",
+      "Languedoc-Roussillon",
+      "Gard",
+      "Hérault",
+      "Aigues-Mortes"
+    ],
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Paillote Camargue",
+          "item": "https://www.pailloteparadise.fr/seo/paillote-camargue"
+        }
+      ]
+    }
+  }
+]

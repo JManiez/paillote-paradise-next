@@ -1,0 +1,77 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    "name": "Domaine du Petit Chaumont — La Paillote Paradise",
+    "description": "Domaine privatisable en Camargue pour événements privés : mariage, EVJF, anniversaire, séminaire d'entreprise, baptême. Cadre exceptionnel à Aigues-Mortes.",
+    "url": "https://www.pailloteparadise.fr/privatisation",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route du Petit Chaumont",
+      "addressLocality": "Aigues-Mortes",
+      "postalCode": "30220",
+      "addressRegion": "Gard",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.5594,
+      "longitude": 4.1914
+    },
+    "maximumAttendeeCapacity": 600,
+    "areaServed": [
+      "Camargue",
+      "Gard",
+      "Hérault",
+      "Languedoc",
+      "Montpellier",
+      "Nîmes",
+      "Aigues-Mortes"
+    ],
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Piscine privée",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Parking gratuit",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Cuisine professionnelle",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Sonorisation et éclairage",
+        "value": true
+      }
+    ],
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Privatisation",
+          "item": "https://www.pailloteparadise.fr/privatisation"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Privatisation Domaine Camargue",
+          "item": "https://www.pailloteparadise.fr/seo/privatisation-domaine-camargue"
+        }
+      ]
+    }
+  }
+]

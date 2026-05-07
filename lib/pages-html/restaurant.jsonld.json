@@ -1,0 +1,61 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "@id": "https://www.pailloteparadise.fr/restaurant#restaurant",
+    "name": "Bar à Tapas La Paillote Paradise",
+    "url": "https://www.pailloteparadise.fr/restaurant",
+    "description": "Bar à tapas et paillote privée sur domaine viticole en Camargue. Tapas méditerranéennes, cocktails, vins du domaine, piscine privée. Domaine du Petit Chaumont, Aigues-Mortes.",
+    "servesCuisine": [
+      "Tapas",
+      "Méditerranéenne",
+      "Finger Food"
+    ],
+    "priceRange": "€€",
+    "hasMenu": "https://www.pailloteparadise.fr/restaurant#carte-tapas",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Domaine du Petit Chaumont",
+      "addressLocality": "Aigues-Mortes",
+      "postalCode": "30220",
+      "addressCountry": "FR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "12:00",
+        "closes": "23:00"
+      }
+    ],
+    "image": "https://www.pailloteparadise.fr/assets/images/og-restaurant.jpg",
+    "parentOrganization": {
+      "@id": "https://www.pailloteparadise.fr/#business"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bar à Tapas",
+          "item": "https://www.pailloteparadise.fr/restaurant"
+        }
+      ]
+    }
+  }
+]

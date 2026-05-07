@@ -1,0 +1,64 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "La Soirée du Dimanche — La Paillote Paradise",
+    "description": "La soirée du dimanche incontournable à Aigues-Mortes. Chaque dimanche d'avril à septembre, 600 personnes se retrouvent au Domaine du Petit Chaumont pour une nuit festive avec DJ set professionnel.",
+    "url": "https://www.pailloteparadise.fr/soirees",
+    "eventSchedule": {
+      "@type": "Schedule",
+      "repeatFrequency": "P1W",
+      "byDay": "https://schema.org/Sunday",
+      "startDate": "2026-04-01",
+      "endDate": "2026-09-30"
+    },
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Domaine du Petit Chaumont — La Paillote Paradise",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Route du Petit Chaumont",
+        "addressLocality": "Aigues-Mortes",
+        "postalCode": "30220",
+        "addressRegion": "Gard",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.5594,
+        "longitude": 4.1914
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "La Paillote Paradise",
+      "url": "https://www.pailloteparadise.fr"
+    },
+    "maximumAttendeeCapacity": 600,
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Soirées",
+          "item": "https://www.pailloteparadise.fr/soirees"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Soirée Dimanche Aigues-Mortes",
+          "item": "https://www.pailloteparadise.fr/seo/soiree-dimanche-aigues-mortes"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://www.pailloteparadise.fr/#restaurant",
+    "name": "La Paillote Paradise",
+    "description": "Restaurant paillote à Aigues-Mortes. Cuisine méditerranéenne, ambiance festive au bord de la piscine, au cœur du Domaine du Petit Chaumont en Camargue.",
+    "url": "https://www.pailloteparadise.fr/restaurant",
+    "telephone": "+33XXXXXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route du Petit Chaumont",
+      "addressLocality": "Aigues-Mortes",
+      "postalCode": "30220",
+      "addressRegion": "Gard",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.5594,
+      "longitude": 4.1914
+    },
+    "servesCuisine": [
+      "Méditerranéenne",
+      "Française",
+      "Grillades",
+      "Fruits de mer"
+    ],
+    "priceRange": "€€",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "12:00",
+        "closes": "23:00"
+      }
+    ],
+    "areaServed": [
+      "Aigues-Mortes",
+      "Le Grau-du-Roi",
+      "Saint-Gilles",
+      "Montpellier",
+      "Nîmes",
+      "Camargue"
+    ],
+    "hasMap": "https://maps.google.com/?q=Domaine+du+Petit+Chaumont+Aigues-Mortes",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "240",
+      "bestRating": "5"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Restaurant",
+          "item": "https://www.pailloteparadise.fr/restaurant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Restaurant Paillote Aigues-Mortes",
+          "item": "https://www.pailloteparadise.fr/seo/restaurant-paillote-aigues-mortes"
+        }
+      ]
+    }
+  }
+]

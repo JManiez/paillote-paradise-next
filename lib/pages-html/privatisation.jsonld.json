@@ -1,0 +1,38 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "@id": "https://www.pailloteparadise.fr/privatisation#venue",
+    "name": "La Paillote Paradise — Groupes & Privatisation d'espace",
+    "description": "Privatisation d'un espace de la Paillote pour votre groupe. Menus groupe dès 28€/personne. EVJF, anniversaire, repas d'entreprise, Aigues-Mortes.",
+    "url": "https://www.pailloteparadise.fr/privatisation",
+    "image": "https://www.pailloteparadise.fr/assets/images/og-privatisation.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Domaine du Petit Chaumont",
+      "addressLocality": "Aigues-Mortes",
+      "postalCode": "30220",
+      "addressCountry": "FR"
+    },
+    "parentOrganization": {
+      "@id": "https://www.pailloteparadise.fr/#business"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Groupes & Privatisation",
+          "item": "https://www.pailloteparadise.fr/privatisation"
+        }
+      ]
+    }
+  }
+]

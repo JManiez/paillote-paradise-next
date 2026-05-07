@@ -1,0 +1,26 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Galerie photos — La Paillote Paradise",
+    "url": "https://www.pailloteparadise.fr/galerie",
+    "description": "Photos et vidéos de La Paillote Paradise : bar à tapas, piscine, soirées et événements à Aigues-Mortes en Camargue.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.pailloteparadise.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Galerie",
+          "item": "https://www.pailloteparadise.fr/galerie"
+        }
+      ]
+    }
+  }
+]

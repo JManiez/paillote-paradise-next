@@ -1,0 +1,161 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "LocalBusiness",
+          "BarOrPub",
+          "NightClub"
+        ],
+        "@id": "https://www.pailloteparadise.fr/#business",
+        "name": "La Paillote Paradise",
+        "alternateName": "Paillote Paradise",
+        "description": "Paillote privée sur domaine viticole en Camargue. Bar à tapas, cocktails, vins bio du Domaine du Petit Chaumont, piscine privée et soirées à Aigues-Mortes.",
+        "url": "https://www.pailloteparadise.fr/",
+        "telephone": "+33XXXXXXXXX",
+        "email": "contact@pailloteparadise.fr",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Route du Petit Chaumont, Domaine du Petit Chaumont",
+          "addressLocality": "Aigues-Mortes",
+          "postalCode": "30220",
+          "addressRegion": "Gard",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "43.5594",
+          "longitude": "4.1914"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "11:00",
+            "closes": "19:00",
+            "validFrom": "2026-04-01",
+            "validThrough": "2026-09-30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Sunday"
+            ],
+            "opens": "12:00",
+            "closes": "23:59",
+            "validFrom": "2026-04-01",
+            "validThrough": "2026-09-30"
+          }
+        ],
+        "servesCuisine": [
+          "Tapas",
+          "Méditerranéenne",
+          "Finger Food"
+        ],
+        "priceRange": "€€",
+        "hasMap": "https://maps.google.com/?q=Domaine+du+Petit+Chaumont+Aigues-Mortes",
+        "image": "https://www.pailloteparadise.fr/assets/images/og-image.jpg",
+        "sameAs": [
+          "https://www.instagram.com/pailloteparadise",
+          "https://www.facebook.com/pailloteparadise"
+        ],
+        "areaServed": [
+          "Aigues-Mortes",
+          "Grau-du-Roi",
+          "Montpellier",
+          "Nîmes",
+          "Camargue"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "320",
+          "bestRating": "5"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Nos services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "FoodService",
+                "name": "Bar à Tapas La Paillote Paradise"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "EntertainmentBusiness",
+                "name": "Soirée du Dimanche"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "SportsActivityLocation",
+                "name": "Piscine & Transats"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.pailloteparadise.fr/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Faut-il réserver pour la paillote ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La réservation est fortement conseillée, surtout le week-end et en juillet-août. Vous pouvez réserver en ligne ou par téléphone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "La Paillote Paradise est-elle accessible au public ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La Paillote Paradise est située sur le Domaine privé du Petit Chaumont à Aigues-Mortes. L'accès est réservé aux clients du bar à tapas, de la piscine et aux soirées."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Proposez-vous des privatisations pour événements ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui ! Nous privatisons le domaine pour des anniversaires, EVJF, EVG, mariages et séminaires. Contactez-nous pour obtenir un devis personnalisé."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quand a lieu la soirée du dimanche ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La grande soirée United by La Paillote Paradise a lieu chaque dimanche de la saison (avril à septembre), de 12h à minuit. C'est l'événement incontournable de la région, avec DJs internationaux et ambiance festive au bord de la piscine."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://www.pailloteparadise.fr/"
+          }
+        ]
+      }
+    ]
+  }
+]

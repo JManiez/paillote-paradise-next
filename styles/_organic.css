@@ -1,0 +1,807 @@
+/* ============================================================
+   PAILLOTE PARADISE — Organic Layer
+   Refonte visuelle premium : dividers, bento, decor, micro-interactions
+   ============================================================ */
+
+/* ─── 0. Tokens d'animation organique ───────────────────────── */
+:root {
+  --pp-ease-organic: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --pp-ease-magnetic: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --pp-blur-glow: 60px;
+  --pp-grain-opacity: 0.04;
+}
+
+/* ─── 1. Dividers SVG organiques ────────────────────────────── */
+/* Vague saline en haut/bas de section */
+.pp-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+  line-height: 0;
+}
+.pp-divider svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.pp-divider--top    { top: -1px; }
+.pp-divider--bottom { bottom: -1px; }
+
+.pp-divider--wave   { height: clamp(60px, 8vw, 110px); }
+.pp-divider--cliff  { height: clamp(80px, 10vw, 140px); }
+.pp-divider--curve  { height: clamp(70px, 9vw, 130px); }
+
+/* Section avec divider intégré : nécessaire d'être positionnée */
+.pp-section,
+.pp-section--lg,
+.pp-philosophy,
+.pp-sunday,
+.pp-stats,
+.pp-agenda,
+.pp-reviews,
+.pp-acces,
+.pp-instagram,
+.pp-cta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Forcer overflow visible quand on veut du débordement décoratif */
+.pp-section--bleed {
+  overflow: visible !important;
+}
+
+/* ─── 2. Section debout/couleurs avec divider ───────────────── */
+/* Couleurs des fills SVG — utilise currentColor pour héritage */
+.pp-divider[data-fill="sand"]      { color: var(--pp-sand); }
+.pp-divider[data-fill="sand-ultra"]{ color: var(--pp-sand-ultra); }
+.pp-divider[data-fill="cream"]     { color: var(--pp-cream); }
+.pp-divider[data-fill="night"]     { color: var(--pp-night); }
+.pp-divider[data-fill="night-mid"] { color: var(--pp-night-mid); }
+.pp-divider[data-fill="ocean"]     { color: var(--pp-ocean); }
+.pp-divider[data-fill="palm"]      { color: var(--pp-palm-ultra); }
+
+.pp-divider svg path,
+.pp-divider svg polygon {
+  fill: currentColor;
+}
+
+/* ─── 3. Décor : Blobs morphing flottants ───────────────────── */
+.pp-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(var(--pp-blur-glow));
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  animation: pp-blob-morph 14s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+.pp-blob--gold {
+  background: radial-gradient(circle, rgba(191,154,63,0.5), rgba(191,154,63,0));
+}
+.pp-blob--palm {
+  background: radial-gradient(circle, rgba(127,176,138,0.4), rgba(127,176,138,0));
+}
+.pp-blob--ocean {
+  background: radial-gradient(circle, rgba(46,51,69,0.35), rgba(46,51,69,0));
+}
+.pp-blob--sand {
+  background: radial-gradient(circle, rgba(234,227,214,0.6), rgba(234,227,214,0));
+}
+
+@keyframes pp-blob-morph {
+  0%, 100% { transform: translate(0,0) scale(1) rotate(0deg); border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+  33%      { transform: translate(20px,-30px) scale(1.08) rotate(40deg); border-radius: 40% 60% 70% 30% / 60% 40% 60% 40%; }
+  66%      { transform: translate(-25px,20px) scale(0.94) rotate(-30deg); border-radius: 55% 45% 35% 65% / 35% 65% 50% 50%; }
+}
+
+/* Particules de sel — points blancs flottants discrets */
+.pp-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.pp-particles__dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(253,250,245,0.6);
+  border-radius: 50%;
+  animation: pp-float-up 18s linear infinite;
+  box-shadow: 0 0 6px rgba(253,250,245,0.3);
+}
+.pp-particles__dot:nth-child(odd) { background: rgba(212,173,85,0.5); box-shadow: 0 0 8px rgba(212,173,85,0.35); }
+@keyframes pp-float-up {
+  0%   { transform: translateY(110vh) scale(0.6); opacity: 0; }
+  10%  { opacity: 0.9; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+}
+
+/* Tracé SVG dessiné au scroll */
+.pp-stroke-draw {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 1;
+}
+.pp-stroke-draw path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: var(--pp-len, 1200);
+  stroke-dashoffset: var(--pp-len, 1200);
+  transition: stroke-dashoffset 1.4s var(--pp-ease-organic);
+}
+.pp-stroke-draw.is-drawn path { stroke-dashoffset: 0; }
+
+/* Grain global optionnel */
+body.pp-grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--pp-grain-opacity);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ─── 4. Typographie expressive ─────────────────────────────── */
+.pp-title--editorial {
+  font-size: clamp(3rem, 9vw, 7.5rem) !important;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.pp-eyebrow--theatrical {
+  letter-spacing: 0.36em;
+  font-size: 0.7rem;
+}
+
+/* Outline number décoratif — utilisé dans bento */
+.pp-outline-num {
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(8rem, 18vw, 16rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(191,154,63,0.55);
+  text-stroke: 1.5px rgba(191,154,63,0.55);
+  position: absolute;
+  top: -0.15em;
+  right: -0.05em;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+/* Mot doré italique — signature visuelle */
+.pp-word-gold {
+  color: var(--pp-gold);
+  font-style: italic;
+}
+
+/* ─── 5. Bento Grid asymétrique : Notre univers ─────────────── */
+.pp-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(180px, 22vw, 280px);
+  gap: clamp(12px, 1.4vw, 22px);
+  position: relative;
+}
+
+.pp-bento__cell {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--pp-radius-md);
+  background: var(--pp-ocean);
+  isolation: isolate;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 0.5s var(--pp-ease-organic), box-shadow 0.5s var(--pp-ease-organic);
+}
+
+.pp-bento__cell:hover { transform: translateY(-6px); box-shadow: var(--pp-shadow-lg); }
+
+.pp-bento__cell img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transform: scale(1.04);
+  transition: transform 1.2s var(--pp-ease-organic), filter 0.6s ease;
+}
+.pp-bento__cell:hover img {
+  transform: scale(1.12);
+  filter: brightness(1.05) saturate(1.1);
+}
+
+.pp-bento__cell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,30,46,0) 35%, rgba(26,30,46,0.55) 70%, rgba(26,30,46,0.92) 100%);
+  z-index: 2;
+  transition: background 0.5s ease;
+}
+.pp-bento__cell:hover::before {
+  background: linear-gradient(180deg, rgba(26,30,46,0.05) 30%, rgba(26,30,46,0.65) 65%, rgba(191,154,63,0.45) 100%);
+}
+
+.pp-bento__body {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(18px, 2vw, 32px);
+  z-index: 3;
+  color: var(--pp-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--pp-space-3);
+  transform: translateY(0);
+  transition: transform 0.5s var(--pp-ease-organic);
+}
+.pp-bento__cell:hover .pp-bento__body { transform: translateY(-4px); }
+
+.pp-bento__num {
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(212,173,85,0.7);
+  position: absolute;
+  top: clamp(8px, 1vw, 18px);
+  right: clamp(14px, 1.6vw, 28px);
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.85;
+  transition: opacity 0.5s ease, transform 0.6s var(--pp-ease-organic);
+}
+.pp-bento__cell:hover .pp-bento__num {
+  opacity: 1;
+  transform: translateY(-6px) rotate(-3deg);
+  -webkit-text-stroke: 1.5px var(--pp-gold);
+}
+
+.pp-bento__title {
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  line-height: 1.05;
+  color: var(--pp-white);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.pp-bento__desc {
+  font-family: var(--pp-font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(253,250,245,0.85);
+  max-width: 42ch;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--pp-ease-organic), opacity 0.4s ease, margin 0.5s ease;
+}
+.pp-bento__cell:hover .pp-bento__desc {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: var(--pp-space-2);
+}
+
+.pp-bento__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pp-font-label);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pp-gold);
+  margin-top: var(--pp-space-3);
+  position: relative;
+  width: max-content;
+}
+.pp-bento__cta::after {
+  content: "→";
+  transition: transform 0.4s var(--pp-ease-magnetic);
+}
+.pp-bento__cell:hover .pp-bento__cta::after { transform: translateX(8px); }
+
+/* Tailles bento — pattern asymétrique
+   Layout 4 colonnes :
+   ┌────────┬────┬────┐
+   │   01   │ 02 │ 04 │
+   │   XL   │  V │  V │
+   ├────────┴────┴────┤
+   │       03         │
+   │      WIDE        │
+   └──────────────────┘ */
+.pp-bento__cell--xl       { grid-column: span 2; grid-row: span 2; }
+.pp-bento__cell--vert     { grid-column: span 1; grid-row: span 2; }
+.pp-bento__cell--horiz    { grid-column: 1 / -1; grid-row: span 1; }
+.pp-bento__cell--sq       { grid-column: span 1; grid-row: span 2; }
+
+@media (max-width: 900px) {
+  .pp-bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(220px, 38vw, 320px);
+  }
+  .pp-bento__cell--xl    { grid-column: span 2; grid-row: span 2; }
+  .pp-bento__cell--vert  { grid-column: span 1; grid-row: span 2; }
+  .pp-bento__cell--horiz { grid-column: 1 / -1; grid-row: span 1; }
+  .pp-bento__cell--sq    { grid-column: span 1; grid-row: span 2; }
+  .pp-bento__desc { max-height: 80px; opacity: 1; margin-top: var(--pp-space-2); }
+}
+
+/* ─── 6. Section Philosophie éditoriale ─────────────────────── */
+.pp-philosophy { background: var(--pp-sand); }
+
+.pp-philosophy .pp-container--sm {
+  position: relative;
+  z-index: 2;
+}
+
+.pp-philosophy__quote-mark {
+  position: absolute;
+  top: -0.3em;
+  left: -0.1em;
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(14rem, 28vw, 28rem);
+  line-height: 0.7;
+  color: var(--pp-gold);
+  opacity: 0.16;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pp-philosophy__signature {
+  display: block;
+  margin-top: var(--pp-space-8);
+  width: clamp(160px, 18vw, 220px);
+  height: auto;
+  color: var(--pp-sunset);
+}
+.pp-philosophy__signature path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  transition: stroke-dashoffset 2.6s var(--pp-ease-organic);
+}
+.pp-philosophy__signature.is-drawn path { stroke-dashoffset: 0; }
+
+/* ─── 7. Sunday — chiffres outline géants + mask reveal ─────── */
+.pp-sunday__bg-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(8rem, 24vw, 22rem);
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(191,154,63,0.18);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.pp-sunday__inner { position: relative; z-index: 2; }
+
+.pp-sunday__img-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--pp-radius-md);
+  -webkit-mask-image: radial-gradient(circle at center, #000 var(--pp-mask, 100%), transparent calc(var(--pp-mask, 100%) + 1%));
+          mask-image: radial-gradient(circle at center, #000 var(--pp-mask, 100%), transparent calc(var(--pp-mask, 100%) + 1%));
+  transition: -webkit-mask-image 0.05s linear, mask-image 0.05s linear;
+}
+
+/* Compte à rebours United */
+.pp-countdown {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--pp-space-3);
+  margin-top: var(--pp-space-6);
+  padding: var(--pp-space-3) var(--pp-space-5);
+  background: rgba(191,154,63,0.12);
+  border: 1px solid rgba(191,154,63,0.35);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  font-family: var(--pp-font-label);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(253,250,245,0.85);
+}
+.pp-countdown__num {
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--pp-gold);
+  letter-spacing: -0.02em;
+}
+.pp-countdown__label { font-size: 0.7rem; }
+
+/* Néon doré pour la page soirées */
+.pp-countdown--neon {
+  background: rgba(0,0,0,0.35);
+  border-color: rgba(212,173,85,0.6);
+  box-shadow:
+    0 0 20px rgba(212,173,85,0.25),
+    inset 0 0 12px rgba(212,173,85,0.15);
+  animation: pp-neon-pulse 2.8s ease-in-out infinite;
+}
+.pp-countdown--neon .pp-countdown__num {
+  text-shadow: 0 0 12px rgba(212,173,85,0.5);
+}
+@keyframes pp-neon-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,173,85,0.25), inset 0 0 12px rgba(212,173,85,0.15); }
+  50%      { box-shadow: 0 0 32px rgba(212,173,85,0.45), inset 0 0 18px rgba(212,173,85,0.25); }
+}
+
+/* ─── 8. Hero — split title (GSAP cible) ────────────────────── */
+.pp-hero__title-line {
+  display: block;
+  will-change: transform, opacity;
+}
+
+/* ─── 9. Microinteractions premium ──────────────────────────── */
+/* Curseur magnétique : preserve focus visible */
+.pp-magnetic {
+  display: inline-block;
+  transition: transform 0.4s var(--pp-ease-magnetic);
+  will-change: transform;
+}
+
+/* Bouton gold avec fill liquide */
+.pp-btn--gold,
+.pp-btn--primary,
+.pp-btn--ocean {
+  position: relative;
+  z-index: 1;
+}
+.pp-btn--gold::before,
+.pp-btn--primary::before,
+.pp-btn--ocean::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -60%;
+  width: 140%;
+  height: 220%;
+  border-radius: 45%;
+  background: rgba(255,255,255,0.18);
+  transform: translateX(-50%) translateY(0) scale(0.4);
+  transition: transform 0.7s var(--pp-ease-organic);
+  z-index: -1;
+  pointer-events: none;
+}
+.pp-btn--gold:hover::before,
+.pp-btn--primary:hover::before,
+.pp-btn--ocean:hover::before {
+  transform: translateX(-50%) translateY(-65%) scale(1.2);
+}
+
+/* Lien menu underline SVG (override léger des liens nav existants) */
+.pp-nav__link {
+  position: relative;
+}
+.pp-nav__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 6px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'><path d='M0,3 Q25,0.5 50,3 T100,3' fill='none' stroke='%23BF9A3F' stroke-width='1.5' stroke-linecap='round'/></svg>") no-repeat left center / 0% 100%;
+  transition: background-size 0.5s var(--pp-ease-organic);
+  pointer-events: none;
+}
+.pp-nav__link:hover::before,
+.pp-nav__link[aria-current="page"]::before {
+  background-size: 100% 100%;
+}
+
+/* ─── 10. Page Restaurant — clip-path arche ────────────────── */
+.pp-arch {
+  position: relative;
+  overflow: hidden;
+  -webkit-clip-path: path("M0,400 L0,200 Q0,0 200,0 L600,0 Q800,0 800,200 L800,400 Z");
+          clip-path: path("M0,400 L0,200 Q0,0 200,0 L600,0 Q800,0 800,200 L800,400 Z");
+}
+
+.pp-page-hero--arch {
+  position: relative;
+}
+.pp-page-hero--arch .pp-page-hero__media {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' preserveAspectRatio='none'><path d='M0,600 L0,260 Q0,0 250,0 L750,0 Q1000,0 1000,260 L1000,600 Z' fill='%23000'/></svg>");
+          mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' preserveAspectRatio='none'><path d='M0,600 L0,260 Q0,0 250,0 L750,0 Q1000,0 1000,260 L1000,600 Z' fill='%23000'/></svg>");
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+/* Marquee vertical — Menu défilant */
+.pp-vmarquee {
+  position: relative;
+  overflow: hidden;
+  height: clamp(280px, 48vh, 480px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+.pp-vmarquee__track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pp-space-4);
+  animation: pp-vmarquee-scroll 28s linear infinite;
+}
+.pp-vmarquee:hover .pp-vmarquee__track { animation-play-state: paused; }
+@keyframes pp-vmarquee-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.pp-vmarquee__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--pp-space-4);
+  padding: var(--pp-space-3) var(--pp-space-5);
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  color: var(--pp-ocean);
+  border-bottom: 1px dashed rgba(46,51,69,0.18);
+}
+.pp-vmarquee__item span:last-child {
+  font-family: var(--pp-font-label);
+  font-style: normal;
+  font-weight: 500;
+  color: var(--pp-gold);
+  letter-spacing: 0.02em;
+}
+
+/* Mosaïque polaroid inclinée */
+.pp-polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(20px, 3vw, 44px);
+  padding-block: var(--pp-space-8);
+}
+.pp-polaroid {
+  background: var(--pp-sand-ultra);
+  padding: 12px 12px 56px;
+  box-shadow: var(--pp-shadow-md);
+  transform: rotate(var(--pp-rot, -2deg));
+  transition: transform 0.5s var(--pp-ease-organic), box-shadow 0.5s ease;
+  position: relative;
+}
+.pp-polaroid:nth-child(2n)   { --pp-rot: 1.5deg; }
+.pp-polaroid:nth-child(3n)   { --pp-rot: -1deg; transform: rotate(var(--pp-rot)) translateY(18px); }
+.pp-polaroid:nth-child(4n+1) { --pp-rot: 2.5deg; }
+.pp-polaroid:hover {
+  transform: rotate(0) translateY(-8px) scale(1.03);
+  box-shadow: var(--pp-shadow-lg);
+  z-index: 5;
+}
+.pp-polaroid img {
+  width: 100%;
+  height: clamp(220px, 28vw, 320px);
+  object-fit: cover;
+  display: block;
+}
+.pp-polaroid__caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 16px;
+  text-align: center;
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--pp-ocean);
+}
+
+/* ─── 11. Page Soirées — vinyle stylisé ─────────────────────── */
+.pp-vinyl {
+  position: relative;
+  width: clamp(280px, 36vw, 480px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(191,154,63,0.95) 0 22%, transparent 22.5%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(253,250,245,0.04) 0 2px, rgba(0,0,0,0.4) 2px 4px),
+    #0a0c14;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(212,173,85,0.25);
+  animation: pp-vinyl-spin 18s linear infinite;
+}
+.pp-vinyl::before {
+  content: "";
+  position: absolute;
+  inset: 38%;
+  background: var(--pp-night);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(212,173,85,0.5);
+}
+.pp-vinyl::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 8px; height: 8px;
+  background: var(--pp-gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(212,173,85,0.7);
+}
+@keyframes pp-vinyl-spin {
+  from { transform: rotate(0); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-vinyl { animation: none; }
+}
+
+/* Ken-burns sur image hero soirées */
+.pp-kenburns {
+  overflow: hidden;
+  position: relative;
+}
+.pp-kenburns img {
+  animation: pp-kenburns-anim 24s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+@keyframes pp-kenburns-anim {
+  0%   { transform: scale(1) translate(0,0); }
+  100% { transform: scale(1.12) translate(-2%, -1.5%); }
+}
+
+/* ─── 12. Page Piscine — vague morphing + tickets ───────────── */
+.pp-wave-bottom {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: clamp(80px, 10vw, 140px);
+  pointer-events: none;
+  z-index: 3;
+}
+.pp-wave-bottom svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.pp-wave-bottom svg path {
+  animation: pp-wave-morph 10s ease-in-out infinite alternate;
+}
+@keyframes pp-wave-morph {
+  0%   { d: path("M0,40 C200,80 400,0 600,40 C800,80 1000,20 1200,50 L1200,120 L0,120 Z"); }
+  100% { d: path("M0,55 C200,15 400,80 600,30 C800,0 1000,65 1200,35 L1200,120 L0,120 Z"); }
+}
+
+/* Tickets/ardoise pour tarifs : encoches via pseudo-elements */
+.pp-ticket {
+  position: relative;
+  --pp-notch: 16px;
+  --pp-ticket-bg-parent: var(--pp-cream);
+  transition: transform 0.4s var(--pp-ease-organic), box-shadow 0.4s ease;
+}
+.pp-ticket::before,
+.pp-ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: calc(var(--pp-notch) * 2);
+  height: calc(var(--pp-notch) * 2);
+  background: var(--pp-ticket-bg-parent);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+.pp-ticket::before { left: calc(var(--pp-notch) * -1); }
+.pp-ticket::after  { right: calc(var(--pp-notch) * -1); }
+.pp-ticket:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  box-shadow: var(--pp-shadow-lg);
+}
+.pp-ticket__divider {
+  margin-block: var(--pp-space-4);
+  border-top: 2px dashed rgba(46,51,69,0.18);
+}
+
+/* Grille hexagonale */
+.pp-hex-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--pp-space-4);
+  padding-block: var(--pp-space-6);
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .pp-hex-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .pp-hex-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.pp-hex {
+  position: relative;
+  aspect-ratio: 1 / 1.1;
+  background: linear-gradient(160deg, var(--pp-palm-ultra), var(--pp-sand));
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--pp-space-6);
+  transition: transform 0.4s var(--pp-ease-organic), background 0.4s ease;
+}
+.pp-hex:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: linear-gradient(160deg, var(--pp-gold-light), var(--pp-sunset));
+  color: var(--pp-white);
+}
+.pp-hex__icon {
+  font-size: 1.8rem;
+  margin-bottom: var(--pp-space-2);
+}
+.pp-hex__label {
+  font-family: var(--pp-font-display);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: inherit;
+}
+
+/* ─── 13. Désactivations mobile + reduced-motion ────────────── */
+@media (max-width: 1024px) {
+  .pp-magnetic { transform: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-blob,
+  .pp-particles__dot,
+  .pp-vmarquee__track,
+  .pp-kenburns img,
+  .pp-vinyl,
+  .pp-wave-bottom svg path,
+  .pp-countdown--neon { animation: none !important; }
+  .pp-bento__cell img { transition: none !important; transform: none !important; }
+  .pp-philosophy__signature path,
+  .pp-stroke-draw path { transition: none; stroke-dashoffset: 0; }
+}
