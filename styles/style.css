@@ -685,15 +685,6 @@ p { line-height: 1.75; }
   inset: 0;
   background: rgba(16, 20, 36, 0.98);
   z-index: 1100; /* au-dessus du header (1000) */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--pp-space-4);
-  padding-top: max(env(safe-area-inset-top, 0px), var(--pp-space-12));
-  padding-bottom: max(env(safe-area-inset-bottom, 0px), var(--pp-space-12));
-  padding-inline: max(env(safe-area-inset-left, 0px), var(--pp-space-4))
-    max(env(safe-area-inset-right, 0px), var(--pp-space-4));
   overflow-y: auto;
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
@@ -708,6 +699,37 @@ p { line-height: 1.75; }
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+/* Couche plein écran pour fermer au tap en dehors des liens (au-dessus du fond, sous le panneau) */
+.pp-mobile-nav__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pp-mobile-nav__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--pp-space-4);
+  min-height: 100%;
+  min-height: 100dvh;
+  /* Espace sous la safe area pour ne pas passer sous le bouton fermer (position absolute) */
+  padding-top: calc(max(env(safe-area-inset-top, 0px), var(--pp-space-5)) + 52px);
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), var(--pp-space-12));
+  padding-inline: max(env(safe-area-inset-left, 0px), var(--pp-space-4))
+    max(env(safe-area-inset-right, 0px), var(--pp-space-4));
+  box-sizing: border-box;
 }
 .pp-mobile-nav__link {
   font-family: var(--pp-font-display);
@@ -730,8 +752,8 @@ p { line-height: 1.75; }
 }
 .pp-mobile-nav__close {
   position: absolute;
-  top: max(env(safe-area-inset-top, 0px), var(--pp-space-6));
-  right: max(env(safe-area-inset-right, 0px), var(--pp-space-6));
+  top: max(env(safe-area-inset-top, 0px), var(--pp-space-5));
+  right: max(env(safe-area-inset-right, 0px), var(--pp-space-5));
   color: var(--pp-white);
   font-size: 2rem;
   opacity: .55;
@@ -779,6 +801,8 @@ p { line-height: 1.75; }
   width: 40px;
   height: 1px;
   background: rgba(191,154,63,.3);
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* ─── 8. Footer ─────────────────────────────────────────────── */
@@ -3792,6 +3816,17 @@ p { line-height: 1.75; }
     --pp-text-5xl: 2.4rem;
     --pp-text-4xl: 2rem;
     --pp-text-3xl: 1.75rem;
+    /* Lisibilité mobile : corps et petits textes légèrement plus grands */
+    --pp-text-base: 1.0625rem;
+    --pp-text-md: 1.125rem;
+    --pp-text-sm: 0.9375rem;
+  }
+  .pp-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+  }
+  .pp-subtitle {
+    font-size: var(--pp-text-base);
   }
   .pp-container {
     padding-left: max(var(--pp-space-4), env(safe-area-inset-left, 0px));
@@ -3868,8 +3903,8 @@ p { line-height: 1.75; }
   .pp-agenda__row-label { padding-right: var(--pp-space-3); }
   .pp-agenda__row-abbr { font-size: 1.1rem; }
   .pp-agenda__row-events { gap: 6px; flex-wrap: wrap; }
-  .pp-agenda__pill { font-size: 0.625rem; padding: 4px 9px; }
-  .pp-agenda__pill--featured { font-size: 0.5625rem; }
+  .pp-agenda__pill { font-size: 0.6875rem; padding: 5px 10px; }
+  .pp-agenda__pill--featured { font-size: 0.625rem; }
 
   /* ── Sunday section ── */
   .pp-sunday__united { justify-content: center; }
@@ -3984,7 +4019,7 @@ p { line-height: 1.75; }
   .pp-agenda__row { grid-template-columns: 48px 1fr; gap: 10px; padding: 10px 12px; }
   .pp-agenda__row-abbr { font-size: 1rem; }
   .pp-agenda__row-full { display: none; } /* trop étroit — on cache le nom complet */
-  .pp-agenda__pill { font-size: 0.5625rem; padding: 3px 8px; }
+  .pp-agenda__pill { font-size: 0.625rem; padding: 4px 8px; }
 
   /* ── Stats ── */
   .pp-stats__grid { grid-template-columns: 1fr 1fr; }

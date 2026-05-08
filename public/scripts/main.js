@@ -11,7 +11,8 @@
   /* ─── 1. Header au scroll ───────────────────────────────────── */
   function initHeader() {
     const header = document.getElementById('pp-header');
-    if (!header) return;
+    if (!header || header.dataset.ppHeaderScrollBound === '1') return;
+    header.dataset.ppHeaderScrollBound = '1';
 
     function updateHeader() {
       if (window.scrollY > 40) {
@@ -29,60 +30,10 @@
     window.addEventListener('scroll', updateHeader, { passive: true });
   }
 
-  /* ─── 2. Menu mobile ────────────────────────────────────────── */
-  function initMobileNav() {
-    const burger = document.getElementById('pp-burger');
-    const mobileNav = document.getElementById('pp-mobile-nav');
-    const closeBtn = document.getElementById('pp-mobile-close');
-
-    if (!burger || !mobileNav) return;
-
-    function isOpen() {
-      return mobileNav.classList.contains('is-open');
-    }
-
-    function openMenu() {
-      mobileNav.classList.add('is-open');
-      mobileNav.setAttribute('aria-hidden', 'false');
-      burger.setAttribute('aria-expanded', 'true');
-      burger.setAttribute('aria-label', 'Fermer le menu');
-      document.body.style.overflow = 'hidden';
-      const focusTarget = closeBtn || mobileNav.querySelector('a, button');
-      if (focusTarget) setTimeout(function () { focusTarget.focus(); }, 50);
-    }
-
-    function closeMenu() {
-      mobileNav.classList.remove('is-open');
-      mobileNav.setAttribute('aria-hidden', 'true');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Ouvrir le menu');
-      document.body.style.overflow = '';
-      if (burger.offsetParent !== null) {
-        setTimeout(function () { burger.focus(); }, 50);
-      }
-    }
-
-    function toggleMenu() {
-      if (isOpen()) closeMenu(); else openMenu();
-    }
-
-    burger.addEventListener('click', toggleMenu);
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && isOpen()) {
-        closeMenu();
-      }
-    });
-
-    mobileNav.querySelectorAll('.pp-mobile-nav__link').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-
-    mobileNav.addEventListener('click', function (e) {
-      if (e.target === mobileNav) closeMenu();
-    });
-  }
+  /* Menu mobile : géré entièrement par React (components/Header.tsx).
+     Ne pas attacher de listeners ici : ClientScripts recharge main.js à
+     chaque navigation et provoquerait des écouteurs multiples sur #pp-burger
+     (double toggle → menu bloqué ou qui se referme tout de suite). */
 
   /* ─── 3. Lien actif dans la navigation ─────────────────────── */
   function setActiveNavLink() {
@@ -164,6 +115,8 @@
 
   /* ─── 7. Smooth scroll sur ancres internes ──────────────────── */
   function initSmoothScroll() {
+    if (window.__ppSmoothScrollBound) return;
+    window.__ppSmoothScrollBound = true;
     document.addEventListener('click', function (e) {
       const link = e.target.closest('a[href^="#"]');
       if (!link) return;
@@ -290,7 +243,6 @@
   /* ─── Init globale ──────────────────────────────────────────── */
   function init() {
     initHeader();
-    initMobileNav();
     setActiveNavLink();
     initYear();
     initReveal();

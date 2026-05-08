@@ -31,14 +31,24 @@ function MobileNavBundle() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [mobileOpen]);
+
   return (
     <>
       <button
+        type="button"
         className="pp-burger"
         id="pp-burger"
         aria-expanded={mobileOpen}
         aria-controls="pp-mobile-nav"
-        aria-label="Ouvrir le menu"
+        aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
         onClick={() => setMobileOpen((v) => !v)}
       >
         <span className="pp-burger__line"></span>
@@ -54,30 +64,40 @@ function MobileNavBundle() {
         aria-hidden={!mobileOpen}
       >
         <button
-          className="pp-mobile-nav__close"
-          id="pp-mobile-close"
-          aria-label="Fermer le menu"
+          type="button"
+          tabIndex={-1}
+          aria-hidden="true"
+          className="pp-mobile-nav__backdrop"
           onClick={() => setMobileOpen(false)}
-        >
-          ×
-        </button>
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="pp-mobile-nav__link"
+        />
+        <div className="pp-mobile-nav__inner">
+          <button
+            type="button"
+            className="pp-mobile-nav__close"
+            id="pp-mobile-close"
+            aria-label="Fermer le menu"
             onClick={() => setMobileOpen(false)}
           >
-            {link.label}
-          </Link>
-        ))}
-        <div className="pp-mobile-nav__ctas">
-          <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm">
-            Louer un transat
-          </Link>
-          <Link href="/contact" className="pp-btn pp-btn--primary">
-            Réserver
-          </Link>
+            ×
+          </button>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="pp-mobile-nav__link"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="pp-mobile-nav__ctas">
+            <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm">
+              Louer un transat
+            </Link>
+            <Link href="/contact" className="pp-btn pp-btn--primary">
+              Réserver
+            </Link>
+          </div>
         </div>
       </nav>
     </>
