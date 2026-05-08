@@ -1,6 +1,6 @@
 /* ============================================================
    PAILLOTE PARADISE — magnetic-cursor.js
-   Curseur magnetique sur les CTA marques .pp-magnetic
+   Un seul listener document (évite fuites si scripts rechargés).
    ============================================================ */
 (function () {
   'use strict';
@@ -8,15 +8,27 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isDesktop = window.matchMedia('(min-width: 1024px) and (pointer: fine)').matches;
   if (reduced || !isDesktop) return;
+  if (window.__ppMagneticDelegated) return;
+  window.__ppMagneticDelegated = true;
 
   const STRENGTH = 0.35;
   const RADIUS = 90;
+  let raf = null;
+  const state = new WeakMap();
 
-  function bind(el) {
-    let raf = null;
-    let tx = 0, ty = 0;
+  function schedule() {
+    if (raf) return;
+    raf = requestAnimationFrame(function () {
+      document.querySelectorAll('.pp-magnetic').forEach(function (el) {
+        const s = state.get(el) || { tx: 0, ty: 0 };
+        el.style.transform = 'translate(' + s.tx + 'px,' + s.ty + 'px)';
+      });
+      raf = null;
+    });
+  }
 
-    function onMove(e) {
+  function onMove(e) {
+    document.querySelectorAll('.pp-magnetic').forEach(function (el) {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
@@ -24,39 +36,13 @@
       const dy = e.clientY - cy;
       const dist = Math.hypot(dx, dy);
       if (dist > RADIUS) {
-        reset();
-        return;
+        state.set(el, { tx: 0, ty: 0 });
+      } else {
+        state.set(el, { tx: dx * STRENGTH, ty: dy * STRENGTH });
       }
-      tx = dx * STRENGTH;
-      ty = dy * STRENGTH;
-      schedule();
-    }
-
-    function reset() {
-      tx = 0;
-      ty = 0;
-      schedule();
-    }
-
-    function schedule() {
-      if (raf) return;
-      raf = requestAnimationFrame(function () {
-        el.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
-        raf = null;
-      });
-    }
-
-    el.addEventListener('mouseleave', reset);
-    document.addEventListener('mousemove', onMove);
+    });
+    schedule();
   }
 
-  function init() {
-    document.querySelectorAll('.pp-magnetic').forEach(bind);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  document.addEventListener('mousemove', onMove, { passive: true });
 })();

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '../lib/publicPhone';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -103,8 +104,8 @@ export function Footer() {
             <div className="pp-footer__contact-item">
               <span className="pp-footer__contact-icon"></span>
               <span>
-                <a href="tel:+33XXXXXXXXX" className="pp-footer__link">
-                  +33 (0)X XX XX XX XX
+                <a href={`tel:${PP_PHONE_E164}`} className="pp-footer__link">
+                  {PP_PHONE_DISPLAY}
                 </a>
               </span>
             </div>

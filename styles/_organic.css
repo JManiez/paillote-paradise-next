@@ -788,6 +788,15 @@ body.pp-grain::before {
   color: inherit;
 }
 
+/* Bento : descriptions visibles sans hover (tactile / petit écran) */
+@media (max-width: 1023px) {
+  .pp-bento__cell .pp-bento__desc {
+    max-height: 140px;
+    opacity: 1;
+    margin-top: var(--pp-space-2);
+  }
+}
+
 /* ─── 13. Désactivations mobile + reduced-motion ────────────── */
 @media (max-width: 1024px) {
   .pp-magnetic { transform: none !important; }

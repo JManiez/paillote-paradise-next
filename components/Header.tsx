@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { PP_PHONE_E164 } from '../lib/publicPhone';
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
@@ -135,7 +136,7 @@ export function Header() {
         <div className="pp-header__top">
           <div className="pp-header__top-inner">
             <div className="pp-header__cta pp-header__cta--left">
-              <a href="tel:+33600000000" className="pp-header__tel">
+              <a href={`tel:${PP_PHONE_E164}`} className="pp-header__tel">
                 <svg
                   width="13"
                   height="13"

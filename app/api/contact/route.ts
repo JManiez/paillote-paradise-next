@@ -3,12 +3,25 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export const dynamic = 'force-dynamic'
 
+const NAME_MAX = 200
+const MSG_MAX = 8000
+const SUBJECT_MAX = 120
+
 function escapeHtml(text: string) {
   return text
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
+}
+
+function isValidEmail(s: string) {
+  return /^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{2,}$/.test(s) && s.length <= 254
+}
+
+function clampStr(v: unknown, max: number): string {
+  const s = typeof v === 'string' ? v.trim() : String(v ?? '').trim()
+  return s.length > max ? s.slice(0, max) : s
 }
 
 export async function POST(req: NextRequest) {
@@ -21,20 +34,37 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(apiKey)
     const body = await req.json()
     const { name, email, phone, subject, message, consent } = body
-    if (!name || !email || !message || !consent) {
+
+    if (consent !== true && consent !== 'true' && consent !== 1) {
+      return NextResponse.json({ error: 'Consentement requis' }, { status: 400 })
+    }
+
+    const nameStr = clampStr(name, NAME_MAX)
+    const emailStr = clampStr(email, 254)
+    const messageStr = clampStr(message, MSG_MAX)
+
+    if (!nameStr || !emailStr || !messageStr) {
       return NextResponse.json({ error: 'Champs requis manquants' }, { status: 400 })
     }
-    const safeName = escapeHtml(String(name))
-    const safeEmail = escapeHtml(String(email))
-    const safePhone = escapeHtml(String(phone ?? 'Non renseigné'))
-    const safeSubject = escapeHtml(String(subject || 'Non renseigné'))
-    const safeMessage = escapeHtml(String(message)).replace(/\n/g, '<br/>')
+
+    if (!isValidEmail(emailStr)) {
+      return NextResponse.json({ error: 'Email invalide' }, { status: 400 })
+    }
+
+    const phoneStr = phone != null && phone !== '' ? clampStr(phone, 40) : 'Non renseigné'
+    const subjectStr = clampStr(subject || 'Non renseigné', SUBJECT_MAX)
+
+    const safeName = escapeHtml(nameStr)
+    const safeEmail = escapeHtml(emailStr)
+    const safePhone = escapeHtml(phoneStr)
+    const safeSubject = escapeHtml(subjectStr)
+    const safeMessage = escapeHtml(messageStr).replace(/\n/g, '<br/>')
 
     await resend.emails.send({
       from: 'contact@pailloteparadise.fr',
       to: 'contact@pailloteparadise.fr',
-      replyTo: email,
-      subject: `[Contact Paillote] ${subject || 'Nouvelle demande'} — ${name}`,
+      replyTo: emailStr,
+      subject: `[Contact Paillote] ${subjectStr || 'Nouvelle demande'} — ${nameStr}`,
       html: `<p><strong>Nom :</strong> ${safeName}</p>
              <p><strong>Email :</strong> ${safeEmail}</p>
              <p><strong>Téléphone :</strong> ${safePhone}</p>

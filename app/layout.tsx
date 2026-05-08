@@ -5,8 +5,10 @@ import { Footer } from '../components/Footer';
 import { ClientScripts } from '../components/ClientScripts';
 import { JsonLd } from '../components/JsonLd';
 import { SITE_NAME, SITE_URL, OG_IMAGE } from '../lib/seo';
+import { PP_PHONE_E164 } from '../lib/publicPhone';
 import '../styles/style.css';
 import '../styles/_organic.css';
+import Script from 'next/script';
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -63,7 +65,7 @@ const businessJsonLd = {
       description:
         "Paillote privée sur domaine viticole en Camargue. Bar à tapas, cocktails, vins bio du Domaine du Petit Chaumont, piscine privée et soirées à Aigues-Mortes.",
       url: SITE_URL + '/',
-      telephone: '+33XXXXXXXXX',
+      telephone: PP_PHONE_E164,
       email: 'contact@pailloteparadise.fr',
       address: {
         '@type': 'PostalAddress',
@@ -122,6 +124,14 @@ export default function RootLayout({
         <div id="pp-footer-slot">
           <Footer />
         </div>
+        <Script
+          src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+          strategy="beforeInteractive"
+        />
         <ClientScripts />
       </body>
     </html>
