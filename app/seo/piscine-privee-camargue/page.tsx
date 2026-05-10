@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../../components/PageContent';
-import { pageSeo } from '../../../lib/seo';
-import { loadPage } from '../../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { SeoPiscinePriveeCamarguePageBody } from '@/components/page-bodies/seo/piscine-privee-camarguePageBody';
+import piscineJsonLd from '@/lib/jsonld/seo/piscine-privee-camargue.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.seoPiscine;
 
-export default function SeoPiscinePriveeCamarguePage() {
-  const { htmlContent, jsonLd } = loadPage('seo/piscine-privee-camargue');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+export default function SeoPiscinePriveePage() {
+  return (
+    <PageShell jsonLd={piscineJsonLd as unknown[]}>
+      <SeoPiscinePriveeCamarguePageBody />
+    </PageShell>
+  );
 }

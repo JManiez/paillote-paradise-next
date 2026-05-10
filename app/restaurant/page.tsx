@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../components/PageContent';
-import { pageSeo } from '../../lib/seo';
-import { loadPage } from '../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { RestaurantPageBody } from '@/components/page-bodies/restaurantPageBody';
+import restaurantJsonLd from '@/lib/jsonld/restaurant.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.restaurant;
 
 export default function RestaurantPage() {
-  const { htmlContent, jsonLd } = loadPage('restaurant');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+  return (
+    <PageShell jsonLd={restaurantJsonLd as unknown[]}>
+      <RestaurantPageBody />
+    </PageShell>
+  );
 }

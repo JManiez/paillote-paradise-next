@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../../components/PageContent';
-import { pageSeo } from '../../../lib/seo';
-import { loadPage } from '../../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { SeoPrivatisationDomaineCamarguePageBody } from '@/components/page-bodies/seo/privatisation-domaine-camarguePageBody';
+import privatisationSeoJsonLd from '@/lib/jsonld/seo/privatisation-domaine-camargue.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.seoPrivatisation;
 
-export default function SeoPrivatisationDomaineCamarguePage() {
-  const { htmlContent, jsonLd } = loadPage('seo/privatisation-domaine-camargue');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+export default function SeoPrivatisationDomainePage() {
+  return (
+    <PageShell jsonLd={privatisationSeoJsonLd as unknown[]}>
+      <SeoPrivatisationDomaineCamarguePageBody />
+    </PageShell>
+  );
 }

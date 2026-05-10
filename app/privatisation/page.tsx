@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../components/PageContent';
-import { pageSeo } from '../../lib/seo';
-import { loadPage } from '../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { PrivatisationPageBody } from '@/components/page-bodies/privatisationPageBody';
+import privatisationJsonLd from '@/lib/jsonld/privatisation.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.privatisation;
 
 export default function PrivatisationPage() {
-  const { htmlContent, jsonLd } = loadPage('privatisation');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+  return (
+    <PageShell jsonLd={privatisationJsonLd as unknown[]}>
+      <PrivatisationPageBody />
+    </PageShell>
+  );
 }

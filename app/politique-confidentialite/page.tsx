@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../components/PageContent';
-import { pageSeo } from '../../lib/seo';
-import { loadPage } from '../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { PolitiqueConfidentialitePageBody } from '@/components/page-bodies/politique-confidentialitePageBody';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.privacy;
 
 export default function PolitiqueConfidentialitePage() {
-  const { htmlContent, jsonLd } = loadPage('politique-confidentialite');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+  return (
+    <PageShell>
+      <PolitiqueConfidentialitePageBody />
+    </PageShell>
+  );
 }

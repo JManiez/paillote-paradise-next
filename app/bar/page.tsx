@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../components/PageContent';
-import { pageSeo } from '../../lib/seo';
-import { loadPage } from '../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { BarPageBody } from '@/components/page-bodies/barPageBody';
+import barJsonLd from '@/lib/jsonld/bar.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.bar;
 
 export default function BarPage() {
-  const { htmlContent, jsonLd } = loadPage('bar');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+  return (
+    <PageShell jsonLd={barJsonLd as unknown[]}>
+      <BarPageBody />
+    </PageShell>
+  );
 }

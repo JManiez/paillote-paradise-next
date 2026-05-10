@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../../components/PageContent';
-import { pageSeo } from '../../../lib/seo';
-import { loadPage } from '../../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { SeoSoireeDimancheAiguesMortesPageBody } from '@/components/page-bodies/seo/soiree-dimanche-aigues-mortesPageBody';
+import soireeDimancheJsonLd from '@/lib/jsonld/seo/soiree-dimanche-aigues-mortes.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.seoSoireeDimanche;
 
-export default function SeoSoireeDimancheAiguesMortesPage() {
-  const { htmlContent, jsonLd } = loadPage('seo/soiree-dimanche-aigues-mortes');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+export default function SeoSoireeDimanchePage() {
+  return (
+    <PageShell jsonLd={soireeDimancheJsonLd as unknown[]}>
+      <SeoSoireeDimancheAiguesMortesPageBody />
+    </PageShell>
+  );
 }

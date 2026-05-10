@@ -1,0 +1,16 @@
+export { BarPageBody } from '@/components/page-bodies/barPageBody';
+export { ContactPageBody } from '@/components/page-bodies/contactPageBody';
+export { GaleriePageBody } from '@/components/page-bodies/galeriePageBody';
+export { HomePageBody } from '@/components/page-bodies/homePageBody';
+export { MentionsLegalesPageBody } from '@/components/page-bodies/mentions-legalesPageBody';
+export { PiscineTransatsPageBody } from '@/components/page-bodies/piscine-transatsPageBody';
+export { PolitiqueConfidentialitePageBody } from '@/components/page-bodies/politique-confidentialitePageBody';
+export { PrivatisationPageBody } from '@/components/page-bodies/privatisationPageBody';
+export { RestaurantPageBody } from '@/components/page-bodies/restaurantPageBody';
+export { SeoBrunchDimancheAiguesMortesPageBody } from '@/components/page-bodies/seo/brunch-dimanche-aigues-mortesPageBody';
+export { SeoPailloteCamarguePageBody } from '@/components/page-bodies/seo/paillote-camarguePageBody';
+export { SeoPiscinePriveeCamarguePageBody } from '@/components/page-bodies/seo/piscine-privee-camarguePageBody';
+export { SeoPrivatisationDomaineCamarguePageBody } from '@/components/page-bodies/seo/privatisation-domaine-camarguePageBody';
+export { SeoRestaurantPailloteAiguesMortesPageBody } from '@/components/page-bodies/seo/restaurant-paillote-aigues-mortesPageBody';
+export { SeoSoireeDimancheAiguesMortesPageBody } from '@/components/page-bodies/seo/soiree-dimanche-aigues-mortesPageBody';
+export { SoireesPageBody } from '@/components/page-bodies/soireesPageBody';

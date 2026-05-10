@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../components/PageContent';
-import { pageSeo } from '../lib/seo';
-import { loadPage } from '../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { HomePageBody } from '@/components/page-bodies/homePageBody';
+import homeJsonLd from '@/lib/jsonld/home.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.home;
 
 export default function HomePage() {
-  const { htmlContent, jsonLd } = loadPage('home');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+  return (
+    <PageShell jsonLd={homeJsonLd as unknown[]}>
+      <HomePageBody />
+    </PageShell>
+  );
 }

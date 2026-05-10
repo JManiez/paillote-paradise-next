@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../../components/PageContent';
-import { pageSeo } from '../../../lib/seo';
-import { loadPage } from '../../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { SeoPailloteCamarguePageBody } from '@/components/page-bodies/seo/paillote-camarguePageBody';
+import pailloteJsonLd from '@/lib/jsonld/seo/paillote-camargue.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.seoPaillote;
 
 export default function SeoPailloteCamarguePage() {
-  const { htmlContent, jsonLd } = loadPage('seo/paillote-camargue');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+  return (
+    <PageShell jsonLd={pailloteJsonLd as unknown[]}>
+      <SeoPailloteCamarguePageBody />
+    </PageShell>
+  );
 }

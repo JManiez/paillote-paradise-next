@@ -135,7 +135,7 @@
     if (form.__ppSubmitAbort) {
       try {
         form.__ppSubmitAbort.abort();
-      } catch (_) {}
+      } catch {}
     }
     const ac = new AbortController();
     form.__ppSubmitAbort = ac;

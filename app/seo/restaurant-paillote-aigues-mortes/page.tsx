@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../../components/PageContent';
-import { pageSeo } from '../../../lib/seo';
-import { loadPage } from '../../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { SeoRestaurantPailloteAiguesMortesPageBody } from '@/components/page-bodies/seo/restaurant-paillote-aigues-mortesPageBody';
+import restaurantSeoJsonLd from '@/lib/jsonld/seo/restaurant-paillote-aigues-mortes.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.seoRestaurant;
 
-export default function SeoRestaurantPailloteAiguesMortesPage() {
-  const { htmlContent, jsonLd } = loadPage('seo/restaurant-paillote-aigues-mortes');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+export default function SeoRestaurantPaillotePage() {
+  return (
+    <PageShell jsonLd={restaurantSeoJsonLd as unknown[]}>
+      <SeoRestaurantPailloteAiguesMortesPageBody />
+    </PageShell>
+  );
 }

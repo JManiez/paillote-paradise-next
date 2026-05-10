@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { PageContent } from '../../components/PageContent';
-import { pageSeo } from '../../lib/seo';
-import { loadPage } from '../../lib/loadPage';
+import { PageShell } from '@/components/PageShell';
+import { SoireesPageBody } from '@/components/page-bodies/soireesPageBody';
+import soireesJsonLd from '@/lib/jsonld/soirees.json';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata: Metadata = pageSeo.soirees;
 
 export default function SoireesPage() {
-  const { htmlContent, jsonLd } = loadPage('soirees');
-  return <PageContent htmlContent={htmlContent} jsonLd={jsonLd} />;
+  return (
+    <PageShell jsonLd={soireesJsonLd as unknown[]}>
+      <SoireesPageBody />
+    </PageShell>
+  );
 }
