@@ -1,5 +1,6 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PP_PHONE_E164 } from '@/lib/publicPhone';
 
 export function RestaurantPageBody(): ReactNode {
   return (
@@ -317,7 +318,7 @@ export function RestaurantPageBody(): ReactNode {
                 </p>
                 <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="3">
                   <a href="/contact" className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Nous contacter</a>
-                  <a href="tel:+33600000000" className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Appeler directement</a>
+                  <a href={`tel:${PP_PHONE_E164}`} className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Appeler directement</a>
                 </div>
               </div>
             </div>

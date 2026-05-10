@@ -1,5 +1,6 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PP_PHONE_DISPLAY } from '@/lib/publicPhone';
 
 export function MentionsLegalesPageBody(): ReactNode {
   return (
@@ -32,7 +33,7 @@ export function MentionsLegalesPageBody(): ReactNode {
                     <li><strong>Forme juridique :</strong> [SARL / SAS / EURL / Auto-entrepreneur]</li>
                     <li><strong>SIRET :</strong> [Numéro SIRET à compléter]</li>
                     <li><strong>Siège social :</strong> Domaine du Petit Chaumont, Route du Petit Chaumont, 30220 Aigues-Mortes</li>
-                    <li><strong>Téléphone :</strong> 06 00 00 00 00</li>
+                    <li><strong>Téléphone :</strong> {PP_PHONE_DISPLAY}</li>
                     <li><strong>Email :</strong> contact@pailloteparadise.fr</li>
                     <li><strong>Directeur de la publication :</strong> [Nom du dirigeant]</li>
                   </ul>

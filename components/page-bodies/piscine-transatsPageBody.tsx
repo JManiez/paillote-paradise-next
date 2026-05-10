@@ -1,5 +1,6 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PP_PHONE_E164 } from '@/lib/publicPhone';
 
 export function PiscineTransatsPageBody(): ReactNode {
   return (
@@ -200,7 +201,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                 </p>
                 <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
                   <a href="/contact" className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Réserver un transat</a>
-                  <a href="tel:+33600000000" className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic"> Appeler</a>
+                  <a href={`tel:${PP_PHONE_E164}`} className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic"> Appeler</a>
                 </div>
               </div>
             </div>

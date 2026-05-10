@@ -1,5 +1,7 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import Link from 'next/link';
+import { HOME_GALLERY_PREVIEW_COUNT } from '@/lib/galleryConstants';
 import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
 
 /** Sections masquées temporairement */
@@ -7,6 +9,9 @@ const SHOW_HOME_DIMANCHE = false;
 const SHOW_HOME_STATS = false;
 
 export function HomePageBody(): ReactNode {
+  const galleryPreview = PARADISE_GALLERY.slice(0, HOME_GALLERY_PREVIEW_COUNT);
+  const galleryTotal = PARADISE_GALLERY.length;
+
   return (
     <>
       <section className="pp-hero" aria-labelledby="hero-title">
@@ -727,16 +732,29 @@ export function HomePageBody(): ReactNode {
                 <span className="pp-eyebrow">Galerie Paradise</span>
                 <h2 className="pp-title" id="insta-title">L&apos;ambiance en images</h2>
                 <p className="pp-subtitle">
-                  Saison 2025 — instants choisis sur le domaine du Petit Chaumont.
+                  Aperçu — {galleryPreview.length} photos sur {galleryTotal}. La galerie complète est sur la page dédiée.
                 </p>
               </div>
       
               <div className="pp-instagram__grid" data-pp-reveal>
-                {PARADISE_GALLERY.map((item) => (
+                {galleryPreview.map((item, index) => (
                   <div className="pp-instagram__item" key={item.src}>
-                    <img src={item.src} alt={item.alt} loading="lazy" width="400" height="400" />
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading={index < 6 ? 'eager' : 'lazy'}
+                      fetchPriority={index === 0 ? 'high' : undefined}
+                      width="400"
+                      height="400"
+                    />
                   </div>
                 ))}
+              </div>
+
+              <div className="pp-instagram__preview-actions" data-pp-reveal>
+                <Link href="/galerie" className="pp-btn pp-btn--primary pp-magnetic">
+                  Voir toute la galerie ({galleryTotal} photos)
+                </Link>
               </div>
       
               <a href="https://www.instagram.com/pailloteparadise" target="_blank" rel="noopener noreferrer" className="pp-instagram__handle" data-pp-reveal>

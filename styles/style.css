@@ -3114,6 +3114,14 @@ p { line-height: 1.75; }
   background: rgba(26,30,46,.25);
 }
 
+.pp-instagram__preview-actions {
+  margin-top: var(--pp-space-8);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--pp-space-4);
+}
+
 .pp-instagram__handle {
   display: inline-flex;
   align-items: center;

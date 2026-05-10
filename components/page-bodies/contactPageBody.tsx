@@ -1,5 +1,6 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '@/lib/publicPhone';
 
 export function ContactPageBody(): ReactNode {
   return (
@@ -61,7 +62,7 @@ export function ContactPageBody(): ReactNode {
                       <div>
                         <p className="pp-acces__item-title">Téléphone</p>
                         <p className="pp-acces__item-text">
-                          <a href="tel:+33600000000" className="pp-acces__item-text">06 00 00 00 00</a>
+                          <a href={`tel:${PP_PHONE_E164}`} className="pp-acces__item-text">{PP_PHONE_DISPLAY}</a>
                         </p>
                       </div>
                     </div>
