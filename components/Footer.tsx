@@ -70,8 +70,6 @@ export function Footer() {
               <li><Link href="/restaurant" className="pp-footer__link">Bar à Tapas</Link></li>
               <li><Link href="/bar" className="pp-footer__link">Bar &amp; Cocktails</Link></li>
               <li><Link href="/piscine-transats" className="pp-footer__link">Piscine &amp; Transats</Link></li>
-              <li><Link href="/soirees" className="pp-footer__link">Soirées</Link></li>
-              <li><Link href="/soirees#dimanche" className="pp-footer__link">La Soirée du Dimanche</Link></li>
               <li><Link href="/privatisation" className="pp-footer__link">Groupes &amp; Privatisation</Link></li>
               <li><Link href="/galerie" className="pp-footer__link">Galerie photos</Link></li>
             </ul>

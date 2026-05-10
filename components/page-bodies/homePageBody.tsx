@@ -1,12 +1,17 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PARADISE_GALLERY_2025 } from '@/lib/paradiseGallery2025';
+
+/** Sections masquées temporairement */
+const SHOW_HOME_DIMANCHE = false;
+const SHOW_HOME_STATS = false;
 
 export function HomePageBody(): ReactNode {
   return (
     <>
       <section className="pp-hero" aria-labelledby="hero-title">
             <img
-              src="/assets/images/hero-home.jpg"
+              src="/assets/images/hero-home-bg.jpg"
               alt="La Paillote Paradise — terrasse au bord de l'étang, palmiers et ambiance tropicale, Aigues-Mortes"
               className="pp-hero__img"
               loading="eager"
@@ -28,7 +33,7 @@ export function HomePageBody(): ReactNode {
               </p>
               <div className="pp-hero__ctas" data-pp-reveal data-pp-delay="3">
                 <a href="/restaurant" className="pp-btn pp-btn--primary pp-btn--lg pp-magnetic">Voir la carte tapas</a>
-                <a href="/soirees" className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Voir les soirées</a>
+                <a href="/galerie" className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Voir la galerie</a>
               </div>
             </div>
       
@@ -118,7 +123,7 @@ export function HomePageBody(): ReactNode {
       
                 
                 <a href="/soirees" className="pp-bento__cell pp-bento__cell--horiz" role="listitem" aria-label="Voir le programme des soirees">
-                  <img src="/assets/images/universe-soirees.jpg" alt="Soirees DJ Paillote Paradise" loading="lazy" />
+                  <img src="/assets/images/bento-soirees-united.jpg" alt="Soirées United — ambiance néon La Paillote Paradise" loading="lazy" />
                   <span className="pp-bento__num" aria-hidden="true">03</span>
                   <div className="pp-bento__body">
                     <h3 className="pp-bento__title">Soirées & DJ Sets</h3>
@@ -161,6 +166,7 @@ export function HomePageBody(): ReactNode {
           </section>
       
           
+          {SHOW_HOME_DIMANCHE && (
           <section className="pp-section--lg pp-sunday" id="dimanche" aria-labelledby="sunday-title">
             <div className="pp-sunday__deco" aria-hidden="true"></div>
             <div className="pp-sunday__halo pp-sunday__halo--left" aria-hidden="true"></div>
@@ -366,8 +372,10 @@ export function HomePageBody(): ReactNode {
               </div>
             </div>
           </section>
+          )}
       
           
+          {SHOW_HOME_STATS && (
           <section className="pp-section pp-stats" aria-labelledby="stats-title">
             <div className="pp-divider pp-divider--top pp-divider--wave" data-fill="night" aria-hidden="true">
               <svg viewBox="0 0 1200 110" preserveAspectRatio="none"><path d="M0,0 L0,30 C200,80 500,0 800,40 C950,60 1100,30 1200,50 L1200,0 Z"/></svg>
@@ -395,6 +403,7 @@ export function HomePageBody(): ReactNode {
               </div>
             </div>
           </section>
+          )}
       
           
           <section className="pp-section pp-agenda" aria-labelledby="agenda-title">
@@ -423,7 +432,7 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__legend-dot" style={{ background: "rgba(253,250,245,.30)" }}></span> Bar & Cocktails
                     </span>
                   </div>
-                  <a href="/soirees" className="pp-btn pp-btn--gold pp-agenda__aside-cta">Voir le programme</a>
+                  <a href="/contact" className="pp-btn pp-btn--gold pp-agenda__aside-cta">Nous contacter</a>
                 </div>
       
                 
@@ -715,32 +724,19 @@ export function HomePageBody(): ReactNode {
           <section className="pp-section pp-instagram" aria-labelledby="insta-title">
             <div className="pp-container">
               <div className="pp-section-header" data-pp-reveal>
-                <span className="pp-eyebrow">Suivez-nous</span>
-                <h2 className="pp-title" id="insta-title">L'ambiance en images</h2>
+                <span className="pp-eyebrow">Galerie Paradise</span>
+                <h2 className="pp-title" id="insta-title">L&apos;ambiance en images</h2>
                 <p className="pp-subtitle">
-                  Retrouvez nos plus beaux moments, nos soirées et la vie du domaine sur Instagram.
+                  Saison 2025 — instants choisis sur le domaine du Petit Chaumont.
                 </p>
               </div>
       
               <div className="pp-instagram__grid" data-pp-reveal>
-                <div className="pp-instagram__item">
-                  <img src="/assets/images/universe-restaurant.jpg" alt="Bar à tapas Paillote Paradise" loading="lazy" width="300" height="300" />
-                </div>
-                <div className="pp-instagram__item">
-                  <img src="/assets/images/universe-piscine.jpg" alt="Piscine Paillote Paradise" loading="lazy" width="300" height="300" />
-                </div>
-                <div className="pp-instagram__item">
-                  <img src="/assets/images/universe-soirees.jpg" alt="Soiree Paillote Paradise" loading="lazy" width="300" height="300" />
-                </div>
-                <div className="pp-instagram__item">
-                  <img src="/assets/images/soiree-dimanche.jpg" alt="Soiree du dimanche Paillote Paradise" loading="lazy" width="300" height="300" />
-                </div>
-                <div className="pp-instagram__item">
-                  <img src="/assets/images/hero-home.jpg" alt="Vue aerienne Paillote Paradise" loading="lazy" width="300" height="300" />
-                </div>
-                <div className="pp-instagram__item">
-                  <img src="/assets/images/restaurant-hero.jpg" alt="Terrasse bar à tapas Paillote Paradise" loading="lazy" width="300" height="300" />
-                </div>
+                {PARADISE_GALLERY_2025.map((item) => (
+                  <div className="pp-instagram__item" key={item.src}>
+                    <img src={item.src} alt={item.alt} loading="lazy" width="400" height="400" />
+                  </div>
+                ))}
               </div>
       
               <a href="https://www.instagram.com/pailloteparadise" target="_blank" rel="noopener noreferrer" className="pp-instagram__handle" data-pp-reveal>

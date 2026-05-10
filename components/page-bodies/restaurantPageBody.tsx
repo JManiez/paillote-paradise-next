@@ -6,7 +6,7 @@ export function RestaurantPageBody(): ReactNode {
     <>
       <section className="pp-page-hero" aria-labelledby="page-title">
             <img
-              src="/assets/images/restaurant-hero.jpg"
+              src="/assets/images/hero-restaurant-2025.jpg"
               alt="Bar à tapas La Paillote Paradise — terrasse et piscine sur le domaine viticole"
               className="pp-page-hero__img"
               loading="eager"
@@ -299,36 +299,6 @@ export function RestaurantPageBody(): ReactNode {
                 <p style={{ color: "var(--pp-gray)", fontSize: "var(--pp-text-sm)", fontStyle: "italic" }}>
                   Carte susceptible d'évoluer selon les arrivages et la saison. <strong>Tous nos plats sont préparés maison</strong>, sauces et desserts inclus.
                 </p>
-              </div>
-            </div>
-          </section>
-      
-          
-          <section className="pp-section" style={{ background: "var(--pp-cream)" }} aria-labelledby="specialites-title">
-            <div className="pp-divider pp-divider--top pp-divider--curve" data-fill="sand-ultra" aria-hidden="true">
-              <svg viewBox="0 0 1200 130" preserveAspectRatio="none"><path d="M0,80 C300,30 600,130 900,70 C1050,40 1150,90 1200,60 L1200,0 L0,0 Z"/></svg>
-            </div>
-            <div className="pp-blob pp-blob--palm" style={{ width: "360px", height: "360px", top: "30%", left: "-8%", opacity: "0.3" }} aria-hidden="true"></div>
-      
-            <div className="pp-container" style={{ position: "relative", zIndex: "2" }}>
-              <div className="pp-section-header" data-pp-reveal>
-                <span className="pp-eyebrow pp-eyebrow--theatrical">À ne pas manquer</span>
-                <h2 className="pp-title pp-title--editorial" id="specialites-title">Les <em className="pp-word-gold">incontournables</em><br />de la paillote</h2>
-              </div>
-      
-              <div className="pp-polaroid-grid">
-                <article className="pp-polaroid" data-pp-reveal data-pp-delay="1">
-                  <img src="/assets/images/universe-restaurant.jpg" alt="Loup de mer grillé aux herbes de Camargue" loading="lazy" />
-                  <span className="pp-polaroid__caption">Loup grillé · sel de Camargue</span>
-                </article>
-                <article className="pp-polaroid" data-pp-reveal data-pp-delay="2">
-                  <img src="/assets/images/universe-restaurant.jpg" alt="Taureau de Camargue en tajine" loading="lazy" />
-                  <span className="pp-polaroid__caption">Taureau AOP · tajine d'olives</span>
-                </article>
-                <article className="pp-polaroid" data-pp-reveal data-pp-delay="3">
-                  <img src="/assets/images/universe-restaurant.jpg" alt="Tarte aux fruits du chef" loading="lazy" />
-                  <span className="pp-polaroid__caption">Tarte du chef · fleur d'oranger</span>
-                </article>
               </div>
             </div>
           </section>

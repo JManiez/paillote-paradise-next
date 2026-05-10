@@ -6,7 +6,7 @@ export function PiscineTransatsPageBody(): ReactNode {
     <>
       <section className="pp-page-hero" aria-labelledby="piscine-title">
             <img
-              src="/assets/images/piscine-hero.jpg"
+              src="/assets/images/hero-piscine-2025.jpg"
               alt="Piscine privée de la Paillote Paradise avec transats et parasols, Aigues-Mortes Camargue"
               className="pp-page-hero__img"
               loading="eager"

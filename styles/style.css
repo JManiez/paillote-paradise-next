@@ -679,12 +679,12 @@ p { line-height: 1.75; }
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile nav overlay */
+/* Mobile nav overlay (souvent rendu via portail sur body — z-index élevé) */
 .pp-mobile-nav {
   position: fixed;
   inset: 0;
   background: rgba(16, 20, 36, 0.98);
-  z-index: 1100; /* au-dessus du header (1000) */
+  z-index: 10000;
   overflow-y: auto;
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
@@ -3860,7 +3860,26 @@ p { line-height: 1.75; }
     font-size: var(--pp-text-xs);
     letter-spacing: 0.08em;
   }
-  .pp-burger { display: flex; }
+  /* Empêche le logo centré ou un stacking context de bloquer les clics sur le burger */
+  .pp-header__cta--right {
+    position: relative;
+    z-index: 1005;
+    isolation: isolate;
+    pointer-events: auto;
+  }
+  .pp-burger {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-header__logo {
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+  }
   .pp-header__logo-img { height: 44px; }
 
   /* ── Hero : padding correct avec header mobile (1 rangée = 72px) ── */
@@ -3952,7 +3971,7 @@ p { line-height: 1.75; }
   .pp-hero__subtitle { font-size: var(--pp-text-base); }
   .pp-page-hero__title { font-size: var(--pp-text-3xl); }
   .pp-form { padding: var(--pp-space-6); }
-  .pp-instagram__grid { grid-template-columns: repeat(3, 1fr); }
+  .pp-instagram__grid { grid-template-columns: repeat(2, 1fr); gap: var(--pp-space-3); }
   .pp-philosophy__quote { font-size: var(--pp-text-xl); }
 }
 

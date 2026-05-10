@@ -6,7 +6,7 @@ export function PrivatisationPageBody(): ReactNode {
     <>
       <section className="pp-page-hero" aria-labelledby="priv-title">
             <img
-              src="/assets/images/privatisation-hero.jpg"
+              src="/assets/images/privatisation-united-2025.jpg"
               alt="Espace privatisé pour groupe à La Paillote Paradise — Aigues-Mortes"
               className="pp-page-hero__img"
               loading="eager"
@@ -57,7 +57,7 @@ export function PrivatisationPageBody(): ReactNode {
                 </div>
                 <div data-pp-reveal="right" style={{ borderRadius: "var(--pp-radius-xl)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
                   <img
-                    src="/assets/images/privatisation-hero.jpg"
+                    src="/assets/images/privatisation-united-2025.jpg"
                     alt="Groupe profitant de leur espace privatisé à La Paillote Paradise"
                     loading="lazy"
                     width="700"

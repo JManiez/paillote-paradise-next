@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { PP_PHONE_E164 } from '../lib/publicPhone';
 
 const navLinks = [
@@ -11,7 +12,6 @@ const navLinks = [
   { href: '/restaurant', label: 'Bar à Tapas' },
   { href: '/bar', label: 'Bar & Cocktails' },
   { href: '/piscine-transats', label: 'Piscine \u0026 Transats' },
-  { href: '/soirees', label: 'Soirées' },
   { href: '/privatisation', label: 'Groupes \u0026 Privatisation' },
   { href: '/galerie', label: 'Galerie' },
   { href: '/contact', label: 'Contact' },
@@ -20,6 +20,11 @@ const navLinks = [
 /** key={pathname} sur le parent remonte le composant → menu fermé sans setState dans un effet. */
 function MobileNavBundle() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [portalReady, setPortalReady] = useState(false);
+
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -41,6 +46,53 @@ function MobileNavBundle() {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [mobileOpen]);
 
+  const mobileNavPanel = (
+    <nav
+      className={'pp-mobile-nav' + (mobileOpen ? ' is-open' : '')}
+      id="pp-mobile-nav"
+      role="navigation"
+      aria-label="Navigation mobile"
+      aria-hidden={!mobileOpen}
+    >
+      <button
+        type="button"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="pp-mobile-nav__backdrop"
+        onClick={() => setMobileOpen(false)}
+      />
+      <div className="pp-mobile-nav__inner">
+        <button
+          type="button"
+          className="pp-mobile-nav__close"
+          id="pp-mobile-close"
+          aria-label="Fermer le menu"
+          onClick={() => setMobileOpen(false)}
+        >
+          ×
+        </button>
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="pp-mobile-nav__link"
+            onClick={() => setMobileOpen(false)}
+          >
+            {link.label}
+          </Link>
+        ))}
+        <div className="pp-mobile-nav__ctas">
+          <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm">
+            Louer un transat
+          </Link>
+          <Link href="/contact" className="pp-btn pp-btn--primary">
+            Réserver
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+
   return (
     <>
       <button
@@ -57,50 +109,7 @@ function MobileNavBundle() {
         <span className="pp-burger__line"></span>
       </button>
 
-      <nav
-        className={'pp-mobile-nav' + (mobileOpen ? ' is-open' : '')}
-        id="pp-mobile-nav"
-        role="navigation"
-        aria-label="Navigation mobile"
-        aria-hidden={!mobileOpen}
-      >
-        <button
-          type="button"
-          tabIndex={-1}
-          aria-hidden="true"
-          className="pp-mobile-nav__backdrop"
-          onClick={() => setMobileOpen(false)}
-        />
-        <div className="pp-mobile-nav__inner">
-          <button
-            type="button"
-            className="pp-mobile-nav__close"
-            id="pp-mobile-close"
-            aria-label="Fermer le menu"
-            onClick={() => setMobileOpen(false)}
-          >
-            ×
-          </button>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="pp-mobile-nav__link"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="pp-mobile-nav__ctas">
-            <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm">
-              Louer un transat
-            </Link>
-            <Link href="/contact" className="pp-btn pp-btn--primary">
-              Réserver
-            </Link>
-          </div>
-        </div>
-      </nav>
+      {portalReady ? createPortal(mobileNavPanel, document.body) : null}
     </>
   );
 }
