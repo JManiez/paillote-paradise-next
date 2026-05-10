@@ -52,6 +52,8 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
+  /** Évite que la barre clavier recouvre les champs sur mobile */
+  interactiveWidget: 'resizes-content',
 };
 
 const businessJsonLd = {

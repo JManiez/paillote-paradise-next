@@ -1,6 +1,6 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
-import { PARADISE_GALLERY_2025 } from '@/lib/paradiseGallery2025';
+import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
 
 /** Sections masquées temporairement */
 const SHOW_HOME_DIMANCHE = false;
@@ -732,7 +732,7 @@ export function HomePageBody(): ReactNode {
               </div>
       
               <div className="pp-instagram__grid" data-pp-reveal>
-                {PARADISE_GALLERY_2025.map((item) => (
+                {PARADISE_GALLERY.map((item) => (
                   <div className="pp-instagram__item" key={item.src}>
                     <img src={item.src} alt={item.alt} loading="lazy" width="400" height="400" />
                   </div>
