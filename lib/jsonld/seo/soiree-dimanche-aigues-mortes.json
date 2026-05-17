@@ -3,7 +3,7 @@
     "@context": "https://schema.org",
     "@type": "Event",
     "name": "La Soirée du Dimanche — La Paillote Paradise",
-    "description": "La soirée du dimanche incontournable à Aigues-Mortes. Chaque dimanche d'avril à septembre, 600 personnes se retrouvent au Domaine du Petit Chaumont pour une nuit festive avec DJ set professionnel.",
+    "description": "La soirée du dimanche incontournable à Aigues-Mortes. Chaque dimanche de juin à septembre, 600 personnes se retrouvent au Domaine du Petit Chaumont pour une nuit festive avec DJ set professionnel.",
     "url": "https://www.pailloteparadise.fr/soirees",
     "eventSchedule": {
       "@type": "Schedule",

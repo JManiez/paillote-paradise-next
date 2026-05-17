@@ -1,5 +1,6 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
 
 export function GaleriePageBody(): ReactNode {
   return (
@@ -24,7 +25,7 @@ export function GaleriePageBody(): ReactNode {
               </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">En images</span>
               <h1 className="pp-page-hero__title" id="galerie-title">La Galerie Paradise</h1>
-              <p className="pp-page-hero__subtitle">Bar à Tapas · Piscine · Soirées · Événements</p>
+              <p className="pp-page-hero__subtitle">{PARADISE_GALLERY.length} photos — Saison 2025</p>
             </div>
       
             
@@ -39,83 +40,20 @@ export function GaleriePageBody(): ReactNode {
               <div className="pp-section-header" data-pp-reveal>
                 <h2 className="pp-title" id="photos-title" style={{ position: "absolute", width: "1px", height: "1px", clip: "rect(0,0,0,0)" }}>Galerie photos</h2>
               </div>
-      
-              
-              <div className="pp-gallery-filters" role="group" aria-label="Filtrer les photos par categorie" data-pp-reveal>
-                <button className="pp-gallery-filter is-active" data-filter="all" aria-pressed="true">Tout voir</button>
-                <button className="pp-gallery-filter" data-filter="restaurant" aria-pressed="false">Bar à Tapas</button>
-                <button className="pp-gallery-filter" data-filter="piscine" aria-pressed="false">Piscine &amp; Transats</button>
-                <button className="pp-gallery-filter" data-filter="soirees" aria-pressed="false">Soirées</button>
-                <button className="pp-gallery-filter" data-filter="evenements" aria-pressed="false">Événements</button>
-                <button className="pp-gallery-filter" data-filter="domaine" aria-pressed="false">Le Domaine</button>
-              </div>
-      
-              
+
               <div className="pp-gallery-grid" data-pp-reveal aria-label="Galerie photos de la Paillote Paradise">
-      
-                
-                <div className="pp-gallery-item pp-gallery-item--wide" data-cat="restaurant">
-                  <img src="/assets/images/restaurant-hero.jpg" alt="Terrasse du bar à tapas La Paillote Paradise avec vue sur la piscine" className="pp-gallery-item__img" loading="lazy" width="900" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true">
-                    <span> Bar à Tapas</span>
+                {PARADISE_GALLERY.map((item, index) => (
+                  <div className="pp-gallery-item" key={item.src}>
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="pp-gallery-item__img"
+                      loading={index < 12 ? 'eager' : 'lazy'}
+                      width="450"
+                      height="450"
+                    />
                   </div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="piscine">
-                  <img src="/assets/images/piscine-hero.jpg" alt="Transats et parasols au bord de la piscine privée" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Piscine</span></div>
-                </div>
-      
-                <div className="pp-gallery-item pp-gallery-item--tall" data-cat="soirees">
-                  <img src="/assets/images/hero-soirees.jpg" alt="Soiree DJ au bord de la piscine illuminee — Paillote Paradise" className="pp-gallery-item__img" loading="lazy" width="450" height="900" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Soirée</span></div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="restaurant">
-                  <img src="/assets/images/universe-restaurant.jpg" alt="Tapas maison — bar à tapas Paillote Paradise" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Bar à Tapas</span></div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="piscine">
-                  <img src="/assets/images/universe-piscine.jpg" alt="Vue plongeante sur la piscine depuis le parasol" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Piscine</span></div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="evenements">
-                  <img src="/assets/images/soiree-dimanche.jpg" alt="EVJF privatise au bord de la piscine — Paillote Paradise" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> EVJF</span></div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="soirees">
-                  <img src="/assets/images/universe-soirees.jpg" alt="Foule festive lors de la soiree du dimanche Paradise" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Soirée du Dimanche</span></div>
-                </div>
-      
-                <div className="pp-gallery-item pp-gallery-item--wide" data-cat="domaine">
-                  <img src="/assets/images/hero-home.jpg" alt="Vue panoramique du Domaine du Petit Chaumont en Camargue" className="pp-gallery-item__img" loading="lazy" width="900" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Le Domaine</span></div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="restaurant">
-                  <img src="/assets/images/restaurant-hero.jpg" alt="Brunch du dimanche — buffet et ambiance festive" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Brunch</span></div>
-                </div>
-      
-                <div className="pp-gallery-item pp-gallery-item--tall" data-cat="evenements">
-                  <img src="/assets/images/privatisation-hero.jpg" alt="Anniversaire privatise au domaine — decoration et ambiance festive" className="pp-gallery-item__img" loading="lazy" width="450" height="900" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Anniversaire</span></div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="soirees">
-                  <img src="/assets/images/hero-soirees.jpg" alt="DJ guest lors d'une soiree thematique — Paillote Paradise" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> DJ Set</span></div>
-                </div>
-      
-                <div className="pp-gallery-item" data-cat="piscine">
-                  <img src="/assets/images/universe-bar.jpg" alt="Cocktail au bord de la piscine — service aux transats" className="pp-gallery-item__img" loading="lazy" width="450" height="450" />
-                  <div className="pp-gallery-item__overlay" aria-hidden="true"><span> Cocktails</span></div>
-                </div>
-      
+                ))}
               </div>
       
               

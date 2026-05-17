@@ -82,10 +82,10 @@ export function ContactPageBody(): ReactNode {
                       <div>
                         <p className="pp-acces__item-title">Ouverture</p>
                         <p className="pp-acces__item-text">
-                          Ouvert d'avril à septembre<br />
-                          Mardi → Samedi : 11h&#8239;–&#8239;19h<br />
+                          Ouvert de juin à septembre<br />
+                          Mercredi → Samedi : 11h&#8239;–&#8239;19h<br />
                           Dimanche : 12h&#8239;–&#8239;00h (United)<br />
-                          Lundi fermé
+                          Lundi &amp; Mardi fermés
                         </p>
                       </div>
                     </div>

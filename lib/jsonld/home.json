@@ -32,7 +32,6 @@
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": [
-              "Tuesday",
               "Wednesday",
               "Thursday",
               "Friday",
@@ -40,7 +39,7 @@
             ],
             "opens": "11:00",
             "closes": "19:00",
-            "validFrom": "2026-04-01",
+            "validFrom": "2026-06-01",
             "validThrough": "2026-09-30"
           },
           {
@@ -50,7 +49,7 @@
             ],
             "opens": "12:00",
             "closes": "23:59",
-            "validFrom": "2026-04-01",
+            "validFrom": "2026-06-01",
             "validThrough": "2026-09-30"
           }
         ],
@@ -140,7 +139,7 @@
             "name": "Quand a lieu la soirée du dimanche ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La grande soirée United by La Paillote Paradise a lieu chaque dimanche de la saison (avril à septembre), de 12h à minuit. C'est l'événement incontournable de la région, avec DJs internationaux et ambiance festive au bord de la piscine."
+              "text": "La grande soirée United by La Paillote Paradise a lieu chaque dimanche de la saison (juin à septembre), de 12h à minuit. C'est l'événement incontournable de la région, avec DJs internationaux et ambiance festive au bord de la piscine."
             }
           }
         ]

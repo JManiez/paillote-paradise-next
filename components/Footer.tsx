@@ -118,9 +118,9 @@ export function Footer() {
             <div className="pp-footer__contact-item">
               <span className="pp-footer__contact-icon"></span>
               <span>
-                Ouvert d&apos;avril à septembre
+                Ouvert de juin à septembre
                 <br />
-                Mar.&#8239;–&#8239;Sam. 11h&#8239;–&#8239;19h · Dim. 12h&#8239;–&#8239;00h (United)
+                Mer.&#8239;–&#8239;Sam. 11h&#8239;–&#8239;19h · Dim. 12h&#8239;–&#8239;00h (United)
               </span>
             </div>
           </div>

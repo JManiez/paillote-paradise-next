@@ -56,7 +56,7 @@ export function SeoPiscinePriveeCamarguePageBody(): ReactNode {
           <section className="pp-section" style={{ background: "var(--pp-ocean)" }} aria-labelledby="cta-piscine-seo">
             <div className="pp-container" style={{ textAlign: "center" }}>
               <h2 className="pp-title pp-title--light" id="cta-piscine-seo" data-pp-reveal>Réservez votre journée piscine en Camargue</h2>
-              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Disponible d'avril à septembre. Réservation obligatoire pour les transats.</p>
+              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Disponible de juin à septembre. Réservation obligatoire pour les transats.</p>
               <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
                 <a href="/contact" className="pp-btn pp-btn--primary pp-btn--lg">Réserver maintenant</a>
                 <a href="/piscine-transats" className="pp-btn pp-btn--secondary pp-btn--lg">Voir les formules</a>

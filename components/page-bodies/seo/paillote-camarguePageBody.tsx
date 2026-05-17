@@ -70,7 +70,7 @@ export function SeoPailloteCamarguePageBody(): ReactNode {
           <section className="pp-cta-section" aria-labelledby="cta-paillote-seo">
             <div className="pp-container" style={{ textAlign: "center" }}>
               <h2 className="pp-title pp-title--light" id="cta-paillote-seo" data-pp-reveal>Venez découvrir la paillote de Camargue</h2>
-              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert d'avril à septembre · Mardi → Samedi 11h&#8239;–&#8239;19h, Dimanche 12h&#8239;–&#8239;00h. Domaine du Petit Chaumont, Aigues-Mortes.</p>
+              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi 11h&#8239;–&#8239;19h, Dimanche 12h&#8239;–&#8239;00h. Domaine du Petit Chaumont, Aigues-Mortes.</p>
               <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
                 <a href="/contact" className="pp-btn pp-btn--primary pp-btn--lg">Nous contacter</a>
                 <a href="/" className="pp-btn pp-btn--secondary pp-btn--lg">Découvrir le site</a>

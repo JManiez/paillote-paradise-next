@@ -86,7 +86,7 @@ export function HomePageBody(): ReactNode {
                 <span className="pp-eyebrow pp-eyebrow--theatrical">Notre univers</span>
                 <h2 className="pp-title pp-title--editorial" id="univers-title">Quatre expériences,<br />un seul <em className="pp-word-gold">endroit magique</em></h2>
                 <p className="pp-subtitle">
-                  Du Mardi au Samedi de 11h à 19h, et chaque Dimanche jusqu'à minuit pour United —
+                  Du Mercredi au Samedi de 11h à 19h, et chaque Dimanche jusqu'à minuit pour United —
                   La Paillote Paradise vous offre une parenthèse hors du temps dans le plus beau domaine de Camargue.
                 </p>
               </div>
@@ -116,7 +116,7 @@ export function HomePageBody(): ReactNode {
                 </a>
       
                 
-                <a href="/contact" className="pp-bento__cell pp-bento__cell--sq" role="listitem" aria-label="Decouvrir la carte des cocktails">
+                <a href="/bar" className="pp-bento__cell pp-bento__cell--sq" role="listitem" aria-label="Decouvrir la carte des cocktails">
                   <img src="/assets/images/universe-bar.jpg" alt="Bar à cocktails Paillote Paradise" loading="lazy" style={{ objectPosition: "center 55%" }} />
                   <span className="pp-bento__num" aria-hidden="true">04</span>
                   <div className="pp-bento__body">
@@ -421,7 +421,7 @@ export function HomePageBody(): ReactNode {
                   <span className="pp-eyebrow">Agenda</span>
                   <h2 className="pp-title pp-title--light" id="agenda-title">Programme<br />de la<br /><em>semaine</em></h2>
                   <p className="pp-agenda__aside-sub">
-                    Aperçu d'une semaine type en saison — Mardi à Samedi de 11h à 19h, Dimanche de 12h à minuit pour United.
+                    Aperçu d'une semaine type en saison — Mercredi à Samedi de 11h à 19h, Dimanche de 12h à minuit pour United.
                   </p>
                   <div className="pp-agenda__legend">
                     <span className="pp-agenda__legend-item">
@@ -453,15 +453,13 @@ export function HomePageBody(): ReactNode {
                     </div>
                   </div>
       
-                  <div className="pp-agenda__row" role="listitem" data-pp-reveal data-pp-delay="1">
+                  <div className="pp-agenda__row pp-agenda__row--closed" role="listitem" data-pp-reveal data-pp-delay="1">
                     <div className="pp-agenda__row-label">
                       <span className="pp-agenda__row-abbr">Mar</span>
                       <span className="pp-agenda__row-full">Mardi</span>
                     </div>
                     <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 11h → 19h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--closed"> Fermé</span>
                     </div>
                   </div>
       
@@ -693,7 +691,7 @@ export function HomePageBody(): ReactNode {
                       <div className="pp-acces__item-icon" aria-hidden="true"></div>
                       <div>
                         <p className="pp-acces__item-title">Saison & horaires</p>
-                        <p className="pp-acces__item-text">Ouvert d'avril à septembre · Mardi → Samedi 11h&#8239;–&#8239;19h · Dimanche 12h&#8239;–&#8239;00h (United)</p>
+                        <p className="pp-acces__item-text">Ouvert de juin à septembre · Mercredi → Samedi 11h&#8239;–&#8239;19h · Dimanche 12h&#8239;–&#8239;00h (United)</p>
                       </div>
                     </div>
                   </div>

@@ -32,7 +32,7 @@ export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
                     Au cœur du <strong>Domaine du Petit Chaumont</strong>, La Paillote Paradise propose une expérience de restauration unique en Camargue. Cuisine méditerranéenne fraîche et généreuse, servie les pieds dans l'eau, face à une piscine d'exception.
                   </p>
                   <p style={{ color: "var(--pp-gray)", lineHeight: "1.8", marginBottom: "var(--pp-space-6)" }}>
-                    Que vous cherchiez un <strong>restaurant paillote Aigues-Mortes</strong> pour déjeuner en famille, dîner en amoureux ou organiser un événement, notre équipe vous accueille dans une atmosphère chaleureuse et festive du mois d'avril à septembre.
+                    Que vous cherchiez un <strong>restaurant paillote Aigues-Mortes</strong> pour déjeuner en famille, dîner en amoureux ou organiser un événement, notre équipe vous accueille dans une atmosphère chaleureuse et festive du mois de juin à septembre.
                   </p>
                   <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--pp-space-3)", marginBottom: "var(--pp-space-8)" }}>
                     <li style={{ display: "flex", gap: "var(--pp-space-3)", alignItems: "center" }}><span style={{ color: "var(--pp-sunset)" }}></span> Cuisine 100% méditerranéenne, produits frais et locaux</li>
@@ -88,7 +88,7 @@ export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
           <section className="pp-cta-section" aria-labelledby="cta-rest-seo-title">
             <div className="pp-container" style={{ textAlign: "center" }}>
               <h2 className="pp-title pp-title--light" id="cta-rest-seo-title" data-pp-reveal>Réservez votre table au meilleur restaurant paillote d'Aigues-Mortes</h2>
-              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert d'avril à septembre · Mardi → Samedi de 11h à 19h, Dimanche de 12h à minuit (United). Réservation conseillée.</p>
+              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi de 11h à 19h, Dimanche de 12h à minuit (United). Réservation conseillée.</p>
               <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
                 <a href="/contact" className="pp-btn pp-btn--primary pp-btn--lg">Réserver une table</a>
                 <a href="/restaurant" className="pp-btn pp-btn--secondary pp-btn--lg">Voir les menus</a>
