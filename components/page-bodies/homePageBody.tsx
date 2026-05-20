@@ -154,7 +154,7 @@ export function HomePageBody(): ReactNode {
       
             <div className="pp-container pp-container--sm">
               <p className="pp-philosophy__quote" id="philosophy-quote" data-pp-reveal>
-                Ici, le temps s'arrête. Entre <em className="pp-word-gold">ciel et sel</em>, chaque instant
+                Ici, le temps s'arrête. Entre <em className="pp-word-gold">sel et vignes</em>, chaque instant
                 devient un souvenir — une invitation à savourer l'essentiel.
               </p>
               <span className="pp-philosophy__author" data-pp-reveal data-pp-delay="1">La Paillote Paradise</span>
