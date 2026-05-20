@@ -2443,6 +2443,12 @@ p { line-height: 1.75; }
   opacity: 1;
 }
 
+.pp-gallery-load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--pp-space-10);
+}
+
 /* Filtres galerie */
 .pp-gallery-filters {
   display: flex;

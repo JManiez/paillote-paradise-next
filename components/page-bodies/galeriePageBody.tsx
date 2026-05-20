@@ -1,5 +1,6 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { GalleryGrid } from '@/components/GalleryGrid';
 import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
 
 export function GaleriePageBody(): ReactNode {
@@ -41,20 +42,7 @@ export function GaleriePageBody(): ReactNode {
                 <h2 className="pp-title" id="photos-title" style={{ position: "absolute", width: "1px", height: "1px", clip: "rect(0,0,0,0)" }}>Galerie photos</h2>
               </div>
 
-              <div className="pp-gallery-grid" data-pp-reveal aria-label="Galerie photos de la Paillote Paradise">
-                {PARADISE_GALLERY.map((item, index) => (
-                  <div className="pp-gallery-item" key={item.src}>
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="pp-gallery-item__img"
-                      loading={index < 12 ? 'eager' : 'lazy'}
-                      width="450"
-                      height="450"
-                    />
-                  </div>
-                ))}
-              </div>
+              <GalleryGrid />
       
               
               <div style={{ textAlign: "center", marginTop: "var(--pp-space-16)" }} data-pp-reveal>
