@@ -17,7 +17,7 @@ export function HomePageBody(): ReactNode {
       <section className="pp-hero" aria-labelledby="hero-title">
             <img
               src="/assets/images/hero-home-bg.jpg"
-              alt="La Paillote Paradise — terrasse au bord de l'étang, palmiers et ambiance tropicale, Aigues-Mortes"
+              alt="La Paillote Paradise — piscine privée, transats et parasols au Domaine du Petit Chaumont, Aigues-Mortes"
               className="pp-hero__img"
               loading="eager"
               fetchPriority="high"

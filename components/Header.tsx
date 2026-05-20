@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { PP_PHONE_E164 } from '../lib/publicPhone';
+import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '../lib/publicPhone';
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
@@ -18,7 +18,11 @@ const navLinks = [
 ];
 
 /** key={pathname} sur le parent remonte le composant → menu fermé sans setState dans un effet. */
-function MobileNavBundle() {
+function MobileNavBundle({
+  isActive,
+}: {
+  isActive: (href: string) => boolean;
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [portalReady, setPortalReady] = useState(false);
 
@@ -29,11 +33,14 @@ function MobileNavBundle() {
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('pp-nav-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('pp-nav-open');
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('pp-nav-open');
     };
   }, [mobileOpen]);
 
@@ -62,32 +69,69 @@ function MobileNavBundle() {
         onClick={() => setMobileOpen(false)}
       />
       <div className="pp-mobile-nav__inner">
-        <button
-          type="button"
-          className="pp-mobile-nav__close"
-          id="pp-mobile-close"
-          aria-label="Fermer le menu"
-          onClick={() => setMobileOpen(false)}
-        >
-          ×
-        </button>
-        {navLinks.map((link) => (
+        <div className="pp-mobile-nav__head">
           <Link
-            key={link.href}
-            href={link.href}
-            className="pp-mobile-nav__link"
+            href="/"
+            className="pp-mobile-nav__brand"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Paillote Paradise — Accueil"
+          >
+            <Image
+              src="/assets/images/logo-white.png"
+              alt=""
+              width={120}
+              height={48}
+              className="pp-mobile-nav__brand-img"
+            />
+          </Link>
+          <button
+            type="button"
+            className="pp-mobile-nav__close"
+            id="pp-mobile-close"
+            aria-label="Fermer le menu"
             onClick={() => setMobileOpen(false)}
           >
-            {link.label}
-          </Link>
-        ))}
-        <div className="pp-mobile-nav__ctas">
-          <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm">
-            Louer un transat
-          </Link>
-          <Link href="/contact" className="pp-btn pp-btn--primary">
-            Réserver
-          </Link>
+            <span aria-hidden="true" />
+          </button>
+        </div>
+
+        <p className="pp-mobile-nav__label">Menu</p>
+        <ul className="pp-mobile-nav__links">
+          {navLinks.map((link, index) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className={
+                  'pp-mobile-nav__link' + (isActive(link.href) ? ' is-active' : '')
+                }
+                aria-current={isActive(link.href) ? 'page' : undefined}
+                onClick={() => setMobileOpen(false)}
+              >
+                <span className="pp-mobile-nav__link-num" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="pp-mobile-nav__link-text">{link.label}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="pp-mobile-nav__foot">
+          <a href={`tel:${PP_PHONE_E164}`} className="pp-mobile-nav__phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.68a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg>
+            {PP_PHONE_DISPLAY}
+          </a>
+          <p className="pp-mobile-nav__hours">Juin – sept. · Mer.–Sam. 11h–19h · Dim. 12h–00h</p>
+          <div className="pp-mobile-nav__ctas">
+            <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm" onClick={() => setMobileOpen(false)}>
+              Louer un transat
+            </Link>
+            <Link href="/contact" className="pp-btn pp-btn--primary" onClick={() => setMobileOpen(false)}>
+              Réserver
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
@@ -179,10 +223,19 @@ export function Header() {
             </Link>
 
             <div className="pp-header__cta pp-header__cta--right">
-              <Link href="/contact" className="pp-btn pp-btn--primary pp-btn--xs">
+              <Link href="/contact" className="pp-btn pp-btn--primary pp-btn--xs pp-header__reserve">
                 Réserver
               </Link>
-              <MobileNavBundle key={pathname} />
+              <a
+                href={`tel:${PP_PHONE_E164}`}
+                className="pp-header__tel-icon"
+                aria-label={`Appeler la Paillote — ${PP_PHONE_DISPLAY}`}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.68a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg>
+              </a>
+              <MobileNavBundle key={pathname} isActive={isActive} />
             </div>
           </div>
         </div>
