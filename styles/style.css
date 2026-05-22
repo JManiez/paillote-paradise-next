@@ -566,17 +566,30 @@ p { line-height: 1.75; }
   text-decoration: none;
   flex-shrink: 0;
   justify-self: center;
+  line-height: 0;
 }
 
-.pp-header__logo-img {
+/* Wrapper next/image : évite la boîte aspect-ratio qui décale le logo */
+.pp-header__logo > span {
+  display: flex !important;
+  align-items: center;
+  line-height: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.pp-header__logo-img,
+.pp-header__logo img {
+  display: block;
   height: 72px;
-  width: auto;
+  width: auto !important;
   max-width: 180px;
   object-fit: contain;
   transition: height 0.4s ease, opacity 0.3s ease;
 }
 
-.pp-header--scrolled .pp-header__logo-img {
+.pp-header--scrolled .pp-header__logo-img,
+.pp-header--scrolled .pp-header__logo img {
   height: 48px;
 }
 
@@ -4013,7 +4026,20 @@ p { line-height: 1.75; }
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
     pointer-events: auto;
+  }
+
+  .pp-header__logo > span {
+    display: flex !important;
+    align-items: center;
+    line-height: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 44px;
   }
 
   .pp-header__side--end {
@@ -4066,19 +4092,20 @@ p { line-height: 1.75; }
     touch-action: manipulation;
   }
 
-  .pp-header__logo {
-    position: relative;
-    z-index: 1;
-    pointer-events: auto;
-  }
-  .pp-header__logo-img {
-    height: 44px;
-    width: auto;
+  .pp-header__logo-img,
+  .pp-header__logo img {
+    display: block;
+    height: 44px !important;
+    width: auto !important;
     max-width: min(42vw, 160px);
     filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.35));
   }
-  .pp-header--scrolled .pp-header__logo-img {
-    height: 40px;
+  .pp-header--scrolled .pp-header__logo > span {
+    max-height: 40px;
+  }
+  .pp-header--scrolled .pp-header__logo-img,
+  .pp-header--scrolled .pp-header__logo img {
+    height: 40px !important;
   }
 
   .pp-header__tel-icon,
@@ -4176,8 +4203,20 @@ p { line-height: 1.75; }
   .pp-footer__logo-img { height: 42px; }
 
   /* ── Typo ── */
-  .pp-hero__title { font-size: var(--pp-text-4xl); }
-  .pp-hero__subtitle { font-size: var(--pp-text-base); }
+  .pp-hero__title {
+    font-size: clamp(2.125rem, 7.2vw, 2.875rem);
+    line-height: 1.12;
+    margin-bottom: var(--pp-space-5);
+  }
+  .pp-hero__subtitle {
+    font-size: var(--pp-text-md);
+    line-height: 1.65;
+    margin-bottom: var(--pp-space-10);
+  }
+  .pp-hero__content {
+    padding-inline: max(var(--pp-space-6), env(safe-area-inset-left, 0px))
+      max(var(--pp-space-6), env(safe-area-inset-right, 0px));
+  }
   .pp-page-hero__title { font-size: var(--pp-text-3xl); }
   .pp-form { padding: var(--pp-space-6); }
   .pp-instagram__grid { grid-template-columns: repeat(2, 1fr); gap: var(--pp-space-3); }
@@ -4188,6 +4227,11 @@ p { line-height: 1.75; }
   :root {
     --pp-text-4xl: 1.75rem;
     --pp-text-3xl: 1.5rem;
+  }
+
+  .pp-hero__title {
+    font-size: clamp(2.375rem, 10vw, 2.75rem);
+    line-height: 1.08;
   }
 
   /* Carte boissons mobile : scroll horizontal snappé */

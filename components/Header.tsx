@@ -218,6 +218,7 @@ export function Header() {
                 className="pp-header__logo-img"
                 width={148}
                 height={100}
+                sizes="(max-width: 900px) min(42vw, 160px), 148px"
                 priority
               />
             </Link>

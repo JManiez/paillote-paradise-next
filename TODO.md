@@ -31,10 +31,8 @@
 |--------|------------------------|--------|
 | Hero Contact | `public/assets/images/hero-contact.jpg` | Photo dédiée entrée / domaine |
 | Hero Galerie | `public/assets/images/hero-galerie.jpg` | Photo dédiée (vue domaine / piscine) |
-| Carrousel cocktails | `lib/carouselPlaceholders.ts` → `public/assets/images/carousel/cocktails/` | ~8 photos |
-| Carrousel tapas | `lib/carouselPlaceholders.ts` → `public/assets/images/carousel/tapas/` | ~8 photos plats |
-
-Après ajout des fichiers : mettre à jour `COCKTAIL_CAROUSEL_PLACEHOLDERS` et `TAPAS_CAROUSEL_PLACEHOLDERS` dans `lib/carouselPlaceholders.ts`.
+| Carrousel cocktails | `public/assets/images/carousel/cocktails/` (8× DSC) | Fait |
+| Carrousel tapas | `public/assets/images/carousel/tapas/` (17× DSC) | Fait |
 
 ---
 
@@ -46,3 +44,4 @@ Après ajout des fichiers : mettre à jour `COCKTAIL_CAROUSEL_PLACEHOLDERS` et `
 - Hero accueil : « entre sel et vignes »
 - CTA : « Privatiser la paillote »
 - Boutons `.pp-btn` : coins arrondis 8px (`--pp-radius`)
+- Carrousels : 8 cocktails + 17 tapas dans `carousel/`

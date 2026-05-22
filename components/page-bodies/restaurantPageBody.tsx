@@ -123,7 +123,6 @@ export function RestaurantPageBody(): ReactNode {
                 <p className="pp-subtitle">Partagez, picorez, savourez — une cuisine du soleil pensée pour être vécue ensemble.</p>
               </div>
 
-              {/* TODO: remplacer TAPAS_CAROUSEL_PLACEHOLDERS par photos plats/tapas dédiées */}
               <div style={{ marginBottom: "var(--pp-space-16)" }} data-pp-reveal>
                 <PhotoCarousel
                   items={TAPAS_CAROUSEL_PLACEHOLDERS}

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import { Jost, Playfair_Display } from 'next/font/google';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -35,8 +36,12 @@ export const metadata: Metadata = {
     "La Paillote Paradise, paillote privée en Camargue sur domaine viticole. Tapas maison, cocktails, vins du domaine, piscine privée et soirées. Parking gratuit. Domaine du Petit Chaumont, Aigues-Mortes.",
   robots: { index: true, follow: true },
   icons: {
-    icon: [{ url: '/assets/images/favicon-32.png', sizes: '32x32', type: 'image/png' }],
-    apple: [{ url: '/assets/images/apple-touch-icon.png', sizes: '180x180' }],
+    icon: [
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/assets/images/favicon-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/assets/images/favicon-32.png',
   },
   openGraph: {
     type: 'website',
@@ -135,6 +140,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
         <ClientScripts />
+        <Analytics />
       </body>
     </html>
   );

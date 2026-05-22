@@ -81,7 +81,6 @@ export function BarPageBody(): ReactNode {
                 <p className="pp-subtitle">Shaken or stirred — à déguster les pieds dans l'eau, face au coucher de soleil.</p>
               </div>
 
-              {/* TODO: remplacer COCKTAIL_CAROUSEL_PLACEHOLDERS par photos cocktails dédiées */}
               <div style={{ marginBottom: "var(--pp-space-16)" }} data-pp-reveal>
                 <PhotoCarousel
                   items={COCKTAIL_CAROUSEL_PLACEHOLDERS}
