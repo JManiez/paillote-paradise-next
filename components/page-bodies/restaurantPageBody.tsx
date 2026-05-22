@@ -1,20 +1,22 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PhotoCarousel } from '@/components/PhotoCarousel';
+import { TAPAS_CAROUSEL_PLACEHOLDERS } from '@/lib/carouselPlaceholders';
 import { PP_PHONE_E164 } from '@/lib/publicPhone';
 
 export function RestaurantPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="page-title">
-            <img
+            <Image
               src="/assets/images/hero-restaurant-2025.jpg"
               alt="Bar à tapas La Paillote Paradise — terrasse et piscine sur le domaine viticole"
+              fill
               className="pp-page-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="800"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -63,14 +65,14 @@ export function RestaurantPageBody(): ReactNode {
                   </div>
                 </div>
                 <div data-pp-reveal="right" style={{ borderRadius: "var(--pp-radius-xl)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
-                  <img
+                  <Image
                     src="/assets/images/universe-restaurant.jpg"
                     alt="Terrasse et piscine du bar à tapas La Paillote Paradise — Domaine du Petit Chaumont"
-                    loading="lazy"
-                    width="700"
-                    height="500"
+                    width={700}
+                    height={500}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ width: "100%", height: "auto" }}
-                   />
+                  />
                 </div>
               </div>
       
@@ -119,6 +121,15 @@ export function RestaurantPageBody(): ReactNode {
                 <span className="pp-eyebrow pp-eyebrow--gold">Saison 2026</span>
                 <h2 className="pp-title pp-title--editorial" id="tapas-title">La <em className="pp-word-gold">Carte</em> Tapas</h2>
                 <p className="pp-subtitle">Partagez, picorez, savourez — une cuisine du soleil pensée pour être vécue ensemble.</p>
+              </div>
+
+              {/* TODO: remplacer TAPAS_CAROUSEL_PLACEHOLDERS par photos plats/tapas dédiées */}
+              <div style={{ marginBottom: "var(--pp-space-16)" }} data-pp-reveal>
+                <PhotoCarousel
+                  items={TAPAS_CAROUSEL_PLACEHOLDERS}
+                  ariaLabel="Plats et tapas — La Paillote Paradise"
+                  id="carousel-tapas"
+                />
               </div>
       
               

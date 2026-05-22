@@ -1,11 +1,12 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 export function SeoSoireeDimancheAiguesMortesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-soiree-title">
-            <img src="/assets/images/hero-soirees.jpg" alt="Soiree du dimanche Aigues-Mortes — La Paillote Paradise, foule et DJ en Camargue" className="pp-page-hero__img" loading="eager" fetchPriority="high" width="1920" height="800" />
+            <Image src="/assets/images/hero-soirees.jpg" alt="Soiree du dimanche Aigues-Mortes — La Paillote Paradise, foule et DJ en Camargue" fill className="pp-page-hero__img" priority sizes="100vw" />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -50,7 +51,9 @@ export function SeoSoireeDimancheAiguesMortesPageBody(): ReactNode {
                   </div>
                 </div>
                 <div data-pp-reveal="right">
-                  <img src="/assets/images/soiree-dimanche.jpg" alt="Soiree du dimanche La Paillote Paradise — ambiance festive, DJ et foule en Camargue" loading="lazy" width="700" height="500" style={{ width: "100%", borderRadius: "var(--pp-radius-lg)", objectFit: "cover", height: "450px", boxShadow: "var(--pp-shadow-lg)" }} />
+                  <div style={{ position: "relative", width: "100%", height: "450px", borderRadius: "var(--pp-radius-lg)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
+                    <Image src="/assets/images/soiree-dimanche.jpg" alt="Soiree du dimanche La Paillote Paradise — ambiance festive, DJ et foule en Camargue" fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 50vw" />
+                  </div>
                 </div>
               </div>
             </div>

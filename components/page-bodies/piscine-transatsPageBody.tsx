@@ -1,4 +1,5 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PP_PHONE_E164 } from '@/lib/publicPhone';
 
@@ -6,15 +7,14 @@ export function PiscineTransatsPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="piscine-title">
-            <img
+            <Image
               src="/assets/images/hero-piscine-2025.jpg"
               alt="Piscine privée de la Paillote Paradise avec transats et parasols, Aigues-Mortes Camargue"
+              fill
               className="pp-page-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="800"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -25,7 +25,7 @@ export function PiscineTransatsPageBody(): ReactNode {
               </nav>
               <span className="pp-eyebrow pp-eyebrow--gold pp-eyebrow--theatrical">Détente absolue</span>
               <h1 className="pp-page-hero__title pp-title--editorial" id="piscine-title">Piscine &amp; <em className="pp-word-gold">Transats</em></h1>
-              <p className="pp-page-hero__subtitle">Piscine privée 150 m² · Transats premium · Bar au bord de l'eau</p>
+              <p className="pp-page-hero__subtitle">Piscine privée 80 m² · Transats premium · Bar au bord de l'eau</p>
             </div>
       
             
@@ -43,7 +43,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                   <span className="pp-eyebrow pp-eyebrow--theatrical">Le concept</span>
                   <h2 className="pp-title pp-title--editorial" id="concept-title">Votre journée <em className="pp-word-gold">paradisiaque</em> en Camargue</h2>
                   <p style={{ color: "var(--pp-gray)", lineHeight: "1.8", marginBottom: "var(--pp-space-6)" }}>
-                    La piscine privée de la Paillote Paradise, c'est 150 m² d'eau cristalline
+                    La piscine privée de la Paillote Paradise, c'est 80 m² d'eau cristalline
                     nichés au cœur du Domaine du Petit Chaumont, <strong>à l'abri des regards et loin de la foule</strong>.
                     Transats premium, service aux chaises longues et cocktails maison — tout est pensé
                     pour votre confort et votre plaisir.
@@ -63,14 +63,14 @@ export function PiscineTransatsPageBody(): ReactNode {
                   </div>
                 </div>
                 <div data-pp-reveal="right" style={{ borderRadius: "var(--pp-radius-xl)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
-                  <img
+                  <Image
                     src="/assets/images/universe-piscine.jpg"
                     alt="Transats et parasols au bord de la piscine privée — Paillote Paradise"
-                    loading="lazy"
-                    width="700"
-                    height="500"
+                    width={700}
+                    height={500}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ width: "100%", height: "auto" }}
-                   />
+                  />
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ export function PiscineTransatsPageBody(): ReactNode {
               <div className="pp-hex-grid">
                 <div className="pp-hex" data-pp-reveal data-pp-delay="1">
                   <div className="pp-hex__icon" aria-hidden="true"></div>
-                  <span className="pp-hex__label">Piscine<br />150 m²</span>
+                  <span className="pp-hex__label">Piscine<br />80 m²</span>
                 </div>
                 <div className="pp-hex" data-pp-reveal data-pp-delay="2">
                   <div className="pp-hex__icon" aria-hidden="true"></div>
@@ -106,7 +106,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                 </div>
                 <div className="pp-hex" data-pp-reveal data-pp-delay="5">
                   <div className="pp-hex__icon" aria-hidden="true"></div>
-                  <span className="pp-hex__label">Cabanas<br />privées</span>
+                  <span className="pp-hex__label">Beds<br />privés</span>
                 </div>
                 <div className="pp-hex" data-pp-reveal data-pp-delay="6">
                   <div className="pp-hex__icon" aria-hidden="true"></div>

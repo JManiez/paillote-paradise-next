@@ -81,7 +81,6 @@ export function Footer() {
               <li><Link href="/seo/restaurant-paillote-aigues-mortes" className="pp-footer__link">Bar à Tapas Aigues-Mortes</Link></li>
               <li><Link href="/seo/piscine-privee-camargue" className="pp-footer__link">Piscine privée Camargue</Link></li>
               <li><Link href="/seo/soiree-dimanche-aigues-mortes" className="pp-footer__link">Soirée Aigues-Mortes</Link></li>
-              <li><Link href="/seo/brunch-dimanche-aigues-mortes" className="pp-footer__link">Brunch dimanche</Link></li>
               <li><Link href="/seo/privatisation-domaine-camargue" className="pp-footer__link">EVJF &amp; EVG Camargue</Link></li>
               <li><Link href="/contact" className="pp-footer__link">Nous contacter</Link></li>
             </ul>
@@ -120,7 +119,7 @@ export function Footer() {
               <span>
                 Ouvert de juin à septembre
                 <br />
-                Mer.&#8239;–&#8239;Sam. 11h&#8239;–&#8239;19h · Dim. 12h&#8239;–&#8239;00h (United)
+                Mer.&#8239;–&#8239;Sam. 12h&#8239;–&#8239;19h · Dim. 12h&#8239;–&#8239;00h (United)
               </span>
             </div>
           </div>

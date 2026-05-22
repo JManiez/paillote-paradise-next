@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
 
@@ -15,14 +16,13 @@ export function GalleryGrid() {
       <div className="pp-gallery-grid" aria-label="Galerie photos de la Paillote Paradise">
         {items.map((item, index) => (
           <div className="pp-gallery-item" key={item.src}>
-            <img
+            <Image
               src={item.src}
               alt={item.alt}
+              fill
               className="pp-gallery-item__img"
-              loading={index < 6 ? 'eager' : 'lazy'}
-              decoding="async"
-              width={450}
-              height={450}
+              sizes="(max-width: 768px) 50vw, 33vw"
+              priority={index < 6}
             />
           </div>
         ))}

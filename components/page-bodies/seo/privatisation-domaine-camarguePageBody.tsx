@@ -1,11 +1,12 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 export function SeoPrivatisationDomaineCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-priv-title">
-            <img src="/assets/images/privatisation-hero.jpg" alt="Privatisation domaine Camargue — La Paillote Paradise, Aigues-Mortes" className="pp-page-hero__img" loading="eager" fetchPriority="high" width="1920" height="800" />
+            <Image src="/assets/images/privatisation-hero.jpg" alt="Privatisation domaine Camargue — La Paillote Paradise, Aigues-Mortes" fill className="pp-page-hero__img" priority sizes="100vw" />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -50,7 +51,9 @@ export function SeoPrivatisationDomaineCamarguePageBody(): ReactNode {
                   </div>
                 </div>
                 <div data-pp-reveal="right">
-                  <img src="/assets/images/privatisation-ambiance.jpg" alt="Privatisation domaine Camargue — La Paillote Paradise, Aigues-Mortes" loading="lazy" width="700" height="500" style={{ width: "100%", borderRadius: "var(--pp-radius-lg)", objectFit: "cover", height: "420px", boxShadow: "var(--pp-shadow-lg)" }} />
+                  <div style={{ position: "relative", width: "100%", height: "420px", borderRadius: "var(--pp-radius-lg)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
+                    <Image src="/assets/images/privatisation-ambiance.jpg" alt="Privatisation domaine Camargue — La Paillote Paradise, Aigues-Mortes" fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 50vw" />
+                  </div>
                 </div>
               </div>
             </div>

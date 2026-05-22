@@ -1,4 +1,5 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '@/lib/publicPhone';
 
@@ -6,15 +7,15 @@ export function ContactPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="contact-page-title">
-            <img
+            {/* TODO photo dédiée à fournir — remplacer hero-contact.jpg */}
+            <Image
               src="/assets/images/hero-contact.jpg"
               alt="Entree du Domaine du Petit Chaumont — La Paillote Paradise, Aigues-Mortes"
+              fill
               className="pp-page-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="800"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -83,7 +84,7 @@ export function ContactPageBody(): ReactNode {
                         <p className="pp-acces__item-title">Ouverture</p>
                         <p className="pp-acces__item-text">
                           Ouvert de juin à septembre<br />
-                          Mercredi → Samedi : 11h&#8239;–&#8239;19h<br />
+                          Mercredi → Samedi : 12h&#8239;–&#8239;19h<br />
                           Dimanche : 12h&#8239;–&#8239;00h (United)<br />
                           Lundi &amp; Mardi fermés
                         </p>

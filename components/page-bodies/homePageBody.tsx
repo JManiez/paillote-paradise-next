@@ -1,4 +1,5 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { HOME_GALLERY_PREVIEW_COUNT } from '@/lib/galleryConstants';
@@ -15,15 +16,14 @@ export function HomePageBody(): ReactNode {
   return (
     <>
       <section className="pp-hero" aria-labelledby="hero-title">
-            <img
+            <Image
               src="/assets/images/hero-home-bg.jpg"
               alt="La Paillote Paradise — piscine privée, transats et parasols au Domaine du Petit Chaumont, Aigues-Mortes"
+              fill
               className="pp-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="1280"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-hero__bg" aria-hidden="true"></div>
             <div className="pp-hero__grain" aria-hidden="true"></div>
       
@@ -34,7 +34,7 @@ export function HomePageBody(): ReactNode {
               </h1>
               <p className="pp-hero__subtitle" data-pp-reveal data-pp-delay="2">
                 Bar à tapas, cocktails, vins du domaine, piscine privée et soirées —
-                un écrin de liberté entre ciel, sel et soleil.
+                un écrin de liberté entre sel et vignes.
               </p>
               <div className="pp-hero__ctas" data-pp-reveal data-pp-delay="3">
                 <a href="/restaurant" className="pp-btn pp-btn--primary pp-btn--lg pp-magnetic">Voir la carte tapas</a>
@@ -86,7 +86,7 @@ export function HomePageBody(): ReactNode {
                 <span className="pp-eyebrow pp-eyebrow--theatrical">Notre univers</span>
                 <h2 className="pp-title pp-title--editorial" id="univers-title">Quatre expériences,<br />un seul <em className="pp-word-gold">endroit magique</em></h2>
                 <p className="pp-subtitle">
-                  Du Mercredi au Samedi de 11h à 19h, et chaque Dimanche jusqu'à minuit pour United —
+                  Du Mercredi au Samedi de 12h à 19h, et chaque Dimanche jusqu'à minuit pour United —
                   La Paillote Paradise vous offre une parenthèse hors du temps dans le plus beau domaine de Camargue.
                 </p>
               </div>
@@ -95,7 +95,7 @@ export function HomePageBody(): ReactNode {
       
                 
                 <a href="/restaurant" className="pp-bento__cell pp-bento__cell--xl" role="listitem" aria-label="Découvrir le bar à tapas">
-                  <img src="/assets/images/universe-restaurant.jpg" alt="Bar à tapas Paillote Paradise" loading="lazy" style={{ objectPosition: "60% center" }} />
+                  <Image src="/assets/images/universe-restaurant.jpg" alt="Bar à tapas Paillote Paradise" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectPosition: "60% center" }} />
                   <span className="pp-bento__num" aria-hidden="true">01</span>
                   <div className="pp-bento__body">
                     <h3 className="pp-bento__title">Bar à Tapas</h3>
@@ -106,7 +106,7 @@ export function HomePageBody(): ReactNode {
       
                 
                 <a href="/piscine-transats" className="pp-bento__cell pp-bento__cell--vert" role="listitem" aria-label="Reserver un transat">
-                  <img src="/assets/images/universe-piscine.jpg" alt="Piscine et transats Paillote Paradise" loading="lazy" style={{ objectPosition: "center 65%" }} />
+                  <Image src="/assets/images/universe-piscine.jpg" alt="Piscine et transats Paillote Paradise" fill sizes="(max-width: 768px) 100vw, 25vw" style={{ objectPosition: "center 65%" }} />
                   <span className="pp-bento__num" aria-hidden="true">02</span>
                   <div className="pp-bento__body">
                     <h3 className="pp-bento__title">Piscine<br />& Transats</h3>
@@ -117,7 +117,7 @@ export function HomePageBody(): ReactNode {
       
                 
                 <a href="/bar" className="pp-bento__cell pp-bento__cell--sq" role="listitem" aria-label="Decouvrir la carte des cocktails">
-                  <img src="/assets/images/universe-bar.jpg" alt="Bar à cocktails Paillote Paradise" loading="lazy" style={{ objectPosition: "center 55%" }} />
+                  <Image src="/assets/images/universe-bar.jpg" alt="Bar à cocktails Paillote Paradise" fill sizes="(max-width: 768px) 100vw, 25vw" style={{ objectPosition: "center 55%" }} />
                   <span className="pp-bento__num" aria-hidden="true">04</span>
                   <div className="pp-bento__body">
                     <h3 className="pp-bento__title">Bar</h3>
@@ -128,7 +128,7 @@ export function HomePageBody(): ReactNode {
       
                 
                 <a href="/soirees" className="pp-bento__cell pp-bento__cell--horiz" role="listitem" aria-label="Voir le programme des soirees">
-                  <img src="/assets/images/bento-soirees-united.jpg" alt="Soirées United — ambiance néon La Paillote Paradise" loading="lazy" />
+                  <Image src="/assets/images/bento-soirees-united.jpg" alt="Soirées United — ambiance néon La Paillote Paradise" fill sizes="(max-width: 768px) 100vw, 50vw" />
                   <span className="pp-bento__num" aria-hidden="true">03</span>
                   <div className="pp-bento__body">
                     <h3 className="pp-bento__title">Soirées & DJ Sets</h3>
@@ -298,13 +298,12 @@ export function HomePageBody(): ReactNode {
                     <span className="pp-sunday__frame-corner pp-sunday__frame-corner--br" aria-hidden="true"></span>
       
                     <div className="pp-sunday__img-frame">
-                      <img
+                      <Image
                         src="/assets/images/soiree-dimanche.jpg"
                         alt="La grande soirée du dimanche — ambiance DJ set au bord de la piscine de la Paillote Paradise"
-                        loading="lazy"
-                        width="640"
-                        height="800"
-                       />
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                      />
                       <span className="pp-sunday__img-overlay" aria-hidden="true"></span>
                       <span className="pp-sunday__img-grain" aria-hidden="true"></span>
                     </div>
@@ -398,7 +397,7 @@ export function HomePageBody(): ReactNode {
                   <span className="pp-stat__label">convives accueillis chaque saison</span>
                 </div>
                 <div className="pp-stat" data-pp-reveal data-pp-delay="3">
-                  <span className="pp-stat__number" data-count="150" data-suffix=" m²">150 m²</span>
+                  <span className="pp-stat__number" data-count="80" data-suffix=" m²">80 m²</span>
                   <span className="pp-stat__label">de piscine privée</span>
                 </div>
                 <div className="pp-stat" data-pp-reveal data-pp-delay="4">
@@ -421,7 +420,7 @@ export function HomePageBody(): ReactNode {
                   <span className="pp-eyebrow">Agenda</span>
                   <h2 className="pp-title pp-title--light" id="agenda-title">Programme<br />de la<br /><em>semaine</em></h2>
                   <p className="pp-agenda__aside-sub">
-                    Aperçu d'une semaine type en saison — Mercredi à Samedi de 11h à 19h, Dimanche de 12h à minuit pour United.
+                    Aperçu d'une semaine type en saison — Mercredi à Samedi de 12h à 19h, Dimanche de 12h à minuit pour United.
                   </p>
                   <div className="pp-agenda__legend">
                     <span className="pp-agenda__legend-item">
@@ -469,9 +468,11 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__row-full">Mercredi</span>
                     </div>
                     <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 11h → 19h</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
                       <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
                       <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 20h → 01h</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--event"> Soirée</span>
                       <span className="pp-agenda__pill pp-agenda__pill--event"> Salsa & Latin Music — soir</span>
                     </div>
                   </div>
@@ -482,7 +483,7 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__row-full">Jeudi</span>
                     </div>
                     <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 11h → 19h</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
                       <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
                       <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
                       </div>
@@ -494,9 +495,11 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__row-full">Vendredi</span>
                     </div>
                     <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 11h → 19h</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
                       <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
                       <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 20h → 01h</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--event"> Soirée</span>
                       <span className="pp-agenda__pill pp-agenda__pill--event"> Soirée généraliste — soir</span>
                     </div>
                   </div>
@@ -507,7 +510,7 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__row-full">Samedi</span>
                     </div>
                     <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 11h → 19h</span>
+                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
                       <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
                       <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
                       <span className="pp-agenda__pill pp-agenda__pill--bar"> Cocktails signature</span>
@@ -691,7 +694,7 @@ export function HomePageBody(): ReactNode {
                       <div className="pp-acces__item-icon" aria-hidden="true"></div>
                       <div>
                         <p className="pp-acces__item-title">Saison & horaires</p>
-                        <p className="pp-acces__item-text">Ouvert de juin à septembre · Mercredi → Samedi 11h&#8239;–&#8239;19h · Dimanche 12h&#8239;–&#8239;00h (United)</p>
+                        <p className="pp-acces__item-text">Ouvert de juin à septembre · Mercredi → Samedi 12h&#8239;–&#8239;19h · Dimanche 12h&#8239;–&#8239;00h (United)</p>
                       </div>
                     </div>
                   </div>
@@ -737,13 +740,12 @@ export function HomePageBody(): ReactNode {
               <div className="pp-instagram__grid" data-pp-reveal>
                 {galleryPreview.map((item, index) => (
                   <div className="pp-instagram__item" key={item.src}>
-                    <img
+                    <Image
                       src={item.src}
                       alt={item.alt}
-                      loading={index < 6 ? 'eager' : 'lazy'}
-                      fetchPriority={index === 0 ? 'high' : undefined}
-                      width="400"
-                      height="400"
+                      fill
+                      sizes="(max-width: 768px) 50vw, 16vw"
+                      priority={index < 6}
                     />
                   </div>
                 ))}
@@ -777,7 +779,7 @@ export function HomePageBody(): ReactNode {
                 </p>
                 <div className="pp-cta-section__actions" data-pp-reveal data-pp-delay="3">
                   <a href="/contact" className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Réserver / Nous contacter</a>
-                  <a href="/privatisation" className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Privatiser le domaine</a>
+                  <a href="/privatisation" className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Privatiser la paillote</a>
                 </div>
               </div>
             </div>

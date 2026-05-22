@@ -1,19 +1,19 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 export function PrivatisationPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="priv-title">
-            <img
+            <Image
               src="/assets/images/privatisation-united-2025.jpg"
               alt="Espace privatisé pour groupe à La Paillote Paradise — Aigues-Mortes"
+              fill
               className="pp-page-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="800"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -56,14 +56,14 @@ export function PrivatisationPageBody(): ReactNode {
                   </div>
                 </div>
                 <div data-pp-reveal="right" style={{ borderRadius: "var(--pp-radius-xl)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
-                  <img
+                  <Image
                     src="/assets/images/privatisation-united-2025.jpg"
                     alt="Groupe profitant de leur espace privatisé à La Paillote Paradise"
-                    loading="lazy"
-                    width="700"
-                    height="500"
+                    width={700}
+                    height={500}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ width: "100%", height: "auto" }}
-                   />
+                  />
                 </div>
               </div>
             </div>

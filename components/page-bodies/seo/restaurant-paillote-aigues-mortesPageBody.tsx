@@ -1,11 +1,12 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-rest-title">
-            <img src="/assets/images/restaurant-hero.jpg" alt="Restaurant paillote Aigues-Mortes — La Paillote Paradise, bord de piscine en Camargue" className="pp-page-hero__img" loading="eager" fetchPriority="high" width="1920" height="800" />
+            <Image src="/assets/images/restaurant-hero.jpg" alt="Restaurant paillote Aigues-Mortes — La Paillote Paradise, bord de piscine en Camargue" fill className="pp-page-hero__img" priority sizes="100vw" />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -36,7 +37,7 @@ export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
                   </p>
                   <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--pp-space-3)", marginBottom: "var(--pp-space-8)" }}>
                     <li style={{ display: "flex", gap: "var(--pp-space-3)", alignItems: "center" }}><span style={{ color: "var(--pp-sunset)" }}></span> Cuisine 100% méditerranéenne, produits frais et locaux</li>
-                    <li style={{ display: "flex", gap: "var(--pp-space-3)", alignItems: "center" }}><span style={{ color: "var(--pp-sunset)" }}></span> Formules déjeuner, dîner et brunch du dimanche</li>
+                    <li style={{ display: "flex", gap: "var(--pp-space-3)", alignItems: "center" }}><span style={{ color: "var(--pp-sunset)" }}></span> Formules déjeuner et dîner</li>
                     <li style={{ display: "flex", gap: "var(--pp-space-3)", alignItems: "center" }}><span style={{ color: "var(--pp-sunset)" }}></span> Terrasse au bord de la piscine privée</li>
                     <li style={{ display: "flex", gap: "var(--pp-space-3)", alignItems: "center" }}><span style={{ color: "var(--pp-sunset)" }}></span> Ambiance DJ et soirées hebdomadaires</li>
                     <li style={{ display: "flex", gap: "var(--pp-space-3)", alignItems: "center" }}><span style={{ color: "var(--pp-sunset)" }}></span> Note Google 4.7/5 — plus de 240 avis</li>
@@ -47,7 +48,9 @@ export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
                   </div>
                 </div>
                 <div data-pp-reveal="right">
-                  <img src="/assets/images/restaurant-ambiance.jpg" alt="Ambiance restaurant paillote Aigues-Mortes — terrasse au bord de la piscine" loading="lazy" width="700" height="500" style={{ width: "100%", borderRadius: "var(--pp-radius-lg)", objectFit: "cover", height: "400px", boxShadow: "var(--pp-shadow-lg)" }} />
+                  <div style={{ position: "relative", width: "100%", height: "400px", borderRadius: "var(--pp-radius-lg)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
+                    <Image src="/assets/images/restaurant-ambiance.jpg" alt="Ambiance restaurant paillote Aigues-Mortes — terrasse au bord de la piscine" fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 50vw" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,7 +91,7 @@ export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
           <section className="pp-cta-section" aria-labelledby="cta-rest-seo-title">
             <div className="pp-container" style={{ textAlign: "center" }}>
               <h2 className="pp-title pp-title--light" id="cta-rest-seo-title" data-pp-reveal>Réservez votre table au meilleur restaurant paillote d'Aigues-Mortes</h2>
-              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi de 11h à 19h, Dimanche de 12h à minuit (United). Réservation conseillée.</p>
+              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi de 12h à 19h, Dimanche de 12h à minuit (United). Réservation conseillée.</p>
               <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
                 <a href="/contact" className="pp-btn pp-btn--primary pp-btn--lg">Réserver une table</a>
                 <a href="/restaurant" className="pp-btn pp-btn--secondary pp-btn--lg">Voir les menus</a>

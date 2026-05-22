@@ -348,7 +348,7 @@ p { line-height: 1.75; }
   align-items: center;
   gap: var(--pp-space-2);
   padding: var(--pp-space-4) var(--pp-space-8);
-  border-radius: 2px;
+  border-radius: var(--pp-radius);
   font-family: var(--pp-font-label);
   font-size: var(--pp-text-sm);
   font-weight: 500;
@@ -4669,5 +4669,120 @@ p { line-height: 1.75; }
 @media (prefers-reduced-motion: no-preference) {
   .pp-gallery-item:active .pp-gallery-item__img {
     transform: scale(1.03);
+  }
+}
+
+/* ─── Carrousel photo (Bar / Restaurant) ───────────────────── */
+.pp-carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--pp-space-3);
+  margin-block: var(--pp-space-6);
+}
+
+.pp-carousel__track {
+  display: flex;
+  gap: var(--pp-space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  padding-block: var(--pp-space-2);
+  scrollbar-width: none;
+}
+.pp-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.pp-carousel__slide {
+  flex: 0 0 min(85%, 22rem);
+  scroll-snap-align: center;
+  margin: 0;
+  border-radius: var(--pp-radius-md);
+  overflow: hidden;
+  box-shadow: var(--pp-shadow-md);
+  background: var(--pp-night);
+}
+
+.pp-carousel__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.pp-carousel__caption {
+  padding: var(--pp-space-3) var(--pp-space-4);
+  font-size: var(--pp-text-sm);
+  color: var(--pp-gray);
+  background: var(--pp-sand-ultra);
+}
+
+.pp-carousel__nav {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--pp-radius);
+  border: 1px solid rgba(191, 154, 63, 0.35);
+  background: rgba(253, 250, 244, 0.06);
+  color: var(--pp-white);
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.pp-carousel__nav:hover:not(:disabled) {
+  background: rgba(191, 154, 63, 0.15);
+  border-color: var(--pp-gold);
+}
+.pp-carousel__nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pp-carousel__dots {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: var(--pp-space-2);
+  margin-top: var(--pp-space-2);
+}
+
+.pp-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--pp-radius-full);
+  border: none;
+  padding: 0;
+  background: rgba(191, 154, 63, 0.25);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.pp-carousel__dot.is-active {
+  background: var(--pp-gold);
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .pp-carousel {
+    grid-template-columns: 1fr;
+    gap: var(--pp-space-2);
+  }
+  .pp-carousel__nav {
+    display: none;
+  }
+  .pp-carousel__track {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .pp-carousel__slide {
+    flex: 0 0 88%;
   }
 }

@@ -131,12 +131,6 @@ export const pageSeo = {
       "La paillote incontournable en Camargue : bar à tapas, cocktails, piscine privée et soirées. Domaine du Petit Chaumont, Aigues-Mortes.",
     path: '/seo/paillote-camargue',
   }),
-  seoBrunch: buildMetadata({
-    title: 'Brunch du Dimanche à Aigues-Mortes — Brunch en Camargue | La Paillote Paradise',
-    description:
-      "Brunch du dimanche à La Paillote Paradise — Aigues-Mortes. Cuisine maison, ambiance United by La Paillote, piscine privée, vins du domaine.",
-    path: '/seo/brunch-dimanche-aigues-mortes',
-  }),
   seoPrivatisation: buildMetadata({
     title:
       'Privatiser un domaine en Camargue — EVJF, EVG, mariages | La Paillote Paradise',

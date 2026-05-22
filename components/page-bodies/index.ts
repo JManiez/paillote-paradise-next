@@ -7,7 +7,6 @@ export { PiscineTransatsPageBody } from '@/components/page-bodies/piscine-transa
 export { PolitiqueConfidentialitePageBody } from '@/components/page-bodies/politique-confidentialitePageBody';
 export { PrivatisationPageBody } from '@/components/page-bodies/privatisationPageBody';
 export { RestaurantPageBody } from '@/components/page-bodies/restaurantPageBody';
-export { SeoBrunchDimancheAiguesMortesPageBody } from '@/components/page-bodies/seo/brunch-dimanche-aigues-mortesPageBody';
 export { SeoPailloteCamarguePageBody } from '@/components/page-bodies/seo/paillote-camarguePageBody';
 export { SeoPiscinePriveeCamarguePageBody } from '@/components/page-bodies/seo/piscine-privee-camarguePageBody';
 export { SeoPrivatisationDomaineCamarguePageBody } from '@/components/page-bodies/seo/privatisation-domaine-camarguePageBody';

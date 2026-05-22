@@ -1,19 +1,21 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PhotoCarousel } from '@/components/PhotoCarousel';
+import { COCKTAIL_CAROUSEL_PLACEHOLDERS } from '@/lib/carouselPlaceholders';
 
 export function BarPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="page-title">
-            <img
+            <Image
               src="/assets/images/universe-bar.jpg"
               alt="Bar de La Paillote Paradise, cocktails en bord de piscine en Camargue"
+              fill
               className="pp-page-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="800"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -56,14 +58,14 @@ export function BarPageBody(): ReactNode {
                   </div>
                 </div>
                 <div data-pp-reveal="right" style={{ borderRadius: "var(--pp-radius-xl)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
-                  <img
+                  <Image
                     src="/assets/images/universe-bar.jpg"
                     alt="Bar en bord de piscine — La Paillote Paradise Camargue"
-                    loading="lazy"
-                    width="700"
-                    height="500"
+                    width={700}
+                    height={500}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ width: "100%", height: "auto" }}
-                   />
+                  />
                 </div>
               </div>
             </div>
@@ -77,6 +79,15 @@ export function BarPageBody(): ReactNode {
                 <span className="pp-eyebrow pp-eyebrow--gold">Saison 2026</span>
                 <h2 className="pp-title pp-title--editorial" id="cocktails-title">La <em className="pp-word-gold">Carte</em> Cocktails</h2>
                 <p className="pp-subtitle">Shaken or stirred — à déguster les pieds dans l'eau, face au coucher de soleil.</p>
+              </div>
+
+              {/* TODO: remplacer COCKTAIL_CAROUSEL_PLACEHOLDERS par photos cocktails dédiées */}
+              <div style={{ marginBottom: "var(--pp-space-16)" }} data-pp-reveal>
+                <PhotoCarousel
+                  items={COCKTAIL_CAROUSEL_PLACEHOLDERS}
+                  ariaLabel="Cocktails signature — La Paillote Paradise"
+                  id="carousel-cocktails"
+                />
               </div>
       
               

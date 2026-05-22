@@ -123,7 +123,7 @@ function MobileNavBundle({
             </svg>
             {PP_PHONE_DISPLAY}
           </a>
-          <p className="pp-mobile-nav__hours">Juin – sept. · Mer.–Sam. 11h–19h · Dim. 12h–00h</p>
+          <p className="pp-mobile-nav__hours">Juin – sept. · Mer.–Sam. 12h–19h · Dim. 12h–00h</p>
           <div className="pp-mobile-nav__ctas">
             <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm" onClick={() => setMobileOpen(false)}>
               Louer un transat

@@ -1,4 +1,5 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { GalleryGrid } from '@/components/GalleryGrid';
 import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
@@ -7,15 +8,15 @@ export function GaleriePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="galerie-title">
-            <img
+            {/* TODO photo dédiée à fournir — remplacer hero-galerie.jpg */}
+            <Image
               src="/assets/images/hero-galerie.jpg"
               alt="Vue aerienne du Domaine du Petit Chaumont et de la piscine de la Paillote Paradise"
+              fill
               className="pp-page-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="800"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>

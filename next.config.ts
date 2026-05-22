@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
       { source: '/evenements', destination: '/soirees', permanent: true },
       { source: '/prive', destination: '/privatisation', permanent: true },
       { source: '/privatiser', destination: '/privatisation', permanent: true },
+      { source: '/seo/brunch-dimanche-aigues-mortes', destination: '/seo/soiree-dimanche-aigues-mortes', permanent: true },
     ]
   },
 }

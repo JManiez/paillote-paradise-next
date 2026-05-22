@@ -82,7 +82,7 @@ const businessJsonLd = {
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          opens: '11:00',
+          opens: '12:00',
           closes: '19:00',
           validFrom: '2026-04-01',
           validThrough: '2026-09-30',

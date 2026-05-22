@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + '/seo/piscine-privee-camargue', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: base + '/seo/soiree-dimanche-aigues-mortes', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: base + '/seo/paillote-camargue', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: base + '/seo/brunch-dimanche-aigues-mortes', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: base + '/seo/privatisation-domaine-camargue', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ]
 }

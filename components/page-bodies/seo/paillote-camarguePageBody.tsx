@@ -1,11 +1,12 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 export function SeoPailloteCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-paillote-title">
-            <img src="/assets/images/hero-home.jpg" alt="Paillote Camargue — La Paillote Paradise, bar restaurant piscine Aigues-Mortes" className="pp-page-hero__img" loading="eager" fetchPriority="high" width="1920" height="800" />
+            <Image src="/assets/images/hero-home.jpg" alt="Paillote Camargue — La Paillote Paradise, bar restaurant piscine Aigues-Mortes" fill className="pp-page-hero__img" priority sizes="100vw" />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
@@ -35,17 +36,17 @@ export function SeoPailloteCamarguePageBody(): ReactNode {
               <div className="pp-grid-3" style={{ gap: "var(--pp-space-8)" }}>
                 <article className="pp-card" data-pp-reveal data-pp-delay="0">
                   <div className="pp-card__img-wrap">
-                    <img src="/assets/images/hero-restaurant.jpg" alt="Restaurant paillote Camargue" loading="lazy" width="400" height="280" className="pp-card__img" />
+                    <Image src="/assets/images/hero-restaurant.jpg" alt="Restaurant paillote Camargue" width={400} height={280} className="pp-card__img" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                   <div className="pp-card__body">
                     <h3 className="pp-card__title">Restaurant</h3>
-                    <p className="pp-card__text">Cuisine méditerranéenne, formules déjeuner, dîner et brunch du dimanche.</p>
+                    <p className="pp-card__text">Cuisine méditerranéenne, formules déjeuner et dîner.</p>
                     <a href="/restaurant" className="pp-btn pp-btn--outline-ocean pp-btn--sm">Découvrir</a>
                   </div>
                 </article>
                 <article className="pp-card" data-pp-reveal data-pp-delay="1">
                   <div className="pp-card__img-wrap">
-                    <img src="/assets/images/hero-piscine.jpg" alt="Piscine privée paillote Camargue" loading="lazy" width="400" height="280" className="pp-card__img" />
+                    <Image src="/assets/images/hero-piscine.jpg" alt="Piscine privée paillote Camargue" width={400} height={280} className="pp-card__img" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                   <div className="pp-card__body">
                     <h3 className="pp-card__title">Piscine Privée</h3>
@@ -55,7 +56,7 @@ export function SeoPailloteCamarguePageBody(): ReactNode {
                 </article>
                 <article className="pp-card" data-pp-reveal data-pp-delay="2">
                   <div className="pp-card__img-wrap">
-                    <img src="/assets/images/hero-soirees.jpg" alt="Soirees paillote Camargue Aigues-Mortes" loading="lazy" width="400" height="280" className="pp-card__img" />
+                    <Image src="/assets/images/hero-soirees.jpg" alt="Soirees paillote Camargue Aigues-Mortes" width={400} height={280} className="pp-card__img" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                   <div className="pp-card__body">
                     <h3 className="pp-card__title">Soirées</h3>
@@ -70,7 +71,7 @@ export function SeoPailloteCamarguePageBody(): ReactNode {
           <section className="pp-cta-section" aria-labelledby="cta-paillote-seo">
             <div className="pp-container" style={{ textAlign: "center" }}>
               <h2 className="pp-title pp-title--light" id="cta-paillote-seo" data-pp-reveal>Venez découvrir la paillote de Camargue</h2>
-              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi 11h&#8239;–&#8239;19h, Dimanche 12h&#8239;–&#8239;00h. Domaine du Petit Chaumont, Aigues-Mortes.</p>
+              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi 12h&#8239;–&#8239;19h, Dimanche 12h&#8239;–&#8239;00h. Domaine du Petit Chaumont, Aigues-Mortes.</p>
               <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
                 <a href="/contact" className="pp-btn pp-btn--primary pp-btn--lg">Nous contacter</a>
                 <a href="/" className="pp-btn pp-btn--secondary pp-btn--lg">Découvrir le site</a>

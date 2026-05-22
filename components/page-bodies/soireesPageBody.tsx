@@ -1,19 +1,19 @@
 /* Migré depuis lib/pages-html — éditable en React */
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 export function SoireesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero pp-kenburns" aria-labelledby="soirees-title">
-            <img
+            <Image
               src="/assets/images/hero-soirees.jpg"
               alt="Soiree DJ au bord de la piscine de la Paillote Paradise — nuit festive en Camargue"
+              fill
               className="pp-page-hero__img"
-              loading="eager"
-              fetchPriority="high"
-              width="1920"
-              height="800"
-             />
+              priority
+              sizes="100vw"
+            />
             <div className="pp-page-hero__content">
               <nav aria-label="Fil d'Ariane">
                 <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
