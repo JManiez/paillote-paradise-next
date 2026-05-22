@@ -2796,12 +2796,19 @@ p { line-height: 1.75; }
 }
 
 .pp-page-hero__title {
-  font-size: var(--pp-text-5xl);
+  font-size: clamp(2.75rem, 5.5vw, var(--pp-text-5xl));
   font-weight: 500;
   font-style: italic;
   letter-spacing: -0.02em;
   color: var(--pp-white);
   margin-bottom: var(--pp-space-4);
+  line-height: 1.08;
+}
+
+/* Titre éditorial dans le hero (piscine, soirées…) : même échelle que les autres pages */
+.pp-page-hero__title.pp-title--editorial {
+  font-size: clamp(2.75rem, 5.5vw, var(--pp-text-5xl)) !important;
+  line-height: 1.08 !important;
 }
 
 .pp-page-hero__subtitle {
@@ -2809,6 +2816,13 @@ p { line-height: 1.75; }
   font-weight: 300;
   letter-spacing: 0.02em;
   color: rgba(253,250,245,.70);
+}
+
+/* Section suivant le hero : chevauchement pour supprimer la bande blanche sous la vague */
+.pp-page-hero + .pp-section {
+  margin-top: -6px;
+  position: relative;
+  z-index: 2;
 }
 
 /* Breadcrumb */
@@ -4185,9 +4199,14 @@ p { line-height: 1.75; }
     min-height: clamp(240px, 48vh, 400px);
   }
   .pp-page-hero__title {
-    font-size: clamp(1.75rem, 6vw, var(--pp-text-3xl));
-    line-height: 1.1;
+    font-size: clamp(2.5rem, 11vw, 3.25rem);
+    line-height: 1.08;
     padding-inline: var(--pp-space-2);
+  }
+
+  .pp-page-hero__title.pp-title--editorial {
+    font-size: clamp(2.5rem, 11vw, 3.25rem) !important;
+    line-height: 1.08 !important;
   }
 
   .pp-page-hero__content {

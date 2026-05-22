@@ -700,17 +700,21 @@ body.pp-grain::before {
 /* ─── 12. Page Piscine — vague morphing + tickets ───────────── */
 .pp-wave-bottom {
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   left: 0;
   right: 0;
   height: clamp(80px, 10vw, 140px);
   pointer-events: none;
   z-index: 3;
+  line-height: 0;
+  font-size: 0;
 }
 .pp-wave-bottom svg {
   width: 100%;
   height: 100%;
   display: block;
+  vertical-align: bottom;
+  transform: translateY(1px);
 }
 .pp-wave-bottom svg path {
   animation: pp-wave-morph 10s ease-in-out infinite alternate;
