@@ -159,6 +159,17 @@ body.pp-grain::before {
   font-size: clamp(3rem, 9vw, 7.5rem) !important;
   line-height: 0.95;
   letter-spacing: -0.035em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 768px) {
+  .pp-title--editorial {
+    font-size: clamp(1.875rem, 7.5vw, 2.75rem) !important;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
 }
 
 .pp-eyebrow--theatrical {

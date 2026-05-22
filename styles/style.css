@@ -307,7 +307,7 @@ p { line-height: 1.75; }
   font-family: var(--pp-font-body);
   font-size: var(--pp-text-md);
   font-weight: 300;
-  color: var(--pp-gray);
+  color: var(--pp-gray-dark);
   max-width: 60ch;
   line-height: 1.8;
 }
@@ -335,6 +335,8 @@ p { line-height: 1.75; }
 
 .pp-section-header .pp-subtitle {
   margin-inline: auto;
+  color: var(--pp-gray-dark);
+  max-width: 42ch;
 }
 
 .pp-section-footer {
@@ -620,6 +622,35 @@ p { line-height: 1.75; }
   justify-content: center;
   transition: height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
   overflow: hidden;
+}
+
+/* Tablette : nav scrollable si la rangée ne tient pas */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .pp-header__nav-row {
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+  }
+  .pp-header__nav-row::-webkit-scrollbar {
+    display: none;
+  }
+  .pp-nav__inner {
+    padding-inline: var(--pp-space-6);
+  }
+  .pp-nav__link {
+    padding: var(--pp-space-2) var(--pp-space-3);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+  }
 }
 
 .pp-header--scrolled .pp-header__nav-row {
@@ -2793,6 +2824,30 @@ p { line-height: 1.75; }
 .pp-breadcrumb a:hover { color: var(--pp-sunset); }
 .pp-breadcrumb__sep { opacity: 0.5; }
 
+/* Fil d'Ariane sur hero sombre */
+.pp-page-hero .pp-breadcrumb {
+  color: rgba(253, 250, 245, 0.55);
+  margin-bottom: var(--pp-space-4);
+  font-size: var(--pp-text-xs);
+  letter-spacing: 0.04em;
+}
+.pp-page-hero .pp-breadcrumb a {
+  color: rgba(253, 250, 245, 0.82);
+}
+.pp-page-hero .pp-breadcrumb a:hover {
+  color: var(--pp-gold-light);
+}
+.pp-page-hero .pp-breadcrumb__sep {
+  opacity: 0.45;
+}
+
+/* Corps de texte : meilleur contraste sur fonds sable / crème */
+.pp-section[style*="sand"],
+.pp-section[style*="cream"],
+.pp-section[style*="sand-ultra"] {
+  --pp-gray: var(--pp-gray-dark);
+}
+
 /* ─── 22. Animations de revele ──────────────────────────────── */
 [data-pp-reveal] {
   opacity: 0;
@@ -4006,6 +4061,7 @@ p { line-height: 1.75; }
   .pp-header__top {
     height: 56px !important;
     border-bottom: none;
+    overflow: visible;
   }
   .pp-header__top-inner {
     display: flex;
@@ -4031,6 +4087,7 @@ p { line-height: 1.75; }
     justify-content: center;
     line-height: 0;
     pointer-events: auto;
+    max-height: 48px;
   }
 
   .pp-header__logo > span {
@@ -4119,13 +4176,20 @@ p { line-height: 1.75; }
   /* ── Hero : padding correct avec header mobile (1 rangée = 72px) ── */
   .pp-hero { padding-top: 0; min-height: 100svh; min-height: 100dvh; }
   .pp-hero__content {
-    padding-top: calc(56px + env(safe-area-inset-top, 0px) + var(--pp-space-16));
+    padding-top: calc(56px + env(safe-area-inset-top, 0px) + var(--pp-space-12));
+    padding-bottom: var(--pp-space-20);
   }
 
   /* Hero pages intérieures : une seule rangée de header sur mobile (pas top+nav) */
   .pp-page-hero {
     min-height: clamp(240px, 48vh, 400px);
   }
+  .pp-page-hero__title {
+    font-size: clamp(1.75rem, 6vw, var(--pp-text-3xl));
+    line-height: 1.1;
+    padding-inline: var(--pp-space-2);
+  }
+
   .pp-page-hero__content {
     padding-top: calc(56px + env(safe-area-inset-top, 0px) + var(--pp-space-8));
     padding-inline: max(var(--pp-space-4), env(safe-area-inset-left, 0px))
@@ -4217,7 +4281,6 @@ p { line-height: 1.75; }
     padding-inline: max(var(--pp-space-6), env(safe-area-inset-left, 0px))
       max(var(--pp-space-6), env(safe-area-inset-right, 0px));
   }
-  .pp-page-hero__title { font-size: var(--pp-text-3xl); }
   .pp-form { padding: var(--pp-space-6); }
   .pp-instagram__grid { grid-template-columns: repeat(2, 1fr); gap: var(--pp-space-3); }
   .pp-philosophy__quote { font-size: var(--pp-text-xl); }
@@ -4232,6 +4295,17 @@ p { line-height: 1.75; }
   .pp-hero__title {
     font-size: clamp(2.375rem, 10vw, 2.75rem);
     line-height: 1.08;
+  }
+
+  .pp-hero__ctas {
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+
+  .pp-hero__ctas .pp-btn--lg {
+    width: 100%;
+    max-width: 20rem;
   }
 
   /* Carte boissons mobile : scroll horizontal snappé */
@@ -4657,7 +4731,8 @@ p { line-height: 1.75; }
   }
 
   .pp-hero__scroll {
-    bottom: max(env(safe-area-inset-bottom, 0px), var(--pp-space-8));
+    bottom: max(env(safe-area-inset-bottom, 0px), var(--pp-space-12));
+    opacity: 0.85;
   }
 
   .pp-btn--lg {
@@ -4676,6 +4751,11 @@ p { line-height: 1.75; }
     display: inline-flex;
     align-items: center;
     padding-block: var(--pp-space-1);
+  }
+
+  .pp-page-hero .pp-breadcrumb a {
+    min-height: unset;
+    padding-block: 0;
   }
 
   .pp-acces__map {
@@ -4742,7 +4822,7 @@ p { line-height: 1.75; }
 }
 
 .pp-carousel__slide {
-  flex: 0 0 min(85%, 22rem);
+  flex: 0 0 min(78%, 18rem);
   scroll-snap-align: center;
   margin: 0;
   border-radius: var(--pp-radius-md);
@@ -4753,8 +4833,9 @@ p { line-height: 1.75; }
 
 .pp-carousel__img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -4827,6 +4908,10 @@ p { line-height: 1.75; }
     grid-column: 1;
   }
   .pp-carousel__slide {
-    flex: 0 0 88%;
+    flex: 0 0 min(88%, 16rem);
+  }
+
+  .pp-carousel__img {
+    aspect-ratio: 4 / 5;
   }
 }
