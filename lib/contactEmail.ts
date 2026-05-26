@@ -47,10 +47,10 @@ function getResendConfig() {
   }
 
   const to =
-    process.env.CONTACT_TO_EMAIL?.trim() || 'contact@pailloteparadise.fr'
+    process.env.CONTACT_TO_EMAIL?.trim() || 'paillote.paradise@gmail.com'
   const from =
     process.env.RESEND_FROM_EMAIL?.trim() ||
-    'La Paillote Paradise <contact@pailloteparadise.fr>'
+    'La Paillote Paradise <contact@pailloteparadise.com>'
 
   return { apiKey, to, from }
 }
@@ -131,10 +131,15 @@ export async function sendContactEmail(
 
     if (error) {
       console.error('[Contact email]', error)
+      const hint =
+        typeof error.message === 'string' &&
+        error.message.includes('domain')
+          ? ' Domaine expéditeur non vérifié dans Resend.'
+          : ''
       return {
         ok: false,
         status: 502,
-        error: 'Envoi email refusé par le fournisseur',
+        error: `Envoi email refusé par le fournisseur.${hint}`,
       }
     }
 
