@@ -1,5 +1,24 @@
 # TODO — Paillote Paradise (site Next.js)
 
+## Formulaires contact (Resend) — **à finaliser**
+
+Les formulaires passent par `/api/contact` (Resend). En production, la variable `RESEND_API_KEY` sur Vercel est **vide** → les envois échouent (503).
+
+### Configuration (une fois)
+
+1. Compte [Resend](https://resend.com) → **API Keys** → créer une clé `re_…`
+2. **Domains** → ajouter `pailloteparadise.fr` → enregistrer les enregistrements DNS (SPF, DKIM) chez le registrar
+3. Sur Vercel (projet `paillote-paradise-next`) → **Settings → Environment Variables** :
+   - `RESEND_API_KEY` = la clé API (Production + Preview)
+   - `RESEND_FROM_EMAIL` = `La Paillote Paradise <contact@pailloteparadise.fr>`
+   - `CONTACT_TO_EMAIL` = boîte qui reçoit (ex. `contact@pailloteparadise.fr` ou Gmail perso)
+4. **Redéployer** le site après modification des variables
+5. Tester : formulaire `/contact` + formulaire groupe `/privatisation`
+
+Fichier modèle : `.env.example` → copier en `.env.local` pour le dev.
+
+---
+
 ## ZenChef (réservations)
 
 À brancher dès réception de l’URL ou du widget ZenChef.

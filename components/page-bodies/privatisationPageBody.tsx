@@ -273,8 +273,8 @@ export function PrivatisationPageBody(): ReactNode {
               <div className="pp-form" data-pp-reveal>
                 <form
                   id="pp-groupe-form"
-                  action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
-                  method="POST"
+                  action="#"
+                  method="post"
                   aria-label="Formulaire de demande de renseignement groupe"
                 >
                   
@@ -346,6 +346,12 @@ export function PrivatisationPageBody(): ReactNode {
                       <div className="pp-form__group pp-form__group--full">
                         <label className="pp-form__label" htmlFor="g-message">Votre message *</label>
                         <textarea className="pp-form__textarea" id="g-message" name="message" required placeholder="Décrivez-nous votre occasion, vos souhaits particuliers, vos questions sur l'espace, les menus ou les boissons…" rows={5}></textarea>
+                      </div>
+                      <div className="pp-form__group pp-form__group--full">
+                        <label className="pp-form__label" style={{ display: "flex", alignItems: "flex-start", gap: "var(--pp-space-3)", cursor: "pointer" }}>
+                          <input type="checkbox" id="g-consent" name="consent" value="1" required style={{ marginTop: "4px", flexShrink: "0" }} />
+                          <span>J&apos;accepte que mes données soient utilisées pour répondre à ma demande, conformément à la <a href="/politique-confidentialite" style={{ color: "var(--pp-sunset)", textDecoration: "underline" }}>politique de confidentialité</a>. *</span>
+                        </label>
                       </div>
                     </div>
                   </fieldset>

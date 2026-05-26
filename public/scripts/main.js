@@ -129,7 +129,26 @@
   }
 
   function initContactForm() {
-    const form = document.getElementById('pp-contact-form');
+    bindApiForm(document.getElementById('pp-contact-form'), {
+      successId: 'pp-form-success',
+      requireConsent: true,
+      buildPayload: function (form) {
+        const data = new FormData(form);
+        const consentInput = form.querySelector('[name="consent"]');
+        return {
+          formType: 'contact',
+          name: ((data.get('prenom') || '') + ' ' + (data.get('nom') || '')).trim(),
+          email: data.get('email'),
+          phone: data.get('telephone'),
+          subject: data.get('sujet'),
+          message: data.get('message'),
+          consent: !!(consentInput && consentInput.checked),
+        };
+      },
+    });
+  }
+
+  function bindApiForm(form, options) {
     if (!form) return;
 
     if (form.__ppSubmitAbort) {
@@ -140,18 +159,23 @@
     const ac = new AbortController();
     form.__ppSubmitAbort = ac;
 
-    const success = document.getElementById('pp-form-success');
+    const successId = options.successId;
+    const success = successId ? document.getElementById(successId) : null;
     const submitBtn = form.querySelector('[type="submit"]');
+    const submitLabel = submitBtn ? submitBtn.textContent : 'Envoyer';
 
     form.addEventListener(
       'submit',
       async function (e) {
         e.preventDefault();
-        const consentInput = form.querySelector('[name="consent"]');
-        const consent = !!(consentInput && consentInput.checked);
-        if (!consent) {
-          alert('Merci de cocher la case relative au traitement de vos données.');
-          return;
+
+        if (options.requireConsent) {
+          const consentInput = form.querySelector('[name="consent"]');
+          const consent = !!(consentInput && consentInput.checked);
+          if (!consent) {
+            alert('Merci de cocher la case relative au traitement de vos données.');
+            return;
+          }
         }
 
         if (submitBtn) {
@@ -160,15 +184,7 @@
         }
 
         try {
-          const data = new FormData(form);
-          const payload = {
-            name: ((data.get('prenom') || '') + ' ' + (data.get('nom') || '')).trim(),
-            email: data.get('email'),
-            phone: data.get('telephone'),
-            subject: data.get('sujet'),
-            message: data.get('message'),
-            consent: consent,
-          };
+          const payload = options.buildPayload(form);
           const res = await fetch('/api/contact', {
             method: 'POST',
             body: JSON.stringify(payload),
@@ -182,20 +198,57 @@
               success.focus();
             }
           } else {
-            throw new Error('Erreur serveur');
+            var errBody = {};
+            try {
+              errBody = await res.json();
+            } catch (parseErr) {}
+            var msg = errBody.error || 'Erreur serveur';
+            if (res.status === 503) {
+              msg =
+                'Le formulaire n\'est pas encore configuré côté serveur. Merci de nous écrire à contact@pailloteparadise.fr ou par téléphone.';
+            }
+            throw new Error(msg);
           }
         } catch (err) {
           if (err && err.name === 'AbortError') return;
-          alert('Une erreur est survenue. Merci de nous contacter par téléphone.');
+          alert(
+            err && err.message
+              ? err.message
+              : 'Une erreur est survenue. Merci de nous contacter par téléphone.'
+          );
         } finally {
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Envoyer mon message';
+            submitBtn.textContent = submitLabel;
           }
         }
       },
       { signal: ac.signal }
     );
+  }
+
+  function initGroupeForm() {
+    bindApiForm(document.getElementById('pp-groupe-form'), {
+      successId: 'pp-groupe-form-success',
+      requireConsent: true,
+      buildPayload: function (form) {
+        const data = new FormData(form);
+        const consentInput = form.querySelector('[name="consent"]');
+        return {
+          formType: 'groupe',
+          name: ((data.get('prenom') || '') + ' ' + (data.get('nom') || '')).trim(),
+          email: data.get('email'),
+          phone: data.get('telephone'),
+          subject: data.get('type_occasion'),
+          message: data.get('message'),
+          typeOccasion: data.get('type_occasion'),
+          nombrePersonnes: data.get('nombre_personnes'),
+          date: data.get('date'),
+          menu: data.get('menu'),
+          consent: !!(consentInput && consentInput.checked),
+        };
+      },
+    });
   }
 
   function initGalleryFilters() {
@@ -268,6 +321,7 @@
     initReveal();
     initCounters();
     initContactForm();
+    initGroupeForm();
     initGalleryFilters();
     initFAQ();
     initTabs();
