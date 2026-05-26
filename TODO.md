@@ -6,16 +6,21 @@ Les formulaires passent par `/api/contact` (Resend). En production, la variable 
 
 ### Configuration (une fois)
 
-1. Compte [Resend](https://resend.com) → **API Keys** → créer une clé `re_…`
-2. **Domains** → ajouter `pailloteparadise.fr` → enregistrer les enregistrements DNS (SPF, DKIM) chez le registrar
-3. Sur Vercel (projet `paillote-paradise-next`) → **Settings → Environment Variables** :
-   - `RESEND_API_KEY` = la clé API (Production + Preview)
+1. Compte [Resend](https://resend.com) → **API Keys** → clé `re_…`
+2. **Domains** → `pailloteparadise.fr` → ajouter chez le registrar (OVH, etc.) :
+   - **TXT** (DKIM) : `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC+C4a+SZcdXO02/tYuo86tWMa4HHCCt6x2aT/UAgmMBfErjBsxH8ldCbmHeBGEyl2WFgguE6Z9MyMWlBQmSCG9HEtyDiTazCrhXTZBYSvWjp+k9C5alg7gbERWy4Owy86j92/GiIB1dDZP8Rv9X0wMcKx277E9fLSNQwbjRflZZwIDAQAB`
+   - **MX** : `feedback-smtp.eu-west-1.amazonses.com` (priorité selon Resend)
+   - **TXT** (SPF) : `v=spf1 include:amazonses.com ~all`
+3. Attendre statut **Verified** dans Resend (quelques minutes à 48 h)
+4. Vercel → variables (déjà renseignées en prod) :
+   - `RESEND_API_KEY`
    - `RESEND_FROM_EMAIL` = `La Paillote Paradise <contact@pailloteparadise.fr>`
-   - `CONTACT_TO_EMAIL` = boîte qui reçoit (ex. `contact@pailloteparadise.fr` ou Gmail perso)
-4. **Redéployer** le site après modification des variables
-5. Tester : formulaire `/contact` + formulaire groupe `/privatisation`
+   - `CONTACT_TO_EMAIL` = `paillote.paradise@gmail.com`
+5. Redéployer si besoin, puis tester `/contact` et `/privatisation`
 
-Fichier modèle : `.env.example` → copier en `.env.local` pour le dev.
+**Tant que le domaine n’est pas vérifié**, Resend refuse l’expéditeur `@pailloteparadise.fr` → erreur « Envoi refusé ».
+
+Fichier modèle : `.env.example` → `.env.local` en local.
 
 ---
 
