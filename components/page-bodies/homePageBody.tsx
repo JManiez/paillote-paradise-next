@@ -412,127 +412,172 @@ export function HomePageBody(): ReactNode {
           
           <section className="pp-section pp-agenda" aria-labelledby="agenda-title">
             <div className="pp-container">
-      
-              <div className="pp-agenda__layout">
-      
-                
-                <div className="pp-agenda__aside" data-pp-reveal>
-                  <span className="pp-eyebrow">Agenda</span>
-                  <h2 className="pp-title pp-title--light" id="agenda-title">Programme<br />de la<br /><em>semaine</em></h2>
-                  <p className="pp-agenda__aside-sub">
-                    Aperçu d'une semaine type en saison — Mercredi à Samedi de 12h à 19h, Dimanche de 12h à minuit pour United.
-                  </p>
-                  <div className="pp-agenda__legend">
-                    <span className="pp-agenda__legend-item">
-                      <span className="pp-agenda__legend-dot" style={{ background: "var(--pp-sunset)" }}></span> Bar à Tapas
-                    </span>
-                    <span className="pp-agenda__legend-item">
-                      <span className="pp-agenda__legend-dot" style={{ background: "var(--pp-palm-light)" }}></span> Piscine
-                    </span>
-                    <span className="pp-agenda__legend-item">
-                      <span className="pp-agenda__legend-dot" style={{ background: "var(--pp-gold)" }}></span> United Sunday
-                    </span>
-                    <span className="pp-agenda__legend-item">
-                      <span className="pp-agenda__legend-dot" style={{ background: "rgba(253,250,245,.30)" }}></span> Bar & Cocktails
-                    </span>
-                  </div>
-                  <a href="/contact" className="pp-btn pp-btn--gold pp-agenda__aside-cta">Nous contacter</a>
+
+              <header className="pp-agenda__head" data-pp-reveal>
+                <span className="pp-eyebrow">Agenda</span>
+                <h2 className="pp-title pp-title--light" id="agenda-title">Votre semaine<br />en <em>Camargue</em></h2>
+                <p className="pp-agenda__lead">
+                  Mar. → Sam. : piscine, tapas &amp; cocktails · 11h – 19h · Dimanche : United de 12h à minuit.
+                </p>
+                <div className="pp-agenda__head-actions">
+                  <a href="/piscine-transats" className="pp-btn pp-btn--secondary pp-btn--sm">Louer un transat</a>
+                  <a href="/soirees" className="pp-btn pp-btn--gold pp-btn--sm">Voir les soirées</a>
                 </div>
-      
-                
-                <div className="pp-agenda__rows" role="list" aria-label="Programme hebdomadaire">
-      
-                  <div className="pp-agenda__row pp-agenda__row--closed" role="listitem" data-pp-reveal data-pp-delay="1">
-                    <div className="pp-agenda__row-label">
-                      <span className="pp-agenda__row-abbr">Lun</span>
-                      <span className="pp-agenda__row-full">Lundi</span>
+              </header>
+
+              <div className="pp-agenda__week-wrap" data-pp-reveal data-pp-delay="1">
+                <p className="pp-agenda__scroll-hint" aria-hidden="true">Glisser pour voir la semaine →</p>
+                <div className="pp-agenda__week" role="list" aria-label="Programme hebdomadaire">
+
+                  <article className="pp-agenda__day pp-agenda__day--rest" role="listitem">
+                    <div className="pp-agenda__day-head">
+                      <span className="pp-agenda__day-abbr">Lun</span>
+                      <span className="pp-agenda__day-name">Lundi</span>
                     </div>
-                    <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--closed"> Fermé</span>
+                    <p className="pp-agenda__day-rest">Le domaine se repose</p>
+                    <span className="pp-agenda__day-foot">À demain</span>
+                  </article>
+
+                  <article className="pp-agenda__day" role="listitem">
+                    <div className="pp-agenda__day-head">
+                      <span className="pp-agenda__day-abbr">Mar</span>
+                      <span className="pp-agenda__day-name">Mardi</span>
                     </div>
-                  </div>
-      
-                  <div className="pp-agenda__row pp-agenda__row--closed" role="listitem" data-pp-reveal data-pp-delay="1">
-                    <div className="pp-agenda__row-label">
-                      <span className="pp-agenda__row-abbr">Mar</span>
-                      <span className="pp-agenda__row-full">Mardi</span>
+                    <div className="pp-agenda__hours">11h – 19h</div>
+                    <p className="pp-agenda__day-tag">Journée Paradise</p>
+                    <ul className="pp-agenda__acts">
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--pool" aria-hidden="true"></span>
+                        Piscine &amp; transats
+                      </li>
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--tapas" aria-hidden="true"></span>
+                        Bar à tapas
+                      </li>
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--bar" aria-hidden="true"></span>
+                        Cocktails
+                      </li>
+                    </ul>
+                  </article>
+
+                  <article className="pp-agenda__day pp-agenda__day--evening" role="listitem">
+                    <div className="pp-agenda__day-head">
+                      <span className="pp-agenda__day-abbr">Mer</span>
+                      <span className="pp-agenda__day-name">Mercredi</span>
                     </div>
-                    <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--closed"> Fermé</span>
+                    <div className="pp-agenda__hours">11h – 19h</div>
+                    <p className="pp-agenda__day-tag">Journée Paradise</p>
+                    <ul className="pp-agenda__acts">
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--pool" aria-hidden="true"></span>
+                        Piscine &amp; transats
+                      </li>
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--tapas" aria-hidden="true"></span>
+                        Bar à tapas
+                      </li>
+                    </ul>
+                    <div className="pp-agenda__night">
+                      <span className="pp-agenda__night-label">Soirée</span>
+                      <p className="pp-agenda__night-title">Salsa &amp; Latin Music</p>
+                      <a href="/soirees" className="pp-agenda__night-link">En savoir plus</a>
                     </div>
-                  </div>
-      
-                  <div className="pp-agenda__row" role="listitem" data-pp-reveal data-pp-delay="2">
-                    <div className="pp-agenda__row-label">
-                      <span className="pp-agenda__row-abbr">Mer</span>
-                      <span className="pp-agenda__row-full">Mercredi</span>
+                  </article>
+
+                  <article className="pp-agenda__day" role="listitem">
+                    <div className="pp-agenda__day-head">
+                      <span className="pp-agenda__day-abbr">Jeu</span>
+                      <span className="pp-agenda__day-name">Jeudi</span>
                     </div>
-                    <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 20h → 01h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--event"> Soirée</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--event"> Salsa & Latin Music — soir</span>
+                    <div className="pp-agenda__hours">11h – 19h</div>
+                    <p className="pp-agenda__day-tag">Journée Paradise</p>
+                    <ul className="pp-agenda__acts">
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--pool" aria-hidden="true"></span>
+                        Piscine &amp; transats
+                      </li>
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--tapas" aria-hidden="true"></span>
+                        Bar à tapas
+                      </li>
+                      <li className="pp-agenda__act pp-agenda__act--accent">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--bar" aria-hidden="true"></span>
+                        Happy hour
+                      </li>
+                    </ul>
+                  </article>
+
+                  <article className="pp-agenda__day pp-agenda__day--evening" role="listitem">
+                    <div className="pp-agenda__day-head">
+                      <span className="pp-agenda__day-abbr">Ven</span>
+                      <span className="pp-agenda__day-name">Vendredi</span>
                     </div>
-                  </div>
-      
-                  <div className="pp-agenda__row" role="listitem" data-pp-reveal data-pp-delay="2">
-                    <div className="pp-agenda__row-label">
-                      <span className="pp-agenda__row-abbr">Jeu</span>
-                      <span className="pp-agenda__row-full">Jeudi</span>
+                    <div className="pp-agenda__hours">11h – 19h</div>
+                    <p className="pp-agenda__day-tag">Journée Paradise</p>
+                    <ul className="pp-agenda__acts">
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--pool" aria-hidden="true"></span>
+                        Piscine &amp; transats
+                      </li>
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--tapas" aria-hidden="true"></span>
+                        Bar à tapas
+                      </li>
+                    </ul>
+                    <div className="pp-agenda__night">
+                      <span className="pp-agenda__night-label">Soirée</span>
+                      <p className="pp-agenda__night-title">Soirée généraliste</p>
+                      <a href="/soirees" className="pp-agenda__night-link">En savoir plus</a>
                     </div>
-                    <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
-                      </div>
-                  </div>
-      
-                  <div className="pp-agenda__row" role="listitem" data-pp-reveal data-pp-delay="3">
-                    <div className="pp-agenda__row-label">
-                      <span className="pp-agenda__row-abbr">Ven</span>
-                      <span className="pp-agenda__row-full">Vendredi</span>
+                  </article>
+
+                  <article className="pp-agenda__day" role="listitem">
+                    <div className="pp-agenda__day-head">
+                      <span className="pp-agenda__day-abbr">Sam</span>
+                      <span className="pp-agenda__day-name">Samedi</span>
                     </div>
-                    <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 20h → 01h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--event"> Soirée</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--event"> Soirée généraliste — soir</span>
+                    <div className="pp-agenda__hours">11h – 19h</div>
+                    <p className="pp-agenda__day-tag">Journée Paradise</p>
+                    <ul className="pp-agenda__acts">
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--pool" aria-hidden="true"></span>
+                        Piscine &amp; transats
+                      </li>
+                      <li className="pp-agenda__act">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--tapas" aria-hidden="true"></span>
+                        Bar à tapas
+                      </li>
+                      <li className="pp-agenda__act pp-agenda__act--accent">
+                        <span className="pp-agenda__act-icon pp-agenda__act-icon--bar" aria-hidden="true"></span>
+                        Cocktails signature
+                      </li>
+                    </ul>
+                  </article>
+
+                  <article className="pp-agenda__day pp-agenda__day--featured" role="listitem">
+                    <div className="pp-agenda__day-head">
+                      <span className="pp-agenda__day-abbr">Dim</span>
+                      <span className="pp-agenda__day-name">Dimanche</span>
                     </div>
-                  </div>
-      
-                  <div className="pp-agenda__row" role="listitem" data-pp-reveal data-pp-delay="3">
-                    <div className="pp-agenda__row-label">
-                      <span className="pp-agenda__row-abbr">Sam</span>
-                      <span className="pp-agenda__row-full">Samedi</span>
-                    </div>
-                    <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours"> 12h → 19h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--restaurant"> Bar à Tapas</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--pool"> Piscine & Transats</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--bar"> Cocktails signature</span>
-                    </div>
-                  </div>
-      
-                  <div className="pp-agenda__row pp-agenda__row--sunday" role="listitem" data-pp-reveal data-pp-delay="4">
-                    <div className="pp-agenda__row-label">
-                      <span className="pp-agenda__row-abbr">Dim</span>
-                      <span className="pp-agenda__row-full">Dimanche</span>
-                    </div>
-                    <div className="pp-agenda__row-events">
-                      <span className="pp-agenda__pill pp-agenda__pill--hours pp-agenda__pill--featured"> 12h → 00h</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--event pp-agenda__pill--featured"> United by La Paillote</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--event"> DJ Guest International</span>
-                      <span className="pp-agenda__pill pp-agenda__pill--pool"> Pool Party</span>
-                    </div>
-                  </div>
-      
+                    <div className="pp-agenda__hours pp-agenda__hours--featured">12h – minuit</div>
+                    <p className="pp-agenda__featured-kicker">Événement phare</p>
+                    <h3 className="pp-agenda__featured-title">United by La Paillote</h3>
+                    <ul className="pp-agenda__acts pp-agenda__acts--featured">
+                      <li className="pp-agenda__act">DJ Guest international</li>
+                      <li className="pp-agenda__act">Pool party</li>
+                      <li className="pp-agenda__act">Line-up exclusif</li>
+                    </ul>
+                    <a href="/soirees#dimanche" className="pp-btn pp-btn--gold pp-btn--xs pp-agenda__featured-cta">Découvrir United</a>
+                  </article>
+
                 </div>
               </div>
-      
+
+              <p className="pp-agenda__note" data-pp-reveal data-pp-delay="2">
+                Ouvert d&apos;avril à septembre · Lundi fermé · Réservation conseillée pour les groupes.
+              </p>
+
             </div>
           </section>
       
