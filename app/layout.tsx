@@ -4,6 +4,7 @@ import { Jost, Playfair_Display } from 'next/font/google';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ClientScripts } from '../components/ClientScripts';
+import { GoogleAds } from '../components/GoogleAds';
 import { JsonLd } from '../components/JsonLd';
 import { SITE_NAME, SITE_URL, OG_IMAGE } from '../lib/seo';
 import { PP_PHONE_E164 } from '../lib/publicPhone';
@@ -139,6 +140,7 @@ export default function RootLayout({
           src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
           strategy="beforeInteractive"
         />
+        <GoogleAds />
         <ClientScripts />
         <Analytics />
       </body>
