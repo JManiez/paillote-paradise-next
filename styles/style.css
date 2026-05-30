@@ -4139,6 +4139,12 @@ p { line-height: 1.75; }
   .pp-gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .pp-gallery-item--wide { grid-column: span 1; aspect-ratio: 1; }
   .pp-gallery-item--tall { grid-row: span 1; aspect-ratio: 1; }
+  .pp-agenda__week {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .pp-agenda__day--featured {
+    grid-column: span 2;
+  }
   /* Tablette : grille « ambiance » 2 colonnes (meilleure lisibilité / touch) */
   .pp-instagram__grid { grid-template-columns: repeat(2, 1fr); }
   .pp-philosophy__quote { font-size: var(--pp-text-2xl); }
@@ -4369,12 +4375,6 @@ p { line-height: 1.75; }
     min-width: 280px;
   }
   .pp-agenda__head .pp-title { font-size: var(--pp-text-3xl); }
-
-  /* ── Agenda mobile : colonne unique, pills en wrap ── */
-    grid-template-columns: 58px 1fr;
-    gap: var(--pp-space-3);
-    padding: 12px 14px;
-  }
 
   /* ── Sunday section ── */
   .pp-sunday__united { justify-content: center; }
