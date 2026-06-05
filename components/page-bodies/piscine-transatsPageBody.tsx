@@ -1,6 +1,8 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { ZenchefTransatLink } from '@/components/ZenchefOpenLink';
 import { PP_PHONE_E164 } from '@/lib/publicPhone';
 
 export function PiscineTransatsPageBody(): ReactNode {
@@ -15,17 +17,13 @@ export function PiscineTransatsPageBody(): ReactNode {
               priority
               sizes="100vw"
             />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Piscine & Transats' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Piscine &amp; Transats</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold pp-eyebrow--theatrical">Détente absolue</span>
               <h1 className="pp-page-hero__title pp-title--editorial" id="piscine-title">Piscine &amp; <em className="pp-word-gold">Transats</em></h1>
-              <p className="pp-page-hero__subtitle">Piscine privée 80 m² · Transats premium · Bar au bord de l'eau</p>
+              <p className="pp-page-hero__subtitle">Piscine privée 80 m² · Transats premium · Bar au bord de l&apos;eau</p>
             </div>
       
             
@@ -43,8 +41,8 @@ export function PiscineTransatsPageBody(): ReactNode {
                   <span className="pp-eyebrow pp-eyebrow--theatrical">Le concept</span>
                   <h2 className="pp-title pp-title--editorial" id="concept-title">Votre journée <em className="pp-word-gold">paradisiaque</em> en Camargue</h2>
                   <p style={{ color: "var(--pp-gray)", lineHeight: "1.8", marginBottom: "var(--pp-space-6)" }}>
-                    La piscine privée de la Paillote Paradise, c'est 80 m² d'eau cristalline
-                    nichés au cœur du Domaine du Petit Chaumont, <strong>à l'abri des regards et loin de la foule</strong>.
+                    La piscine privée de la Paillote Paradise, c&apos;est 80 m² d&apos;eau cristalline
+                    nichés au cœur du Domaine du Petit Chaumont, <strong>à l&apos;abri des regards et loin de la foule</strong>.
                     Transats premium, service aux chaises longues et cocktails maison — tout est pensé
                     pour votre confort et votre plaisir.
                   </p>
@@ -58,7 +56,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                     <strong>Parking gratuit et illimité sur place</strong> — venez sereinement, pas de stress pour vous garer.
                   </p>
                   <div style={{ display: "flex", gap: "var(--pp-space-4)", flexWrap: "wrap" }}>
-                    <a href="/contact" className="pp-btn pp-btn--primary pp-magnetic">Réserver un transat</a>
+                    <ZenchefTransatLink className="pp-btn pp-btn--primary pp-magnetic">Réserver un transat</ZenchefTransatLink>
                     <a href="#tarifs" className="pp-btn pp-btn--outline">Voir les tarifs</a>
                   </div>
                 </div>
@@ -135,7 +133,7 @@ export function PiscineTransatsPageBody(): ReactNode {
               <div className="pp-section-header" data-pp-reveal>
                 <span className="pp-eyebrow pp-eyebrow--theatrical">Nos formules</span>
                 <h2 className="pp-title pp-title--editorial" id="tarifs-title">Tarifs piscine &amp; <em className="pp-word-gold">transats</em></h2>
-                <p className="pp-subtitle">Par personne. Réservation conseillée, surtout le week-end.</p>
+                <p className="pp-subtitle">Par personne ou forfait duo. Réservation en ligne — 2 personnes minimum sur les beds.</p>
               </div>
       
               <div className="pp-pricing-grid">
@@ -150,7 +148,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                     <li className="pp-pricing-feature">Accès piscine</li>
                     <li className="pp-pricing-feature">Service aux transats</li>
                   </ul>
-                  <a href="/contact" className="pp-btn pp-btn--outline" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</a>
+                  <ZenchefTransatLink className="pp-btn pp-btn--outline" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</ZenchefTransatLink>
                 </div>
       
                 
@@ -165,7 +163,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                     <li className="pp-pricing-feature">Verre de vin ou soft</li>
                     <li className="pp-pricing-feature">Service aux transats</li>
                   </ul>
-                  <a href="/contact" className="pp-btn pp-btn--primary pp-magnetic" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</a>
+                  <ZenchefTransatLink className="pp-btn pp-btn--primary pp-magnetic" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</ZenchefTransatLink>
                 </div>
       
                 
@@ -182,7 +180,35 @@ export function PiscineTransatsPageBody(): ReactNode {
                     <li className="pp-pricing-feature pp-pricing-feature--note">Blanc · Rosé · Rouge<br />Domaine du Petit Chaumont, vins bio des Sables de Camargue</li>
                     <li className="pp-pricing-feature">Service aux transats</li>
                   </ul>
-                  <a href="/contact" className="pp-btn pp-btn--gold pp-magnetic" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</a>
+                  <ZenchefTransatLink className="pp-btn pp-btn--gold pp-magnetic" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</ZenchefTransatLink>
+                </div>
+
+                <div className="pp-pricing-card" data-pp-reveal data-pp-delay="4">
+                  <div className="pp-pricing-badge">2 pers. min.</div>
+                  <h3 className="pp-pricing-name">Bed Simple</h3>
+                  <div className="pp-pricing-price"><sup>€</sup>30</div>
+                  <div className="pp-pricing-unit">par personne · 2 pers. minimum</div>
+                  <ul className="pp-pricing-features">
+                    <li className="pp-pricing-feature">1 bed premium au bord de la piscine</li>
+                    <li className="pp-pricing-feature">Accès piscine</li>
+                    <li className="pp-pricing-feature">Service en bord de bassin</li>
+                  </ul>
+                  <ZenchefTransatLink className="pp-btn pp-btn--outline" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</ZenchefTransatLink>
+                </div>
+
+                <div className="pp-pricing-card" data-pp-reveal data-pp-delay="5">
+                  <div className="pp-pricing-badge">Pour 2</div>
+                  <h3 className="pp-pricing-name">Formule Bed Paradise</h3>
+                  <div className="pp-pricing-price"><sup>€</sup>100</div>
+                  <div className="pp-pricing-unit">pour 2 personnes</div>
+                  <ul className="pp-pricing-features">
+                    <li className="pp-pricing-feature">2 beds premium</li>
+                    <li className="pp-pricing-feature">Tous les avantages Formule Paradise</li>
+                    <li className="pp-pricing-feature">2 salades César ou Thaï</li>
+                    <li className="pp-pricing-feature">Bouteille de vin du domaine</li>
+                    <li className="pp-pricing-feature">Service aux transats &amp; beds</li>
+                  </ul>
+                  <ZenchefTransatLink className="pp-btn pp-btn--gold pp-magnetic" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</ZenchefTransatLink>
                 </div>
       
               </div>
@@ -197,10 +223,10 @@ export function PiscineTransatsPageBody(): ReactNode {
                   Réservez votre journée au bord de la piscine
                 </h2>
                 <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">
-                  Places limitées — réservation conseillée, surtout le week-end et en haute saison.
+                  Places limitées — réservation conseillée, surtout le week-end et en haute saison (juin – septembre).
                 </p>
                 <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
-                  <a href="/contact" className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Réserver un transat</a>
+                  <ZenchefTransatLink className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Réserver un transat</ZenchefTransatLink>
                   <a href={`tel:${PP_PHONE_E164}`} className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic"> Appeler</a>
                 </div>
               </div>

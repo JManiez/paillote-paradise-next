@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '../lib/publicPhone';
+import { SITE_HOURS_SUNDAY, SITE_HOURS_WEEK, SITE_SEASON } from '@/lib/siteHours';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -117,9 +118,9 @@ export function Footer() {
             <div className="pp-footer__contact-item">
               <span className="pp-footer__contact-icon"></span>
               <span>
-                Ouvert de juin à septembre
+                {SITE_SEASON}
                 <br />
-                Mer.&#8239;–&#8239;Sam. 12h&#8239;–&#8239;19h · Dim. 12h&#8239;–&#8239;00h (United)
+                {SITE_HOURS_WEEK} · {SITE_HOURS_SUNDAY}
               </span>
             </div>
           </div>

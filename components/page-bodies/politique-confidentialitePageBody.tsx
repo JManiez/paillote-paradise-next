@@ -1,18 +1,15 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 
 export function PolitiqueConfidentialitePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero pp-page-hero--short" aria-labelledby="pc-title">
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Politique de confidentialité' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Politique de confidentialité</li>
-                </ol>
-              </nav>
               <h1 className="pp-page-hero__title" id="pc-title">Politique de confidentialité</h1>
             </div>
           </section>

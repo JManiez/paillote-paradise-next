@@ -5,6 +5,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ClientScripts } from '../components/ClientScripts';
 import { GoogleAds } from '../components/GoogleAds';
+import { ZenchefWidget } from '../components/ZenchefWidget';
 import { JsonLd } from '../components/JsonLd';
 import { SITE_NAME, SITE_URL, OG_IMAGE } from '../lib/seo';
 import { PP_PHONE_E164 } from '../lib/publicPhone';
@@ -87,10 +88,10 @@ const businessJsonLd = {
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          dayOfWeek: ['Wednesday', 'Thursday', 'Friday', 'Saturday'],
           opens: '12:00',
           closes: '19:00',
-          validFrom: '2026-04-01',
+          validFrom: '2026-06-01',
           validThrough: '2026-09-30',
         },
         {
@@ -98,7 +99,7 @@ const businessJsonLd = {
           dayOfWeek: ['Sunday'],
           opens: '12:00',
           closes: '23:59',
-          validFrom: '2026-04-01',
+          validFrom: '2026-06-01',
           validThrough: '2026-09-30',
         },
       ],
@@ -141,6 +142,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
         <GoogleAds />
+        <ZenchefWidget />
         <ClientScripts />
         <Analytics />
       </body>

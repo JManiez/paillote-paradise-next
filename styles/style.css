@@ -2763,7 +2763,7 @@ p { line-height: 1.75; }
 /* ─── 20. Tarifs / Offres ───────────────────────────────────── */
 .pp-pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: var(--pp-space-6);
   align-items: stretch;
 }
@@ -2898,6 +2898,10 @@ p { line-height: 1.75; }
   min-height: 240px;
   background: var(--pp-ocean);
 }
+.pp-page-hero--short .pp-page-hero__content {
+  padding-top: calc(var(--pp-header-top-h) + var(--pp-header-nav-h) + var(--pp-space-6));
+  padding-bottom: var(--pp-space-8);
+}
 
 .pp-page-hero__img {
   position: absolute;
@@ -2908,12 +2912,28 @@ p { line-height: 1.75; }
   opacity: 0.55;
 }
 
+.pp-page-hero__breadcrumb-wrap {
+  position: absolute;
+  top: calc(var(--pp-header-top-h) + var(--pp-header-nav-h) + var(--pp-space-3));
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  padding-inline: var(--pp-space-6);
+  pointer-events: none;
+}
+.pp-page-hero__breadcrumb-wrap .pp-breadcrumb {
+  pointer-events: auto;
+  margin-bottom: 0;
+}
+
 .pp-page-hero__content {
   position: relative;
   z-index: 4;
   text-align: center;
   padding: var(--pp-space-16) var(--pp-space-8);
-  padding-top: calc(var(--pp-header-top-h) + var(--pp-header-nav-h) + var(--pp-space-8));
+  padding-top: calc(var(--pp-header-top-h) + var(--pp-header-nav-h) + var(--pp-space-10));
   padding-bottom: calc(var(--pp-space-8) + clamp(70px, 8vw, 110px));
 }
 

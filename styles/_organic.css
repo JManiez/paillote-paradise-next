@@ -812,6 +812,218 @@ body.pp-grain::before {
   }
 }
 
+/* ─── Page Soirées — hero, calendrier, liens Shotgun ─────────── */
+.pp-soirees-hero .pp-page-hero__content {
+  position: relative;
+  z-index: 2;
+}
+.pp-soirees-hero__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(10,12,20,.35) 0%, rgba(10,12,20,.55) 45%, rgba(26,30,46,.92) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(191,154,63,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pp-soirees-hero__brand {
+  font-family: var(--pp-font-display);
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212,173,85,.35);
+  margin: 0 0 var(--pp-space-2);
+  line-height: 1;
+  opacity: 0.9;
+}
+.pp-soirees-hero__actions {
+  display: flex;
+  gap: var(--pp-space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--pp-space-8);
+}
+
+.pp-agenda__shotgun-link {
+  color: var(--pp-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pp-agenda__shotgun-link:hover {
+  color: var(--pp-white);
+}
+.pp-agenda__night-desc {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(253,251,247,.55);
+  line-height: 1.45;
+  margin: 0 0 8px;
+}
+
+.pp-soirees-cal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--pp-space-8);
+  margin-top: var(--pp-space-12);
+}
+@media (max-width: 900px) {
+  .pp-soirees-cal__grid { grid-template-columns: 1fr; }
+}
+.pp-soirees-cal__month {
+  background: rgba(26,30,46,.65);
+  border: 1px solid rgba(212,173,85,.14);
+  border-radius: var(--pp-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0,0,0,.25);
+}
+.pp-soirees-cal__month-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--pp-space-4);
+  padding: var(--pp-space-5) var(--pp-space-6);
+  background: linear-gradient(90deg, rgba(191,154,63,.12) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(212,173,85,.12);
+}
+.pp-soirees-cal__month-title {
+  font-family: var(--pp-font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--pp-white);
+  margin: 0;
+}
+.pp-soirees-cal__month-count {
+  font-family: var(--pp-font-label);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pp-gold);
+  white-space: nowrap;
+}
+.pp-soirees-cal__events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pp-soirees-cal__row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr auto;
+  align-items: center;
+  gap: var(--pp-space-4);
+  padding: var(--pp-space-4) var(--pp-space-6);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: background 0.2s ease;
+}
+.pp-soirees-cal__row:last-child { border-bottom: none; }
+.pp-soirees-cal__row:hover {
+  background: rgba(255,255,255,.03);
+}
+.pp-soirees-cal__row--highlight {
+  background: linear-gradient(90deg, rgba(191,154,63,.10) 0%, transparent 100%);
+}
+.pp-soirees-cal__row--united .pp-soirees-cal__name {
+  color: var(--pp-white);
+}
+.pp-soirees-cal__date {
+  font-family: var(--pp-font-label);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(212,173,85,.85);
+  white-space: nowrap;
+}
+.pp-soirees-cal__body {
+  min-width: 0;
+}
+.pp-soirees-cal__tag {
+  display: inline-block;
+  font-family: var(--pp-font-label);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--pp-radius-full);
+  margin-bottom: 4px;
+}
+.pp-soirees-cal__tag--united {
+  background: rgba(191,154,63,.22);
+  color: var(--pp-gold-light);
+  border: 1px solid rgba(212,173,85,.35);
+}
+.pp-soirees-cal__tag--special,
+.pp-soirees-cal__tag--theme {
+  background: rgba(92,140,106,.2);
+  color: #a8d4b4;
+  border: 1px solid rgba(92,140,106,.35);
+}
+.pp-soirees-cal__name {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(253,250,245,.82);
+  line-height: 1.35;
+}
+.pp-soirees-cal__ticket {
+  font-family: var(--pp-font-label);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pp-gold-light);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid rgba(212,173,85,.4);
+  border-radius: var(--pp-radius-full);
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pp-soirees-cal__ticket:hover {
+  background: var(--pp-gold);
+  color: var(--pp-night);
+  border-color: var(--pp-gold);
+}
+.pp-soirees-cal__ticket--muted {
+  border-color: rgba(255,255,255,.12);
+  color: rgba(253,250,245,.35);
+  cursor: default;
+}
+.pp-soirees-cal__foot {
+  text-align: center;
+  margin-top: var(--pp-space-12);
+}
+.pp-soirees-cal__disclaimer {
+  color: rgba(253,250,244,.45);
+  font-size: var(--pp-text-sm);
+  line-height: 1.65;
+  max-width: 52ch;
+  margin: 0 auto var(--pp-space-8);
+}
+.pp-soirees-cal__disclaimer a {
+  color: var(--pp-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pp-soirees-cal__actions {
+  display: flex;
+  gap: var(--pp-space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .pp-soirees-cal__row {
+    grid-template-columns: 1fr;
+    gap: var(--pp-space-2);
+  }
+  .pp-soirees-cal__ticket {
+    justify-self: start;
+  }
+}
+
 /* ─── 13. Désactivations mobile + reduced-motion ────────────── */
 @media (max-width: 1024px) {
   .pp-magnetic { transform: none !important; }

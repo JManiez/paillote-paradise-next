@@ -1,22 +1,23 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 
 export function SeoSoireeDimancheAiguesMortesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-soiree-title">
             <Image src="/assets/images/hero-soirees.jpg" alt="Soiree du dimanche Aigues-Mortes — La Paillote Paradise, foule et DJ en Camargue" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb
+                items={[
+                  { label: 'Accueil', href: '/' },
+                  { label: 'Soirées', href: '/soirees' },
+                  { label: 'Soirée du dimanche' },
+                ]}
+              />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li><a href="/soirees">Soirées</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Soirée Dimanche Aigues-Mortes</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Chaque dimanche · Saison 2026</span>
               <h1 className="pp-page-hero__title" id="seo-soiree-title">La Soirée du Dimanche à Aigues-Mortes</h1>
               <p className="pp-page-hero__subtitle">La fête incontournable de Camargue · Domaine du Petit Chaumont</p>

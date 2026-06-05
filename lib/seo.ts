@@ -108,7 +108,7 @@ export const pageSeo = {
     title:
       'Bar à Tapas à Aigues-Mortes — Restaurant en Camargue | La Paillote Paradise',
     description:
-      "Bar à tapas en Camargue à Aigues-Mortes : tapas faites maison, vins du Domaine du Petit Chaumont, terrasse au bord de la piscine. Ouvert d'avril à septembre.",
+      "Bar à tapas en Camargue à Aigues-Mortes : tapas faites maison, vins du Domaine du Petit Chaumont, terrasse au bord de la piscine. Ouvert de juin à septembre.",
     path: '/seo/restaurant-paillote-aigues-mortes',
   }),
   seoPiscine: buildMetadata({

@@ -1,7 +1,9 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '@/lib/publicPhone';
+import { SITE_HOURS_CONTACT_LINES } from '@/lib/siteHours';
 
 export function ContactPageBody(): ReactNode {
   return (
@@ -16,14 +18,10 @@ export function ContactPageBody(): ReactNode {
               priority
               sizes="100vw"
             />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Contact' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Contact</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Réservation & Accès</span>
               <h1 className="pp-page-hero__title" id="contact-page-title">Contactez-nous</h1>
               <p className="pp-page-hero__subtitle">Réservation · Privatisation · Plan d'accès</p>
@@ -83,10 +81,12 @@ export function ContactPageBody(): ReactNode {
                       <div>
                         <p className="pp-acces__item-title">Ouverture</p>
                         <p className="pp-acces__item-text">
-                          Ouvert de juin à septembre<br />
-                          Mercredi → Samedi : 12h&#8239;–&#8239;19h<br />
-                          Dimanche : 12h&#8239;–&#8239;00h (United)<br />
-                          Lundi &amp; Mardi fermés
+                          {SITE_HOURS_CONTACT_LINES.map((line) => (
+                            <span key={line}>
+                              {line}
+                              <br />
+                            </span>
+                          ))}
                         </p>
                       </div>
                     </div>

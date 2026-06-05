@@ -1,6 +1,7 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 
 export function PrivatisationPageBody(): ReactNode {
   return (
@@ -14,14 +15,10 @@ export function PrivatisationPageBody(): ReactNode {
               priority
               sizes="100vw"
             />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Groupes & Privatisation' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Groupes &amp; Privatisation</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Événements &amp; Groupes</span>
               <h1 className="pp-page-hero__title" id="priv-title">Groupes &amp; Privatisation</h1>
               <p className="pp-page-hero__subtitle">Un espace rien que pour vous · EVJF · Anniversaire · Repas d'entreprise</p>

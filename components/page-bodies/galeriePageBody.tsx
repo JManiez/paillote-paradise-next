@@ -3,6 +3,8 @@ import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { GalleryGrid } from '@/components/GalleryGrid';
 import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function GaleriePageBody(): ReactNode {
   return (
@@ -17,14 +19,10 @@ export function GaleriePageBody(): ReactNode {
               priority
               sizes="100vw"
             />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Galerie' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Galerie</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">En images</span>
               <h1 className="pp-page-hero__title" id="galerie-title">La Galerie Paradise</h1>
               <p className="pp-page-hero__subtitle">{PARADISE_GALLERY.length} photos — Saison 2025</p>
@@ -76,7 +74,7 @@ export function GaleriePageBody(): ReactNode {
                   Venez vivre l'expérience par vous-même !
                 </p>
                 <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
-                  <a href="/contact" className="pp-btn pp-btn--gold pp-btn--lg">Réserver</a>
+                  <ZenchefReserveLink className="pp-btn pp-btn--gold pp-btn--lg">Réserver</ZenchefReserveLink>
                   <a href="/soirees" className="pp-btn pp-btn--secondary pp-btn--lg">Voir les soirées</a>
                 </div>
               </div>

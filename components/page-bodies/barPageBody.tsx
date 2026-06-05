@@ -3,6 +3,8 @@ import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PhotoCarousel } from '@/components/PhotoCarousel';
 import { COCKTAIL_CAROUSEL_PLACEHOLDERS } from '@/lib/carouselPlaceholders';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function BarPageBody(): ReactNode {
   return (
@@ -16,14 +18,10 @@ export function BarPageBody(): ReactNode {
               priority
               sizes="100vw"
             />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Bar & Cocktails' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Bar & Cocktails</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Cheers !</span>
               <h1 className="pp-page-hero__title" id="page-title">Bar & Cocktails</h1>
               <p className="pp-page-hero__subtitle">Créations du barman · Classiques · Mocktails sur mesure</p>
@@ -54,7 +52,7 @@ export function BarPageBody(): ReactNode {
                   </p>
                   <div style={{ display: "flex", gap: "var(--pp-space-4)", flexWrap: "wrap" }}>
                     <a href="#carte-cocktails" className="pp-btn pp-btn--primary pp-magnetic">Voir la carte</a>
-                    <a href="/contact" className="pp-btn pp-btn--outline pp-magnetic">Réserver une table</a>
+                    <ZenchefReserveLink className="pp-btn pp-btn--outline pp-magnetic">Réserver une table</ZenchefReserveLink>
                   </div>
                 </div>
                 <div data-pp-reveal="right" style={{ borderRadius: "var(--pp-radius-xl)", overflow: "hidden", boxShadow: "var(--pp-shadow-lg)" }}>
@@ -615,7 +613,7 @@ export function BarPageBody(): ReactNode {
                   le bar est ouvert toute la journée.
                 </p>
                 <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="3">
-                  <a href="/contact" className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Réserver une table</a>
+                  <ZenchefReserveLink className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Réserver une table</ZenchefReserveLink>
                   <a href="/restaurant#carte-tapas" className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Voir la carte tapas</a>
                 </div>
               </div>

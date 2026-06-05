@@ -1,20 +1,18 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { SITE_HOURS_LINE } from '@/lib/siteHours';
 
 export function SeoPailloteCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-paillote-title">
             <Image src="/assets/images/hero-home.jpg" alt="Paillote Camargue — La Paillote Paradise, bar restaurant piscine Aigues-Mortes" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Paillote Camargue' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Paillote Camargue</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Domaine du Petit Chaumont</span>
               <h1 className="pp-page-hero__title" id="seo-paillote-title">La Paillote Paradise en Camargue</h1>
               <p className="pp-page-hero__subtitle">Restaurant · Bar · Piscine Privée · Soirées · Aigues-Mortes</p>
@@ -71,7 +69,7 @@ export function SeoPailloteCamarguePageBody(): ReactNode {
           <section className="pp-cta-section" aria-labelledby="cta-paillote-seo">
             <div className="pp-container" style={{ textAlign: "center" }}>
               <h2 className="pp-title pp-title--light" id="cta-paillote-seo" data-pp-reveal>Venez découvrir la paillote de Camargue</h2>
-              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi 12h&#8239;–&#8239;19h, Dimanche 12h&#8239;–&#8239;00h. Domaine du Petit Chaumont, Aigues-Mortes.</p>
+              <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">{SITE_HOURS_LINE}. Domaine du Petit Chaumont, Aigues-Mortes.</p>
               <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
                 <a href="/contact" className="pp-btn pp-btn--primary pp-btn--lg">Nous contacter</a>
                 <a href="/" className="pp-btn pp-btn--secondary pp-btn--lg">Découvrir le site</a>

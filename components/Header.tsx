@@ -6,6 +6,9 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '../lib/publicPhone';
+import { ZenchefReserveLink } from './ZenchefReserveLink';
+import { ZenchefTransatLink } from './ZenchefOpenLink';
+import { SITE_HOURS_SHORT } from '@/lib/siteHours';
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
@@ -123,14 +126,17 @@ function MobileNavBundle({
             </svg>
             {PP_PHONE_DISPLAY}
           </a>
-          <p className="pp-mobile-nav__hours">Juin – sept. · Mer.–Sam. 12h–19h · Dim. 12h–00h</p>
+          <p className="pp-mobile-nav__hours">{SITE_HOURS_SHORT}</p>
           <div className="pp-mobile-nav__ctas">
-            <Link href="/piscine-transats" className="pp-btn pp-btn--outline-palm" onClick={() => setMobileOpen(false)}>
+            <ZenchefTransatLink className="pp-btn pp-btn--outline-palm" onClick={() => setMobileOpen(false)}>
               Louer un transat
-            </Link>
-            <Link href="/contact" className="pp-btn pp-btn--primary" onClick={() => setMobileOpen(false)}>
+            </ZenchefTransatLink>
+            <ZenchefReserveLink
+              className="pp-btn pp-btn--primary"
+              onClick={() => setMobileOpen(false)}
+            >
               Réserver
-            </Link>
+            </ZenchefReserveLink>
           </div>
         </div>
       </div>
@@ -224,9 +230,9 @@ export function Header() {
             </Link>
 
             <div className="pp-header__side pp-header__side--end">
-              <Link href="/contact" className="pp-btn pp-btn--primary pp-btn--xs pp-header__reserve">
+              <ZenchefReserveLink className="pp-btn pp-btn--primary pp-btn--xs pp-header__reserve">
                 Réserver
-              </Link>
+              </ZenchefReserveLink>
               <div className="pp-header__tools" aria-label="Actions">
                 <a
                   href={`tel:${PP_PHONE_E164}`}

@@ -1,19 +1,16 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 import { PP_PHONE_DISPLAY } from '@/lib/publicPhone';
 
 export function MentionsLegalesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero pp-page-hero--short" aria-labelledby="ml-title">
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Mentions légales' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Mentions légales</li>
-                </ol>
-              </nav>
               <h1 className="pp-page-hero__title" id="ml-title">Mentions légales</h1>
             </div>
           </section>

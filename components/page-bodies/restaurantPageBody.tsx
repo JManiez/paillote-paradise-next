@@ -4,6 +4,8 @@ import type { ReactNode } from 'react';
 import { PhotoCarousel } from '@/components/PhotoCarousel';
 import { TAPAS_CAROUSEL_PLACEHOLDERS } from '@/lib/carouselPlaceholders';
 import { PP_PHONE_E164 } from '@/lib/publicPhone';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function RestaurantPageBody(): ReactNode {
   return (
@@ -17,14 +19,10 @@ export function RestaurantPageBody(): ReactNode {
               priority
               sizes="100vw"
             />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Bar à Tapas' }]} />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Bar à Tapas</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Tapas &amp; Partage</span>
               <h1 className="pp-page-hero__title" id="page-title">Bar à Tapas</h1>
               <p className="pp-page-hero__subtitle">Tapas méditerranéennes · Vins du domaine · Terrasse face à la piscine</p>
@@ -60,7 +58,7 @@ export function RestaurantPageBody(): ReactNode {
                     (blanc, rosé, rouge — Domaine du Petit Chaumont), et une sélection de boissons pour tous les goûts.
                   </p>
                   <div style={{ display: "flex", gap: "var(--pp-space-4)", flexWrap: "wrap" }}>
-                    <a href="/contact" className="pp-btn pp-btn--primary pp-magnetic">Nous contacter</a>
+                    <ZenchefReserveLink className="pp-btn pp-btn--primary pp-magnetic">Réserver une table</ZenchefReserveLink>
                     <a href="#carte-tapas" className="pp-btn pp-btn--outline">Voir la carte tapas</a>
                   </div>
                 </div>
@@ -327,7 +325,7 @@ export function RestaurantPageBody(): ReactNode {
                   surtout en juillet-août.
                 </p>
                 <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="3">
-                  <a href="/contact" className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Nous contacter</a>
+                  <ZenchefReserveLink className="pp-btn pp-btn--gold pp-btn--lg pp-magnetic">Réserver une table</ZenchefReserveLink>
                   <a href={`tel:${PP_PHONE_E164}`} className="pp-btn pp-btn--secondary pp-btn--lg pp-magnetic">Appeler directement</a>
                 </div>
               </div>

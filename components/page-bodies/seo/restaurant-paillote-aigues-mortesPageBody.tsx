@@ -1,22 +1,24 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-rest-title">
             <Image src="/assets/images/restaurant-hero.jpg" alt="Restaurant paillote Aigues-Mortes — La Paillote Paradise, bord de piscine en Camargue" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb
+                items={[
+                  { label: 'Accueil', href: '/' },
+                  { label: 'Bar à Tapas', href: '/restaurant' },
+                  { label: 'Aigues-Mortes' },
+                ]}
+              />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li><a href="/restaurant">Restaurant</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Aigues-Mortes</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Domaine du Petit Chaumont</span>
               <h1 className="pp-page-hero__title" id="seo-rest-title">Restaurant Paillote à Aigues-Mortes</h1>
               <p className="pp-page-hero__subtitle">Cuisine méditerranéenne · Ambiance festive · Bord de piscine</p>
@@ -44,7 +46,7 @@ export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
                   </ul>
                   <div style={{ display: "flex", gap: "var(--pp-space-4)", flexWrap: "wrap" }}>
                     <a href="/restaurant" className="pp-btn pp-btn--primary">Voir la carte & les menus</a>
-                    <a href="/contact" className="pp-btn pp-btn--outline-ocean">Réserver une table</a>
+                    <ZenchefReserveLink className="pp-btn pp-btn--outline-ocean">Réserver une table</ZenchefReserveLink>
                   </div>
                 </div>
                 <div data-pp-reveal="right">
@@ -93,7 +95,7 @@ export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
               <h2 className="pp-title pp-title--light" id="cta-rest-seo-title" data-pp-reveal>Réservez votre table au meilleur restaurant paillote d'Aigues-Mortes</h2>
               <p className="pp-subtitle pp-subtitle--light" style={{ marginInline: "auto", marginBottom: "var(--pp-space-10)" }} data-pp-reveal data-pp-delay="1">Ouvert de juin à septembre · Mercredi → Samedi de 12h à 19h, Dimanche de 12h à minuit (United). Réservation conseillée.</p>
               <div style={{ display: "flex", gap: "var(--pp-space-4)", justifyContent: "center", flexWrap: "wrap" }} data-pp-reveal data-pp-delay="2">
-                <a href="/contact" className="pp-btn pp-btn--primary pp-btn--lg">Réserver une table</a>
+                <ZenchefReserveLink className="pp-btn pp-btn--primary pp-btn--lg">Réserver une table</ZenchefReserveLink>
                 <a href="/restaurant" className="pp-btn pp-btn--secondary pp-btn--lg">Voir les menus</a>
               </div>
             </div>

@@ -1,22 +1,23 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 
 export function SeoPrivatisationDomaineCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-priv-title">
             <Image src="/assets/images/privatisation-hero.jpg" alt="Privatisation domaine Camargue — La Paillote Paradise, Aigues-Mortes" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb
+                items={[
+                  { label: 'Accueil', href: '/' },
+                  { label: 'Privatisation', href: '/privatisation' },
+                  { label: 'Domaine Camargue' },
+                ]}
+              />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li><a href="/privatisation">Privatisation</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Domaine Camargue</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Domaine du Petit Chaumont</span>
               <h1 className="pp-page-hero__title" id="seo-priv-title">Privatisation d'un domaine en Camargue</h1>
               <p className="pp-page-hero__subtitle">Mariage · EVJF · Anniversaire · Séminaire · Aigues-Mortes</p>

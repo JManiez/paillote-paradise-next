@@ -1,22 +1,24 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { ZenchefTransatLink } from '@/components/ZenchefOpenLink';
 
 export function SeoPiscinePriveeCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-piscine-title">
             <Image src="/assets/images/piscine-hero.jpg" alt="Piscine privée Camargue — La Paillote Paradise Aigues-Mortes, transats et palmiers" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <div className="pp-page-hero__breadcrumb-wrap">
+              <PageBreadcrumb
+                items={[
+                  { label: 'Accueil', href: '/' },
+                  { label: 'Piscine & Transats', href: '/piscine-transats' },
+                  { label: 'Piscine privée' },
+                ]}
+              />
+            </div>
             <div className="pp-page-hero__content">
-              <nav aria-label="Fil d'Ariane">
-                <ol className="pp-breadcrumb" style={{ justifyContent: "center" }}>
-                  <li><a href="/">Accueil</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li><a href="/piscine-transats">Piscine &amp; Transats</a></li>
-                  <li className="pp-breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Camargue</li>
-                </ol>
-              </nav>
               <span className="pp-eyebrow pp-eyebrow--gold">Domaine du Petit Chaumont, Aigues-Mortes</span>
               <h1 className="pp-page-hero__title" id="seo-piscine-title">Piscine Privée en Camargue</h1>
               <p className="pp-page-hero__subtitle">Location de transats · Journée piscine · Expérience VIP</p>
@@ -44,7 +46,7 @@ export function SeoPiscinePriveeCamarguePageBody(): ReactNode {
                   </ul>
                   <div style={{ display: "flex", gap: "var(--pp-space-4)", flexWrap: "wrap" }}>
                     <a href="/piscine-transats" className="pp-btn pp-btn--primary">Voir les tarifs piscine</a>
-                    <a href="/contact" className="pp-btn pp-btn--outline-ocean">Réserver des transats</a>
+                    <ZenchefTransatLink className="pp-btn pp-btn--outline-ocean">Réserver des transats</ZenchefTransatLink>
                   </div>
                 </div>
                 <div data-pp-reveal="right">
