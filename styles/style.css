@@ -2909,7 +2909,7 @@ p { line-height: 1.75; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: var(--pp-hero-focus, 50% 28%);
+  object-position: var(--pp-hero-focus, 50% 54%);
   opacity: 0.55;
 }
 

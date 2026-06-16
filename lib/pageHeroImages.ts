@@ -1,12 +1,12 @@
 /** Images et point de focus (object-position) pour les héros de pages intérieures. */
 
-/** Remonte le cadrage (% Y plus bas = plus de haut visible). Accueil non concerné. */
-export const PAGE_HERO_FOCUS_Y_LIFT = 14;
+/** Décale le cadrage vertical : positif = descendre le sujet (% Y plus haut). Accueil non concerné. */
+export const PAGE_HERO_FOCUS_Y_SHIFT = 12;
 
 export function resolveHeroFocus(focus: string): string {
   const match = focus.match(/^([\d.]+%)\s+([\d.]+)%$/);
   if (!match) return focus;
-  const y = Math.max(10, parseFloat(match[2]) - PAGE_HERO_FOCUS_Y_LIFT);
+  const y = Math.min(72, parseFloat(match[2]) + PAGE_HERO_FOCUS_Y_SHIFT);
   return `${match[1]} ${y}%`;
 }
 
