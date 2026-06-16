@@ -1,4 +1,15 @@
 /** Images et point de focus (object-position) pour les héros de pages intérieures. */
+
+/** Remonte le cadrage (% Y plus bas = plus de haut visible). Accueil non concerné. */
+export const PAGE_HERO_FOCUS_Y_LIFT = 14;
+
+export function resolveHeroFocus(focus: string): string {
+  const match = focus.match(/^([\d.]+%)\s+([\d.]+)%$/);
+  if (!match) return focus;
+  const y = Math.max(10, parseFloat(match[2]) - PAGE_HERO_FOCUS_Y_LIFT);
+  return `${match[1]} ${y}%`;
+}
+
 export type PageHeroKey =
   | 'bar'
   | 'restaurant'

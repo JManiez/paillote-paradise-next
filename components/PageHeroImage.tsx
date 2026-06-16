@@ -1,6 +1,10 @@
 import Image from 'next/image';
 import type { CSSProperties } from 'react';
-import { PAGE_HERO_IMAGES, type PageHeroKey } from '@/lib/pageHeroImages';
+import {
+  PAGE_HERO_IMAGES,
+  resolveHeroFocus,
+  type PageHeroKey,
+} from '@/lib/pageHeroImages';
 
 type PageHeroImageProps = {
   heroKey: PageHeroKey;
@@ -10,7 +14,7 @@ type PageHeroImageProps = {
 
 export function PageHeroImage({ heroKey, focus }: PageHeroImageProps) {
   const hero = PAGE_HERO_IMAGES[heroKey];
-  const objectPosition = focus ?? hero.focus;
+  const objectPosition = resolveHeroFocus(focus ?? hero.focus);
 
   return (
     <Image
@@ -32,5 +36,7 @@ export function PageHeroImage({ heroKey, focus }: PageHeroImageProps) {
 
 /** Style à passer sur `<section className="pp-page-hero">` pour kenburns / CSS. */
 export function pageHeroSectionStyle(heroKey: PageHeroKey): CSSProperties {
-  return { '--pp-hero-focus': PAGE_HERO_IMAGES[heroKey].focus } as CSSProperties;
+  return {
+    '--pp-hero-focus': resolveHeroFocus(PAGE_HERO_IMAGES[heroKey].focus),
+  } as CSSProperties;
 }
