@@ -2,12 +2,13 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 
 export function SeoPrivatisationDomaineCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-priv-title">
-            <Image src="/assets/images/privatisation-hero.jpg" alt="Privatisation domaine Camargue — La Paillote Paradise, Aigues-Mortes" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <PageHeroImage heroKey="seo-privatisation" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb
                 items={[

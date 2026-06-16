@@ -4,20 +4,14 @@ import type { ReactNode } from 'react';
 import { PhotoCarousel } from '@/components/PhotoCarousel';
 import { COCKTAIL_CAROUSEL_PLACEHOLDERS } from '@/lib/carouselPlaceholders';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function BarPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="page-title">
-            <Image
-              src="/assets/images/universe-bar.jpg"
-              alt="Bar de La Paillote Paradise, cocktails en bord de piscine en Camargue"
-              fill
-              className="pp-page-hero__img"
-              priority
-              sizes="100vw"
-            />
+            <PageHeroImage heroKey="bar" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Bar & Cocktails' }]} />
             </div>
@@ -304,7 +298,12 @@ export function BarPageBody(): ReactNode {
                           <span className="pp-carte-line__price">4</span>
                         </li>
                         <li className="pp-carte-line">
-                          <span className="pp-carte-line__name">Eau Sémillante <small>50cl</small></span>
+                          <span className="pp-carte-line__name">Eau Sémillante plate <small>33cl</small></span>
+                          <span className="pp-carte-line__dots"></span>
+                          <span className="pp-carte-line__price">4</span>
+                        </li>
+                        <li className="pp-carte-line">
+                          <span className="pp-carte-line__name">Eau Sémillante gaz <small>33cl</small></span>
                           <span className="pp-carte-line__dots"></span>
                           <span className="pp-carte-line__price">4</span>
                         </li>
@@ -327,7 +326,7 @@ export function BarPageBody(): ReactNode {
                         <li className="pp-carte-line">
                           <span className="pp-carte-line__name">Café · Décaféiné</span>
                           <span className="pp-carte-line__dots"></span>
-                          <span className="pp-carte-line__price">3,50</span>
+                          <span className="pp-carte-line__price">2,50</span>
                         </li>
                         <li className="pp-carte-line">
                           <span className="pp-carte-line__name">Thé</span>

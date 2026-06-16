@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { ZenchefTransatLink } from '@/components/ZenchefOpenLink';
 import { PP_PHONE_E164 } from '@/lib/publicPhone';
 
@@ -9,14 +10,7 @@ export function PiscineTransatsPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="piscine-title">
-            <Image
-              src="/assets/images/hero-piscine-2025.jpg"
-              alt="Piscine privée de la Paillote Paradise avec transats et parasols, Aigues-Mortes Camargue"
-              fill
-              className="pp-page-hero__img"
-              priority
-              sizes="100vw"
-            />
+            <PageHeroImage heroKey="piscine" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Piscine & Transats' }]} />
             </div>
@@ -177,7 +171,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                     <li className="pp-pricing-feature">Accès piscine</li>
                     <li className="pp-pricing-feature">2 salades César ou Thaï</li>
                     <li className="pp-pricing-feature">Bouteille de vin du domaine</li>
-                    <li className="pp-pricing-feature pp-pricing-feature--note">Blanc · Rosé · Rouge<br />Domaine du Petit Chaumont, vins bio des Sables de Camargue</li>
+                    <li className="pp-pricing-feature pp-pricing-feature--note">Blanc · Gris · Rouge<br />Domaine du Petit Chaumont, vins bio des Sables de Camargue</li>
                     <li className="pp-pricing-feature">Service aux transats</li>
                   </ul>
                   <ZenchefTransatLink className="pp-btn pp-btn--gold pp-magnetic" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</ZenchefTransatLink>
@@ -206,6 +200,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                     <li className="pp-pricing-feature">Tous les avantages Formule Paradise</li>
                     <li className="pp-pricing-feature">2 salades César ou Thaï</li>
                     <li className="pp-pricing-feature">Bouteille de vin du domaine</li>
+                    <li className="pp-pricing-feature pp-pricing-feature--note">Blanc · Gris · Rouge<br />Domaine du Petit Chaumont, vins bio des Sables de Camargue</li>
                     <li className="pp-pricing-feature">Service aux transats &amp; beds</li>
                   </ul>
                   <ZenchefTransatLink className="pp-btn pp-btn--gold pp-magnetic" style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>Réserver</ZenchefTransatLink>

@@ -2,13 +2,14 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function SeoRestaurantPailloteAiguesMortesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-rest-title">
-            <Image src="/assets/images/restaurant-hero.jpg" alt="Restaurant paillote Aigues-Mortes — La Paillote Paradise, bord de piscine en Camargue" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <PageHeroImage heroKey="seo-restaurant" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb
                 items={[

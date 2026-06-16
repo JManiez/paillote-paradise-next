@@ -2,13 +2,14 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { SITE_HOURS_LINE } from '@/lib/siteHours';
 
 export function SeoPailloteCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-paillote-title">
-            <Image src="/assets/images/hero-home.jpg" alt="Paillote Camargue — La Paillote Paradise, bar restaurant piscine Aigues-Mortes" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <PageHeroImage heroKey="seo-paillote" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Paillote Camargue' }]} />
             </div>

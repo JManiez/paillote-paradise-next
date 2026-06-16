@@ -2,19 +2,13 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 
 export function PrivatisationPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="priv-title">
-            <Image
-              src="/assets/images/privatisation-united-2025.jpg"
-              alt="Espace privatisé pour groupe à La Paillote Paradise — Aigues-Mortes"
-              fill
-              className="pp-page-hero__img"
-              priority
-              sizes="100vw"
-            />
+            <PageHeroImage heroKey="privatisation" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Groupes & Privatisation' }]} />
             </div>

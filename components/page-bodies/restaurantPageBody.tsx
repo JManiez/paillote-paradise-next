@@ -5,20 +5,14 @@ import { PhotoCarousel } from '@/components/PhotoCarousel';
 import { TAPAS_CAROUSEL_PLACEHOLDERS } from '@/lib/carouselPlaceholders';
 import { PP_PHONE_E164 } from '@/lib/publicPhone';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function RestaurantPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="page-title">
-            <Image
-              src="/assets/images/hero-restaurant-2025.jpg"
-              alt="Bar à tapas La Paillote Paradise — terrasse et piscine sur le domaine viticole"
-              fill
-              className="pp-page-hero__img"
-              priority
-              sizes="100vw"
-            />
+            <PageHeroImage heroKey="restaurant" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Bar à Tapas' }]} />
             </div>

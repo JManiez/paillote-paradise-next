@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage, pageHeroSectionStyle } from '@/components/PageHeroImage';
 import { SHOTGUN_UNITED_URL } from '@/lib/shotgun';
 import { SOIREES_AGENDA_2026, UNITED_EDITIONS_COUNT } from '@/lib/soireesAgenda2026';
 
@@ -31,15 +32,12 @@ export function SoireesPageBody(): ReactNode {
   return (
     <>
       {/* Hero */}
-      <section className="pp-page-hero pp-kenburns pp-soirees-hero" aria-labelledby="soirees-title">
-        <Image
-          src="/assets/images/hero-soirees-united.jpg"
-          alt="United by La Paillote — foule et piscine illuminée, soirée DJ en Camargue"
-          fill
-          className="pp-page-hero__img"
-          priority
-          sizes="100vw"
-        />
+      <section
+        className="pp-page-hero pp-kenburns pp-soirees-hero"
+        aria-labelledby="soirees-title"
+        style={pageHeroSectionStyle('soirees')}
+      >
+        <PageHeroImage heroKey="soirees" />
         <div className="pp-soirees-hero__shade" aria-hidden="true" />
         <div className="pp-page-hero__breadcrumb-wrap">
           <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Soirées' }]} />

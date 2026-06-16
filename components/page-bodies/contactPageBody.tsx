@@ -1,7 +1,7 @@
 /* Migré depuis lib/pages-html — éditable en React */
-import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '@/lib/publicPhone';
 import { SITE_HOURS_CONTACT_LINES } from '@/lib/siteHours';
 
@@ -9,15 +9,7 @@ export function ContactPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="contact-page-title">
-            {/* TODO photo dédiée à fournir — remplacer hero-contact.jpg */}
-            <Image
-              src="/assets/images/hero-contact.jpg"
-              alt="Entree du Domaine du Petit Chaumont — La Paillote Paradise, Aigues-Mortes"
-              fill
-              className="pp-page-hero__img"
-              priority
-              sizes="100vw"
-            />
+            <PageHeroImage heroKey="contact" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Contact' }]} />
             </div>

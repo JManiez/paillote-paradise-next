@@ -687,9 +687,10 @@ body.pp-grain::before {
   overflow: hidden;
   position: relative;
 }
-.pp-kenburns img {
+.pp-kenburns img,
+.pp-kenburns .pp-page-hero__img {
   animation: pp-kenburns-anim 24s ease-in-out infinite alternate;
-  transform-origin: center;
+  transform-origin: var(--pp-hero-focus, 50% 42%);
   will-change: transform;
 }
 @keyframes pp-kenburns-anim {

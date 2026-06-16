@@ -1,24 +1,16 @@
 /* Migré depuis lib/pages-html — éditable en React */
-import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { GalleryGrid } from '@/components/GalleryGrid';
 import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { ZenchefReserveLink } from '@/components/ZenchefReserveLink';
 
 export function GaleriePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="galerie-title">
-            {/* TODO photo dédiée à fournir — remplacer hero-galerie.jpg */}
-            <Image
-              src="/assets/images/hero-galerie.jpg"
-              alt="Vue aerienne du Domaine du Petit Chaumont et de la piscine de la Paillote Paradise"
-              fill
-              className="pp-page-hero__img"
-              priority
-              sizes="100vw"
-            />
+            <PageHeroImage heroKey="galerie" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Galerie' }]} />
             </div>

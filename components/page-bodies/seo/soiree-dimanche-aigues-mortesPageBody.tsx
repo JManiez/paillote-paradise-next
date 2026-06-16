@@ -2,12 +2,13 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 
 export function SeoSoireeDimancheAiguesMortesPageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-soiree-title">
-            <Image src="/assets/images/hero-soirees.jpg" alt="Soiree du dimanche Aigues-Mortes — La Paillote Paradise, foule et DJ en Camargue" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <PageHeroImage heroKey="seo-soiree" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb
                 items={[

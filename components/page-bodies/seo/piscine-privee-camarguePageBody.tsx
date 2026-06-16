@@ -2,13 +2,14 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { PageHeroImage } from '@/components/PageHeroImage';
 import { ZenchefTransatLink } from '@/components/ZenchefOpenLink';
 
 export function SeoPiscinePriveeCamarguePageBody(): ReactNode {
   return (
     <>
       <section className="pp-page-hero" aria-labelledby="seo-piscine-title">
-            <Image src="/assets/images/piscine-hero.jpg" alt="Piscine privée Camargue — La Paillote Paradise Aigues-Mortes, transats et palmiers" fill className="pp-page-hero__img" priority sizes="100vw" />
+            <PageHeroImage heroKey="seo-piscine" />
             <div className="pp-page-hero__breadcrumb-wrap">
               <PageBreadcrumb
                 items={[
