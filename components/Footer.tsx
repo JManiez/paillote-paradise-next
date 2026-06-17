@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '../lib/publicPhone';
 import { SITE_HOURS_SUNDAY, SITE_HOURS_WEEK, SITE_SEASON } from '@/lib/siteHours';
+import { SITE_EMAIL, SITE_EMAIL_MAILTO } from '@/lib/siteContact';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -110,8 +111,8 @@ export function Footer() {
             <div className="pp-footer__contact-item">
               <span className="pp-footer__contact-icon"></span>
               <span>
-                <a href="mailto:contact@pailloteparadise.fr" className="pp-footer__link">
-                  contact@pailloteparadise.fr
+                <a href={SITE_EMAIL_MAILTO} className="pp-footer__link">
+                  {SITE_EMAIL}
                 </a>
               </span>
             </div>

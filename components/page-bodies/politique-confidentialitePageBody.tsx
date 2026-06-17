@@ -1,6 +1,7 @@
 /* Migré depuis lib/pages-html — éditable en React */
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
+import { SITE_EMAIL, SITE_EMAIL_MAILTO } from '@/lib/siteContact';
 
 export function PolitiqueConfidentialitePageBody(): ReactNode {
   return (
@@ -27,7 +28,7 @@ export function PolitiqueConfidentialitePageBody(): ReactNode {
                   <ul style={{ listStyle: "none", color: "var(--pp-gray)", lineHeight: "2", marginBottom: "var(--pp-space-8)" }}>
                     <li><strong>Identité :</strong> La Paillote Paradise — [Raison sociale]</li>
                     <li><strong>Adresse :</strong> Domaine du Petit Chaumont, 30220 Aigues-Mortes</li>
-                    <li><strong>Contact DPO :</strong> <a href="mailto:contact@pailloteparadise.fr" style={{ color: "var(--pp-sunset)" }}>contact@pailloteparadise.fr</a></li>
+                    <li><strong>Contact DPO :</strong> <a href={SITE_EMAIL_MAILTO} style={{ color: "var(--pp-sunset)" }}>{SITE_EMAIL}</a></li>
                   </ul>
       
                   <h2 style={{ fontFamily: "var(--pp-font-display)", color: "var(--pp-ocean)", marginBottom: "var(--pp-space-6)" }}>2. Données collectées</h2>
@@ -78,7 +79,7 @@ export function PolitiqueConfidentialitePageBody(): ReactNode {
                     <li><strong>Droit de limitation</strong> : limiter le traitement de vos données.</li>
                   </ul>
                   <p style={{ color: "var(--pp-gray)", lineHeight: "1.8", marginBottom: "var(--pp-space-8)" }}>
-                    Pour exercer ces droits : <a href="mailto:contact@pailloteparadise.fr" style={{ color: "var(--pp-sunset)" }}>contact@pailloteparadise.fr</a><br />
+                    Pour exercer ces droits : <a href={SITE_EMAIL_MAILTO} style={{ color: "var(--pp-sunset)" }}>{SITE_EMAIL}</a><br />
                     En cas de litige, vous pouvez saisir la <strong>CNIL</strong> : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: "var(--pp-sunset)" }}>cnil.fr</a>
                   </p>
       

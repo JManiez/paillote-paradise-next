@@ -205,7 +205,7 @@
             var msg = errBody.error || 'Erreur serveur';
             if (res.status === 503) {
               msg =
-                'Le formulaire n\'est pas encore configuré côté serveur. Merci de nous écrire à contact@pailloteparadise.fr ou par téléphone.';
+                'Le formulaire n\'est pas encore configuré côté serveur. Merci de nous écrire à paillote.paradise@gmail.com ou par téléphone.';
             }
             throw new Error(msg);
           }

@@ -1,5 +1,6 @@
 import 'server-only'
 import { Resend } from 'resend'
+import { SITE_EMAIL, SITE_EMAIL_RESEND_FROM } from './siteContact'
 
 const NAME_MAX = 200
 const MSG_MAX = 8000
@@ -46,11 +47,8 @@ function getResendConfig() {
     return null
   }
 
-  const to =
-    process.env.CONTACT_TO_EMAIL?.trim() || 'paillote.paradise@gmail.com'
-  const from =
-    process.env.RESEND_FROM_EMAIL?.trim() ||
-    'La Paillote Paradise <contact@pailloteparadise.com>'
+  const to = process.env.CONTACT_TO_EMAIL?.trim() || SITE_EMAIL
+  const from = process.env.RESEND_FROM_EMAIL?.trim() || SITE_EMAIL_RESEND_FROM
 
   return { apiKey, to, from }
 }

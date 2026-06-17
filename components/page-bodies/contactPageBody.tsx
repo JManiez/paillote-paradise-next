@@ -4,6 +4,7 @@ import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 import { PageHeroImage } from '@/components/PageHeroImage';
 import { PP_PHONE_DISPLAY, PP_PHONE_E164 } from '@/lib/publicPhone';
 import { SITE_HOURS_CONTACT_LINES } from '@/lib/siteHours';
+import { SITE_EMAIL, SITE_EMAIL_MAILTO } from '@/lib/siteContact';
 
 export function ContactPageBody(): ReactNode {
   return (
@@ -63,7 +64,7 @@ export function ContactPageBody(): ReactNode {
                       <div>
                         <p className="pp-acces__item-title">Email</p>
                         <p className="pp-acces__item-text">
-                          <a href="mailto:contact@pailloteparadise.fr">contact@pailloteparadise.fr</a>
+                          <a href={SITE_EMAIL_MAILTO}>{SITE_EMAIL}</a>
                         </p>
                       </div>
                     </div>

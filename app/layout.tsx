@@ -9,6 +9,7 @@ import { ZenchefWidget } from '../components/ZenchefWidget';
 import { JsonLd } from '../components/JsonLd';
 import { SITE_NAME, SITE_URL, OG_IMAGE } from '../lib/seo';
 import { PP_PHONE_E164 } from '../lib/publicPhone';
+import { SITE_EMAIL } from '../lib/siteContact';
 import '../styles/style.css';
 import '../styles/_organic.css';
 import Script from 'next/script';
@@ -75,7 +76,7 @@ const businessJsonLd = {
         "Paillote privée sur domaine viticole en Camargue. Bar à tapas, cocktails, vins bio du Domaine du Petit Chaumont, piscine privée et soirées à Aigues-Mortes.",
       url: SITE_URL + '/',
       telephone: PP_PHONE_E164,
-      email: 'contact@pailloteparadise.fr',
+      email: SITE_EMAIL,
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Route du Petit Chaumont, Domaine du Petit Chaumont',

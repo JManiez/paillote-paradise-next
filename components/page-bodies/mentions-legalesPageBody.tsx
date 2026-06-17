@@ -2,6 +2,7 @@
 import type { ReactNode } from 'react';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 import { PP_PHONE_DISPLAY } from '@/lib/publicPhone';
+import { SITE_EMAIL, SITE_EMAIL_MAILTO } from '@/lib/siteContact';
 
 export function MentionsLegalesPageBody(): ReactNode {
   return (
@@ -31,7 +32,7 @@ export function MentionsLegalesPageBody(): ReactNode {
                     <li><strong>SIRET :</strong> [Numéro SIRET à compléter]</li>
                     <li><strong>Siège social :</strong> Domaine du Petit Chaumont, Route du Petit Chaumont, 30220 Aigues-Mortes</li>
                     <li><strong>Téléphone :</strong> {PP_PHONE_DISPLAY}</li>
-                    <li><strong>Email :</strong> contact@pailloteparadise.fr</li>
+                    <li><strong>Email :</strong> {SITE_EMAIL}</li>
                     <li><strong>Directeur de la publication :</strong> [Nom du dirigeant]</li>
                   </ul>
       
@@ -52,7 +53,7 @@ export function MentionsLegalesPageBody(): ReactNode {
                     Les données personnelles collectées via le formulaire de contact sont traitées conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679) et à la loi Informatique et Libertés n°78-17 du 6 janvier 1978 modifiée.
                   </p>
                   <p style={{ color: "var(--pp-gray)", lineHeight: "1.8", marginBottom: "var(--pp-space-8)" }}>
-                    Pour exercer vos droits (accès, rectification, suppression, opposition), contactez-nous à : <a href="mailto:contact@pailloteparadise.fr" style={{ color: "var(--pp-sunset)" }}>contact@pailloteparadise.fr</a>
+                    Pour exercer vos droits (accès, rectification, suppression, opposition), contactez-nous à : <a href={SITE_EMAIL_MAILTO} style={{ color: "var(--pp-sunset)" }}>{SITE_EMAIL}</a>
                   </p>
       
                   <h2 style={{ fontFamily: "var(--pp-font-display)", color: "var(--pp-ocean)", marginBottom: "var(--pp-space-6)" }}>5. Cookies</h2>
