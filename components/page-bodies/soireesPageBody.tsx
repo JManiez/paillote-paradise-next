@@ -51,7 +51,7 @@ export function SoireesPageBody(): ReactNode {
             Les <em className="pp-word-gold">Soirées</em> Paradise
           </h1>
           <p className="pp-page-hero__subtitle">
-            United chaque dimanche · Salsa le mercredi · Festif le vendredi
+            United chaque dimanche · SBK le mercredi · Latino le vendredi
           </p>
           <div className="pp-soirees-hero__actions">
             <ShotgunButton>Réserver sur Shotgun</ShotgunButton>
@@ -235,7 +235,7 @@ export function SoireesPageBody(): ReactNode {
               <em>trois ambiances</em>
             </h2>
             <p className="pp-agenda__lead">
-              Mercredi latino, vendredi festif, dimanche United — chaque rendez-vous a son identité.
+              Mercredi SBK, vendredi Latino, dimanche United — chaque rendez-vous a son identité.
               Billetterie United sur{' '}
               <a href={SHOTGUN_UNITED_URL} target="_blank" rel="noopener noreferrer" className="pp-agenda__shotgun-link">
                 Shotgun
@@ -277,11 +277,11 @@ export function SoireesPageBody(): ReactNode {
                   <span className="pp-agenda__day-name">Mercredi</span>
                 </div>
                 <div className="pp-agenda__hours">Soirée</div>
-                <p className="pp-agenda__day-tag">Latin vibes</p>
+                <p className="pp-agenda__day-tag">SBK</p>
                 <div className="pp-agenda__night">
                   <span className="pp-agenda__night-label">Soirée</span>
-                  <p className="pp-agenda__night-title">Salsa &amp; Latin Music</p>
-                  <p className="pp-agenda__night-desc">Bachata, reggaeton, piste au bord de la piscine.</p>
+                  <p className="pp-agenda__night-title">Soirée SBK</p>
+                  <p className="pp-agenda__night-desc">Ambiance SBK, piste au bord de la piscine.</p>
                 </div>
               </article>
 
@@ -299,11 +299,11 @@ export function SoireesPageBody(): ReactNode {
                   <span className="pp-agenda__day-name">Vendredi</span>
                 </div>
                 <div className="pp-agenda__hours">Soirée</div>
-                <p className="pp-agenda__day-tag">Week-end</p>
+                <p className="pp-agenda__day-tag">Latino</p>
                 <div className="pp-agenda__night">
                   <span className="pp-agenda__night-label">Soirée</span>
-                  <p className="pp-agenda__night-title">Soirée Vendredi</p>
-                  <p className="pp-agenda__night-desc">DJ, piscine illuminée, esprit Paillote.</p>
+                  <p className="pp-agenda__night-title">Soirée Latino</p>
+                  <p className="pp-agenda__night-desc">Salsa, bachata, reggaeton — esprit festif Paillote.</p>
                 </div>
               </article>
 
@@ -361,7 +361,7 @@ export function SoireesPageBody(): ReactNode {
               Calendrier complet
             </h2>
             <p className="pp-subtitle pp-subtitle--light">
-              {UNITED_EDITIONS_COUNT} éditions United · dates spéciales &amp; soirées thématiques
+              {UNITED_EDITIONS_COUNT} dimanches United · mercredis SBK · vendredis Latino
             </p>
           </div>
 
@@ -379,7 +379,9 @@ export function SoireesPageBody(): ReactNode {
                       className={
                         'pp-soirees-cal__row' +
                         (event.highlight ? ' pp-soirees-cal__row--highlight' : '') +
-                        (event.kind === 'united' ? ' pp-soirees-cal__row--united' : '')
+                        (event.kind === 'united' ? ' pp-soirees-cal__row--united' : '') +
+                        (event.kind === 'sbk' ? ' pp-soirees-cal__row--sbk' : '') +
+                        (event.kind === 'latino' ? ' pp-soirees-cal__row--latino' : '')
                       }
                     >
                       <time className="pp-soirees-cal__date" dateTime={event.date}>

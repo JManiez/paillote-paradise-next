@@ -1,6 +1,6 @@
 import { SHOTGUN_UNITED_URL } from '@/lib/shotgun';
 
-export type SoireeEventKind = 'united' | 'special' | 'theme' | 'day';
+export type SoireeEventKind = 'united' | 'sbk' | 'latino';
 
 export type SoireeAgendaEvent = {
   date: string;
@@ -19,111 +19,126 @@ export type SoireeAgendaMonth = {
   events: SoireeAgendaEvent[];
 };
 
-const united = (date: string, dateLabel: string, title: string, opts?: Partial<SoireeAgendaEvent>): SoireeAgendaEvent => ({
-  date,
-  dateLabel,
-  title,
-  kind: 'united',
-  tag: 'United',
-  ticketUrl: SHOTGUN_UNITED_URL,
-  ...opts,
-});
+const SEASON_START = '2026-05-10';
+const SEASON_END = '2026-09-30';
 
-/** Calendrier saison 2026 — United dès le 10 mai, closing fin septembre. */
-export const SOIREES_AGENDA_2026: SoireeAgendaMonth[] = [
-  {
-    id: 'mai',
-    title: 'Mai — Lancement United',
-    summary: '4 éditions',
-    events: [
-      united('2026-05-10', 'Dim. 10 mai', 'Ouverture United 2026', {
-        highlight: true,
-        tag: 'Ouverture',
-      }),
-      united('2026-05-17', 'Dim. 17 mai', 'United by La Paillote'),
-      united('2026-05-24', 'Dim. 24 mai', 'United by La Paillote'),
-      united('2026-05-31', 'Dim. 31 mai', 'United by La Paillote'),
-    ],
-  },
-  {
-    id: 'juin',
-    title: 'Juin — Début de l’été',
-    summary: '5 dates',
-    events: [
-      united('2026-06-07', 'Dim. 7 juin', 'United by La Paillote'),
-      united('2026-06-14', 'Dim. 14 juin', 'United by La Paillote'),
-      {
-        date: '2026-06-20',
-        dateLabel: 'Sam. 20 juin',
-        title: 'Fête de la Musique — Concert live',
-        kind: 'special',
-        tag: 'Spécial',
-      },
-      united('2026-06-21', 'Dim. 21 juin', 'United · Solstice d’été', { tag: 'Solstice' }),
-      united('2026-06-28', 'Dim. 28 juin', 'United by La Paillote'),
-    ],
-  },
-  {
-    id: 'juillet',
-    title: 'Juillet — Haute saison',
-    summary: '6 dates',
-    events: [
-      united('2026-07-05', 'Dim. 5 juil.', 'United by La Paillote'),
-      united('2026-07-12', 'Dim. 12 juil.', 'United by La Paillote'),
-      {
-        date: '2026-07-13',
-        dateLabel: 'Lun. 13 juil.',
-        title: 'Veille du 14 juillet — DJ set & ambiance festive',
-        kind: 'theme',
-        tag: 'Fête nationale',
-      },
-      {
-        date: '2026-07-14',
-        dateLabel: 'Mar. 14 juil.',
-        title: 'Fête nationale — Feu d’artifice & soirée',
-        kind: 'theme',
-        tag: 'Fête nationale',
-        highlight: true,
-      },
-      united('2026-07-19', 'Dim. 19 juil.', 'United by La Paillote'),
-      united('2026-07-26', 'Dim. 26 juil.', 'Soirée Blanche — All White Party', {
-        tag: 'Thème',
-        highlight: true,
-      }),
-    ],
-  },
-  {
-    id: 'aout',
-    title: 'Août — Plein cœur de saison',
-    summary: '5 éditions United',
-    events: [
-      united('2026-08-02', 'Dim. 2 août', 'United by La Paillote'),
-      united('2026-08-09', 'Dim. 9 août', 'United by La Paillote'),
-      united('2026-08-16', 'Dim. 16 août', 'Soirée Mousse — Summer Foam Party', {
-        tag: 'Thème',
-        highlight: true,
-      }),
-      united('2026-08-23', 'Dim. 23 août', 'United by La Paillote'),
-      united('2026-08-30', 'Dim. 30 août', 'United by La Paillote'),
-    ],
-  },
-  {
-    id: 'septembre',
-    title: 'Septembre — Closing',
-    summary: '4 éditions',
-    events: [
-      united('2026-09-06', 'Dim. 6 sept.', 'United by La Paillote'),
-      united('2026-09-13', 'Dim. 13 sept.', 'United by La Paillote'),
-      united('2026-09-20', 'Dim. 20 sept.', 'United by La Paillote'),
-      united('2026-09-27', 'Dim. 27 sept.', 'Grande Finale — Closing saison', {
-        tag: 'Closing',
-        highlight: true,
-      }),
-    ],
-  },
-];
+const MONTH_TITLES: Record<number, string> = {
+  5: 'Mai — Lancement United',
+  6: 'Juin — Début de l’été',
+  7: 'Juillet — Haute saison',
+  8: 'Août — Plein cœur de saison',
+  9: 'Septembre — Closing',
+};
 
-export const UNITED_EDITIONS_COUNT = SOIREES_AGENDA_2026.reduce(
-  (n, m) => n + m.events.filter((e) => e.kind === 'united').length,
-  0,
-);
+function parseIsoLocal(iso: string): Date {
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function toIso(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+function formatDateLabel(date: Date, dayPrefix: string): string {
+  const day = date.getDate();
+  const month = date.toLocaleDateString('fr-FR', { month: 'short' }).replace(/\.$/, '');
+  return `${dayPrefix} ${day} ${month}`;
+}
+
+function unitedEvent(date: Date, opts?: Partial<SoireeAgendaEvent>): SoireeAgendaEvent {
+  const iso = toIso(date);
+  const isOpening = iso === SEASON_START;
+  const isClosing = iso === '2026-09-27';
+
+  return {
+    date: iso,
+    dateLabel: formatDateLabel(date, 'Dim.'),
+    title: isOpening
+      ? 'Ouverture United 2026'
+      : isClosing
+        ? 'United by La Paillote — Closing saison'
+        : 'United by La Paillote',
+    kind: 'united',
+    tag: isOpening ? 'Ouverture' : isClosing ? 'Closing' : 'United',
+    ticketUrl: SHOTGUN_UNITED_URL,
+    highlight: isOpening || isClosing,
+    ...opts,
+  };
+}
+
+function sbkEvent(date: Date): SoireeAgendaEvent {
+  return {
+    date: toIso(date),
+    dateLabel: formatDateLabel(date, 'Mer.'),
+    title: 'Soirée SBK',
+    kind: 'sbk',
+    tag: 'SBK',
+  };
+}
+
+function latinoEvent(date: Date): SoireeAgendaEvent {
+  return {
+    date: toIso(date),
+    dateLabel: formatDateLabel(date, 'Ven.'),
+    title: 'Soirée Latino',
+    kind: 'latino',
+    tag: 'Latino',
+  };
+}
+
+function buildSeasonEvents(): SoireeAgendaEvent[] {
+  const events: SoireeAgendaEvent[] = [];
+  const start = parseIsoLocal(SEASON_START);
+  const end = parseIsoLocal(SEASON_END);
+
+  for (let cursor = new Date(start); cursor <= end; cursor.setDate(cursor.getDate() + 1)) {
+    const day = cursor.getDay();
+    if (day === 0) events.push(unitedEvent(new Date(cursor)));
+    else if (day === 3) events.push(sbkEvent(new Date(cursor)));
+    else if (day === 5) events.push(latinoEvent(new Date(cursor)));
+  }
+
+  return events.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+function groupByMonth(events: SoireeAgendaEvent[]): SoireeAgendaMonth[] {
+  const buckets = new Map<number, SoireeAgendaEvent[]>();
+
+  for (const event of events) {
+    const month = parseIsoLocal(event.date).getMonth() + 1;
+    const list = buckets.get(month) ?? [];
+    list.push(event);
+    buckets.set(month, list);
+  }
+
+  return [...buckets.entries()]
+    .sort(([a], [b]) => a - b)
+    .map(([month, monthEvents]) => {
+      const united = monthEvents.filter((e) => e.kind === 'united').length;
+      const sbk = monthEvents.filter((e) => e.kind === 'sbk').length;
+      const latino = monthEvents.filter((e) => e.kind === 'latino').length;
+      const parts: string[] = [];
+      if (united) parts.push(`${united} dim.`);
+      if (sbk) parts.push(`${sbk} mer.`);
+      if (latino) parts.push(`${latino} ven.`);
+
+      return {
+        id: ['', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'][month] ?? String(month),
+        title: MONTH_TITLES[month] ?? `Mois ${month}`,
+        summary: parts.join(' · '),
+        events: monthEvents,
+      };
+    });
+}
+
+const SEASON_EVENTS = buildSeasonEvents();
+
+/** Calendrier saison 2026 — dimanches United, mercredis SBK, vendredis Latino uniquement. */
+export const SOIREES_AGENDA_2026: SoireeAgendaMonth[] = groupByMonth(SEASON_EVENTS);
+
+export const UNITED_EDITIONS_COUNT = SEASON_EVENTS.filter((e) => e.kind === 'united').length;
+
+export const SOIREES_SEASON_EVENTS_COUNT = SEASON_EVENTS.length;

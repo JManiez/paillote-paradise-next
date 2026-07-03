@@ -957,10 +957,17 @@ body.pp-grain::before {
   border: 1px solid rgba(212,173,85,.35);
 }
 .pp-soirees-cal__tag--special,
-.pp-soirees-cal__tag--theme {
+.pp-soirees-cal__tag--theme,
+.pp-soirees-cal__tag--sbk,
+.pp-soirees-cal__tag--latino {
   background: rgba(92,140,106,.2);
   color: #a8d4b4;
   border: 1px solid rgba(92,140,106,.35);
+}
+.pp-soirees-cal__tag--latino {
+  background: rgba(196, 92, 62, .18);
+  color: #f0b8a0;
+  border: 1px solid rgba(196, 92, 62, .35);
 }
 .pp-soirees-cal__name {
   margin: 0;
