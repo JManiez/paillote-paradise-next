@@ -84,7 +84,7 @@ export function RestaurantPageBody(): ReactNode {
                     <div className="pp-vmarquee__item"><span>Planche mixte charcuterie &amp; fromage</span><span>22</span></div>
                     <div className="pp-vmarquee__item"><span>Focaccia mortadelle stracciatella et pesto</span><span>14</span></div>
                     <div className="pp-vmarquee__item"><span>Couteaux en persillade</span><span>12</span></div>
-                    <div className="pp-vmarquee__item"><span>Glaces &amp; Sorbets artisanaux</span><span>4,50</span></div>
+                    <div className="pp-vmarquee__item"><span>Glaces et Sorbet artisanaux</span><span>4,50</span></div>
                     
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Planche de la mer</span><span>28</span></div>
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Tataki de thon rouge au sésame</span><span>16</span></div>
@@ -93,7 +93,7 @@ export function RestaurantPageBody(): ReactNode {
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Planche mixte charcuterie &amp; fromage</span><span>22</span></div>
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Focaccia mortadelle stracciatella et pesto</span><span>14</span></div>
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Couteaux en persillade</span><span>12</span></div>
-                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Glaces &amp; Sorbets artisanaux</span><span>4,50</span></div>
+                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Glaces et Sorbet artisanaux</span><span>4,50</span></div>
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@ export function RestaurantPageBody(): ReactNode {
                   </div>
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="3">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Falafels &amp; Tzatziki maison</p>
+                      <p className="pp-tapas-item__name">Falafels et Tzatziki maison</p>
                     </div>
                     <span className="pp-tapas-item__price">9€</span>
                   </div>
@@ -218,8 +218,7 @@ export function RestaurantPageBody(): ReactNode {
                   </div>
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="8">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Tenders de poulet</p>
-                      <p className="pp-tapas-item__desc">Mayonnaise pimentée maison</p>
+                      <p className="pp-tapas-item__name">Tenders de poulet mayonnaise pimenté</p>
                     </div>
                     <span className="pp-tapas-item__price">10€</span>
                   </div>
@@ -266,7 +265,7 @@ export function RestaurantPageBody(): ReactNode {
                 <div className="pp-tapas-grid">
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="1">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Salade Caesar</p>
+                      <p className="pp-tapas-item__name">Salade Cesar</p>
                     </div>
                     <span className="pp-tapas-item__price">17€</span>
                   </div>
@@ -295,7 +294,7 @@ export function RestaurantPageBody(): ReactNode {
                   </div>
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="2">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Glaces &amp; Sorbet artisanaux</p>
+                      <p className="pp-tapas-item__name">Glaces et Sorbet artisanaux</p>
                     </div>
                     <span className="pp-tapas-item__price">4,50€ / U</span>
                   </div>
