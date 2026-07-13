@@ -5,6 +5,7 @@ import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 import { PageHeroImage, pageHeroSectionStyle } from '@/components/PageHeroImage';
 import { SHOTGUN_UNITED_URL } from '@/lib/shotgun';
 import { SOIREES_AGENDA_2026, UNITED_EDITIONS_COUNT } from '@/lib/soireesAgenda2026';
+import { SITE_HOURS_DAY, SITE_HOURS_EVENING } from '@/lib/siteHours';
 
 function ShotgunButton({
   className,
@@ -276,10 +277,10 @@ export function SoireesPageBody(): ReactNode {
                   <span className="pp-agenda__day-abbr">Mer</span>
                   <span className="pp-agenda__day-name">Mercredi</span>
                 </div>
-                <div className="pp-agenda__hours">Soirée</div>
+                <div className="pp-agenda__hours">{SITE_HOURS_DAY}</div>
                 <p className="pp-agenda__day-tag">SBK</p>
                 <div className="pp-agenda__night">
-                  <span className="pp-agenda__night-label">Soirée</span>
+                  <span className="pp-agenda__night-label">Soirée · {SITE_HOURS_EVENING}</span>
                   <p className="pp-agenda__night-title">Soirée SBK</p>
                   <p className="pp-agenda__night-desc">Ambiance SBK, piste au bord de la piscine.</p>
                 </div>
@@ -290,7 +291,7 @@ export function SoireesPageBody(): ReactNode {
                   <span className="pp-agenda__day-abbr">Jeu</span>
                   <span className="pp-agenda__day-name">Jeudi</span>
                 </div>
-                <p className="pp-agenda__day-rest">Préparation du week-end</p>
+                <p className="pp-agenda__day-rest">Journée · {SITE_HOURS_DAY}</p>
               </article>
 
               <article className="pp-agenda__day pp-agenda__day--evening" role="listitem">
@@ -298,10 +299,10 @@ export function SoireesPageBody(): ReactNode {
                   <span className="pp-agenda__day-abbr">Ven</span>
                   <span className="pp-agenda__day-name">Vendredi</span>
                 </div>
-                <div className="pp-agenda__hours">Soirée</div>
+                <div className="pp-agenda__hours">{SITE_HOURS_DAY}</div>
                 <p className="pp-agenda__day-tag">Latino</p>
                 <div className="pp-agenda__night">
-                  <span className="pp-agenda__night-label">Soirée</span>
+                  <span className="pp-agenda__night-label">Soirée · {SITE_HOURS_EVENING}</span>
                   <p className="pp-agenda__night-title">Soirée Latino</p>
                   <p className="pp-agenda__night-desc">Salsa, bachata, reggaeton — esprit festif Paillote.</p>
                 </div>
@@ -313,7 +314,7 @@ export function SoireesPageBody(): ReactNode {
                   <span className="pp-agenda__day-name">Samedi</span>
                 </div>
                 <p className="pp-agenda__day-rest">Journée Paradise</p>
-                <span className="pp-agenda__day-foot">Piscine &amp; tapas</span>
+                <span className="pp-agenda__day-foot">{SITE_HOURS_DAY}</span>
               </article>
 
               <article className="pp-agenda__day pp-agenda__day--featured" role="listitem">

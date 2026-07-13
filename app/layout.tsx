@@ -10,6 +10,7 @@ import { JsonLd } from '../components/JsonLd';
 import { SITE_NAME, SITE_URL, OG_IMAGE } from '../lib/seo';
 import { PP_PHONE_E164 } from '../lib/publicPhone';
 import { SITE_EMAIL } from '../lib/siteContact';
+import { SITE_OPENING_HOURS_JSONLD } from '../lib/siteHours';
 import '../styles/style.css';
 import '../styles/_organic.css';
 import Script from 'next/script';
@@ -86,24 +87,7 @@ const businessJsonLd = {
         addressCountry: 'FR',
       },
       geo: { '@type': 'GeoCoordinates', latitude: 43.5667, longitude: 4.1833 },
-      openingHoursSpecification: [
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          opens: '12:00',
-          closes: '19:00',
-          validFrom: '2026-06-01',
-          validThrough: '2026-09-30',
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Sunday'],
-          opens: '12:00',
-          closes: '23:59',
-          validFrom: '2026-06-01',
-          validThrough: '2026-09-30',
-        },
-      ],
+      openingHoursSpecification: SITE_OPENING_HOURS_JSONLD,
       areaServed: ['Aigues-Mortes', 'Grau-du-Roi', 'Montpellier', 'Nîmes', 'Camargue'],
       aggregateRating: {
         '@type': 'AggregateRating',

@@ -5,7 +5,14 @@ import Link from 'next/link';
 import { HOME_GALLERY_PREVIEW_COUNT } from '@/lib/galleryConstants';
 import { PARADISE_GALLERY } from '@/lib/paradiseGallery';
 import { SHOTGUN_UNITED_URL } from '@/lib/shotgun';
-import { SITE_HOURS_LINE, SITE_SEASON } from '@/lib/siteHours';
+import {
+  SITE_HOURS_AGENDA_LEAD,
+  SITE_HOURS_DAY,
+  SITE_HOURS_EVENING,
+  SITE_HOURS_LINE,
+  SITE_HOURS_SUMMARY,
+  SITE_SEASON,
+} from '@/lib/siteHours';
 import { ZenchefTransatLink } from '@/components/ZenchefOpenLink';
 
 /** Sections masquées temporairement */
@@ -89,7 +96,7 @@ export function HomePageBody(): ReactNode {
                 <span className="pp-eyebrow pp-eyebrow--theatrical">Notre univers</span>
                 <h2 className="pp-title pp-title--editorial" id="univers-title">Quatre expériences,<br />un seul <em className="pp-word-gold">endroit magique</em></h2>
                 <p className="pp-subtitle">
-                  Du Mercredi au Samedi de 12h à 19h, et chaque Dimanche jusqu'à minuit pour United —
+                  {SITE_HOURS_SUMMARY} —
                   La Paillote Paradise vous offre une parenthèse hors du temps dans le plus beau domaine de Camargue.
                 </p>
               </div>
@@ -425,7 +432,7 @@ export function HomePageBody(): ReactNode {
                 <span className="pp-eyebrow">Agenda</span>
                 <h2 className="pp-title pp-title--light" id="agenda-title">Votre semaine<br />en <em>Camargue</em></h2>
                 <p className="pp-agenda__lead">
-                  Mer. → Sam. : piscine, tapas &amp; cocktails · 12h – 19h · Dimanche : United de 12h à minuit.
+                  {SITE_HOURS_AGENDA_LEAD}
                 </p>
                 <div className="pp-agenda__head-actions">
                   <ZenchefTransatLink className="pp-btn pp-btn--secondary pp-btn--sm">Louer un transat</ZenchefTransatLink>
@@ -459,7 +466,7 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__day-abbr">Mer</span>
                       <span className="pp-agenda__day-name">Mercredi</span>
                     </div>
-                    <div className="pp-agenda__hours">12h – 19h</div>
+                    <div className="pp-agenda__hours">{SITE_HOURS_DAY}</div>
                     <p className="pp-agenda__day-tag">Journée Paradise</p>
                     <ul className="pp-agenda__acts">
                       <li className="pp-agenda__act">
@@ -472,8 +479,8 @@ export function HomePageBody(): ReactNode {
                       </li>
                     </ul>
                     <div className="pp-agenda__night">
-                      <span className="pp-agenda__night-label">Soirée</span>
-                      <p className="pp-agenda__night-title">Salsa &amp; Latin Music</p>
+                      <span className="pp-agenda__night-label">Soirée · {SITE_HOURS_EVENING}</span>
+                      <p className="pp-agenda__night-title">Soirée SBK</p>
                       <a href="/soirees" className="pp-agenda__night-link">En savoir plus</a>
                     </div>
                   </article>
@@ -483,7 +490,7 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__day-abbr">Jeu</span>
                       <span className="pp-agenda__day-name">Jeudi</span>
                     </div>
-                    <div className="pp-agenda__hours">12h – 19h</div>
+                    <div className="pp-agenda__hours">{SITE_HOURS_DAY}</div>
                     <p className="pp-agenda__day-tag">Journée Paradise</p>
                     <ul className="pp-agenda__acts">
                       <li className="pp-agenda__act">
@@ -506,7 +513,7 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__day-abbr">Ven</span>
                       <span className="pp-agenda__day-name">Vendredi</span>
                     </div>
-                    <div className="pp-agenda__hours">12h – 19h</div>
+                    <div className="pp-agenda__hours">{SITE_HOURS_DAY}</div>
                     <p className="pp-agenda__day-tag">Journée Paradise</p>
                     <ul className="pp-agenda__acts">
                       <li className="pp-agenda__act">
@@ -519,8 +526,8 @@ export function HomePageBody(): ReactNode {
                       </li>
                     </ul>
                     <div className="pp-agenda__night">
-                      <span className="pp-agenda__night-label">Soirée</span>
-                      <p className="pp-agenda__night-title">Soirée généraliste</p>
+                      <span className="pp-agenda__night-label">Soirée · {SITE_HOURS_EVENING}</span>
+                      <p className="pp-agenda__night-title">Soirée Latino</p>
                       <a href="/soirees" className="pp-agenda__night-link">En savoir plus</a>
                     </div>
                   </article>
@@ -530,7 +537,7 @@ export function HomePageBody(): ReactNode {
                       <span className="pp-agenda__day-abbr">Sam</span>
                       <span className="pp-agenda__day-name">Samedi</span>
                     </div>
-                    <div className="pp-agenda__hours">12h – 19h</div>
+                    <div className="pp-agenda__hours">{SITE_HOURS_DAY}</div>
                     <p className="pp-agenda__day-tag">Journée Paradise</p>
                     <ul className="pp-agenda__acts">
                       <li className="pp-agenda__act">
