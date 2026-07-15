@@ -153,7 +153,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                   <ul className="pp-pricing-features">
                     <li className="pp-pricing-feature">1 transat premium</li>
                     <li className="pp-pricing-feature">Accès piscine</li>
-                    <li className="pp-pricing-feature">Salade César ou Thaï</li>
+                    <li className="pp-pricing-feature">Salade César ou tomate burrata</li>
                     <li className="pp-pricing-feature">Verre de vin ou soft</li>
                     <li className="pp-pricing-feature">Service aux transats</li>
                   </ul>
@@ -169,7 +169,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                   <ul className="pp-pricing-features">
                     <li className="pp-pricing-feature">2 transats premium</li>
                     <li className="pp-pricing-feature">Accès piscine</li>
-                    <li className="pp-pricing-feature">2 salades César ou Thaï</li>
+                    <li className="pp-pricing-feature">2 salades César ou tomate burrata</li>
                     <li className="pp-pricing-feature">Bouteille de vin du domaine</li>
                     <li className="pp-pricing-feature pp-pricing-feature--note">Blanc · Gris · Rouge<br />Domaine du Petit Chaumont, vins bio des Sables de Camargue</li>
                     <li className="pp-pricing-feature">Service aux transats</li>
@@ -198,7 +198,7 @@ export function PiscineTransatsPageBody(): ReactNode {
                   <ul className="pp-pricing-features">
                     <li className="pp-pricing-feature">2 beds premium</li>
                     <li className="pp-pricing-feature">Tous les avantages Formule Paradise</li>
-                    <li className="pp-pricing-feature">2 salades César ou Thaï</li>
+                    <li className="pp-pricing-feature">2 salades César ou tomate burrata</li>
                     <li className="pp-pricing-feature">Bouteille de vin du domaine</li>
                     <li className="pp-pricing-feature pp-pricing-feature--note">Blanc · Gris · Rouge<br />Domaine du Petit Chaumont, vins bio des Sables de Camargue</li>
                     <li className="pp-pricing-feature">Service aux transats &amp; beds</li>
