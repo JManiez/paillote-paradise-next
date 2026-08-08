@@ -78,21 +78,21 @@ export function RestaurantPageBody(): ReactNode {
                 <div className="pp-vmarquee" data-pp-reveal="right" aria-label="Aperçu menu défilant">
                   <div className="pp-vmarquee__track">
                     <div className="pp-vmarquee__item"><span>Planche de la mer</span><span>28</span></div>
-                    <div className="pp-vmarquee__item"><span>Tataki de thon rouge au sésame</span><span>16</span></div>
+                    <div className="pp-vmarquee__item"><span>Ceviche de loups, coco et mangue</span><span>16</span></div>
+                    <div className="pp-vmarquee__item"><span>Tataki de bœuf à l’asiatique</span><span>15</span></div>
                     <div className="pp-vmarquee__item"><span>Guacamole maison et tortillas</span><span>10</span></div>
                     <div className="pp-vmarquee__item"><span>Croquetas de jambon ibérique</span><span>8</span></div>
-                    <div className="pp-vmarquee__item"><span>Planche mixte charcuterie &amp; fromage</span><span>22</span></div>
-                    <div className="pp-vmarquee__item"><span>Focaccia mortadelle stracciatella et pesto</span><span>14</span></div>
-                    <div className="pp-vmarquee__item"><span>Couteaux en persillade</span><span>12</span></div>
+                    <div className="pp-vmarquee__item"><span>Gyoza légumes / poulet sauce sweet chili</span><span>9</span></div>
+                    <div className="pp-vmarquee__item"><span>Moules gratinées</span><span>8</span></div>
                     <div className="pp-vmarquee__item"><span>Glaces et Sorbet artisanaux</span><span>4,50</span></div>
                     
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Planche de la mer</span><span>28</span></div>
-                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Tataki de thon rouge au sésame</span><span>16</span></div>
+                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Ceviche de loups, coco et mangue</span><span>16</span></div>
+                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Tataki de bœuf à l’asiatique</span><span>15</span></div>
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Guacamole maison et tortillas</span><span>10</span></div>
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Croquetas de jambon ibérique</span><span>8</span></div>
-                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Planche mixte charcuterie &amp; fromage</span><span>22</span></div>
-                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Focaccia mortadelle stracciatella et pesto</span><span>14</span></div>
-                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Couteaux en persillade</span><span>12</span></div>
+                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Gyoza légumes / poulet sauce sweet chili</span><span>9</span></div>
+                    <div className="pp-vmarquee__item" aria-hidden="true"><span>Moules gratinées</span><span>8</span></div>
                     <div className="pp-vmarquee__item" aria-hidden="true"><span>Glaces et Sorbet artisanaux</span><span>4,50</span></div>
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export function RestaurantPageBody(): ReactNode {
                   <div className="pp-tapas-item pp-tapas-item--highlight" data-pp-reveal data-pp-delay="5">
                     <div className="pp-tapas-item__body">
                       <p className="pp-tapas-item__name">Planche de la mer</p>
-                      <p className="pp-tapas-item__desc">Couteaux en persillade · Poulpe mariné · Chipiron · Gambas en panure frits · Tapas du moment</p>
+                      <p className="pp-tapas-item__desc">Moules gratinées · Poulpe mariné · Chipiron · Gambas en panure frits · Tapas du moment</p>
                     </div>
                     <span className="pp-tapas-item__price">28€</span>
                   </div>
@@ -187,7 +187,7 @@ export function RestaurantPageBody(): ReactNode {
                   </div>
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="3">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Falafels et Tzatziki maison</p>
+                      <p className="pp-tapas-item__name">Gyoza légumes / poulet sauce sweet chili</p>
                     </div>
                     <span className="pp-tapas-item__price">9€</span>
                   </div>
@@ -212,9 +212,9 @@ export function RestaurantPageBody(): ReactNode {
                   </div>
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="7">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Couteaux en persillade</p>
+                      <p className="pp-tapas-item__name">Moules gratinées</p>
                     </div>
-                    <span className="pp-tapas-item__price">12€</span>
+                    <span className="pp-tapas-item__price">8€</span>
                   </div>
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="8">
                     <div className="pp-tapas-item__body">
@@ -235,22 +235,15 @@ export function RestaurantPageBody(): ReactNode {
                 <div className="pp-tapas-grid">
                   <div className="pp-tapas-item pp-tapas-item--highlight" data-pp-reveal data-pp-delay="1">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Tataki de thon rouge au sésame</p>
+                      <p className="pp-tapas-item__name">Ceviche de loups et condiments, coco et mangue</p>
                     </div>
                     <span className="pp-tapas-item__price">16€</span>
                   </div>
                   <div className="pp-tapas-item pp-tapas-item--highlight" data-pp-reveal data-pp-delay="2">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Focaccia mortadelle stracciatella et pesto</p>
+                      <p className="pp-tapas-item__name">Tataki de bœuf à l’asiatique</p>
                     </div>
-                    <span className="pp-tapas-item__price">14€</span>
-                  </div>
-                  <div className="pp-tapas-item pp-tapas-item--highlight" data-pp-reveal data-pp-delay="3">
-                    <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Gravlax de saumon aux herbes</p>
-                      <p className="pp-tapas-item__desc">Fromage frais et toasts</p>
-                    </div>
-                    <span className="pp-tapas-item__price">13€</span>
+                    <span className="pp-tapas-item__price">15€</span>
                   </div>
                 </div>
               </div>
@@ -271,7 +264,7 @@ export function RestaurantPageBody(): ReactNode {
                   </div>
                   <div className="pp-tapas-item" data-pp-reveal data-pp-delay="2">
                     <div className="pp-tapas-item__body">
-                      <p className="pp-tapas-item__name">Salade de tomates burrata et roquette</p>
+                      <p className="pp-tapas-item__name">Salade de chèvre chaud</p>
                     </div>
                     <span className="pp-tapas-item__price">16€</span>
                   </div>

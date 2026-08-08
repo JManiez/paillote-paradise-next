@@ -216,15 +216,15 @@ export function PrivatisationPageBody(): ReactNode {
                       </li>
                       <li className="pp-groupe-item">
                         <span className="pp-groupe-item__dot"></span>
-                        <span>Tataki de thon au sésame</span>
+                        <span>Ceviche de loups, coco et mangue</span>
                       </li>
                       <li className="pp-groupe-item">
                         <span className="pp-groupe-item__dot"></span>
-                        <span>Tataki de bœuf aux herbes</span>
+                        <span>Tataki de bœuf à l’asiatique</span>
                       </li>
                       <li className="pp-groupe-item">
                         <span className="pp-groupe-item__dot"></span>
-                        <span>Planche de la mer <small>Couteaux · Moules gratinées · Seiches · Poulpes marinés</small></span>
+                        <span>Planche de la mer <small>Moules gratinées · Seiches · Poulpes marinés</small></span>
                       </li>
                       <li className="pp-groupe-item">
                         <span className="pp-groupe-item__dot"></span>
